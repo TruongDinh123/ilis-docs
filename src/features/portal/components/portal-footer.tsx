@@ -1,6 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import { FOOTER_LINKS } from "../data/system-links";
 import { CaMauEmblem } from "./ca-mau-emblem";
+import { VisitorStats } from "./visitor-stats";
 import styles from "./portal-footer.module.css";
 
 function FooterLink({ href, label }: { href: string; label: string }) {
@@ -49,9 +50,13 @@ export function PortalFooter() {
             ))}
           </ul>
         </nav>
+        <div className={styles.statsCol}>
+          <VisitorStats variant="footer" />
+        </div>
       </div>
       <div className={styles.bottom}>
         <p>© {new Date().getFullYear()} · iLIS Cà Mau — VNPT Cà Mau</p>
+        <VisitorStats variant="compact" />
       </div>
     </footer>
   );

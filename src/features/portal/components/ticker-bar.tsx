@@ -3,6 +3,7 @@ import { Bell, Megaphone, X } from "lucide-react";
 import { useLocalStorage } from "@/hooks/use-local-storage";
 import { content } from "../data/content";
 import { TICKER_FALLBACK } from "../data/system-links";
+import { VisitorStats } from "./visitor-stats";
 import styles from "./ticker-bar.module.css";
 
 export interface TickerBarProps {
@@ -49,6 +50,9 @@ export function TickerBar({ onOpenNotifications }: TickerBarProps) {
             </ul>
           ))}
         </div>
+      </div>
+      <div className={styles.statsWrapper}>
+        <VisitorStats variant="compact" />
       </div>
       <button type="button" className={styles.more} onClick={onOpenNotifications}>
         <Bell size={14} aria-hidden="true" />

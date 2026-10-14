@@ -4,5 +4,6 @@ dist-ssr
 *.local
 *.tsbuildinfo
 coverage
+.firebase
 .vscode/*
 !.vscode/extensions.json

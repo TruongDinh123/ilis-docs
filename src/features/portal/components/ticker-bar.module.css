@@ -134,6 +134,12 @@
   }
 }
 
+.statsWrapper {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-2);
+}
+
 @media (max-width: 760px) {
   .label span,
   .more span {
@@ -141,5 +147,8 @@
   }
   .label {
     padding: 0 var(--space-3);
+  }
+  .statsWrapper {
+    display: none;
   }
 }

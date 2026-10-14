@@ -22,7 +22,7 @@ function spa404Plugin() {
 
 // Vite + React + absolute "@/" imports (convention from bulletproof-react project-standards.md).
 export default defineConfig(({ mode }) => ({
-  base: process.env.BASE_PATH || (mode === "production" ? "/ilis-docs/" : "/"),
+  base: process.env.BASE_PATH || "/",
   plugins: [react(), viteTsconfigPaths(), spa404Plugin()],
   server: {
     port: 5173,

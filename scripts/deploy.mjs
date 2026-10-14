@@ -5,7 +5,10 @@ import path from "node:path";
 console.log("🚀 Bắt đầu quá trình build và deploy production lên GitHub Pages...");
 
 // 1. Build
-execSync("npm run build", { stdio: "inherit" });
+execSync("npm run build", {
+  stdio: "inherit",
+  env: { ...process.env, BASE_PATH: "/ilis-docs/" },
+});
 
 // 2. Đẩy sang nhánh gh-pages
 const distDir = path.resolve("dist");
