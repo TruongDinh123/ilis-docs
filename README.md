@@ -4,14 +4,18 @@ Dự án React thật (Vite + TypeScript + React Router), kiến trúc feature-b
 nhiều design pattern, design system riêng dựa trên bảng màu VNPT. Xem chi tiết tại
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) và [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md).
 
+> 🌐 **Live Production:** [https://truongdinh123.github.io/ilis-docs/](https://truongdinh123.github.io/ilis-docs/)  
+> 📦 **GitHub Repository:** [https://github.com/TruongDinh123/ilis-docs.git](https://github.com/TruongDinh123/ilis-docs.git)
+
 ## Bắt đầu
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run test        # Vitest + Testing Library
-npm run lint         # ESLint (bao gồm ranh giới import giữa các feature)
-npm run build        # tsc -b + vite build
+npm run test       # Vitest + Testing Library
+npm run lint       # ESLint (bao gồm ranh giới import giữa các feature)
+npm run build      # tsc -b + vite build
+npm run deploy     # Build & Deploy lên GitHub Pages nhánh gh-pages
 npm run sync:content -- "<file-page-source.html>"   # làm mới dữ liệu từ site Đồng Tháp
 ```
 

@@ -14,6 +14,7 @@ function spa404Plugin() {
       const notFoundPath = path.join(distDir, "404.html");
       if (fs.existsSync(indexPath)) {
         fs.copyFileSync(indexPath, notFoundPath);
+        fs.writeFileSync(path.join(distDir, ".nojekyll"), "");
       }
     },
   };
