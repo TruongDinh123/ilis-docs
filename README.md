@@ -4,18 +4,20 @@ Dự án React thật (Vite + TypeScript + React Router), kiến trúc feature-b
 nhiều design pattern, design system riêng dựa trên bảng màu VNPT. Xem chi tiết tại
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) và [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md).
 
-> 🌐 **Live Production:** [https://truongdinh123.github.io/ilis-docs/](https://truongdinh123.github.io/ilis-docs/)  
+> ☁️ **Live Google Cloud (Firebase Hosting):** [https://project-ocr-hermess-agent.web.app](https://project-ocr-hermess-agent.web.app) *(Mirror: [https://project-ocr-hermess-agent.firebaseapp.com](https://project-ocr-hermess-agent.firebaseapp.com))*  
+> 🌐 **Live GitHub Pages:** [https://truongdinh123.github.io/ilis-docs/](https://truongdinh123.github.io/ilis-docs/)  
 > 📦 **GitHub Repository:** [https://github.com/TruongDinh123/ilis-docs.git](https://github.com/TruongDinh123/ilis-docs.git)
 
 ## Bắt đầu
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
-npm run test       # Vitest + Testing Library
-npm run lint       # ESLint (bao gồm ranh giới import giữa các feature)
-npm run build      # tsc -b + vite build
-npm run deploy     # Build & Deploy lên GitHub Pages nhánh gh-pages
+npm run dev              # http://localhost:5173
+npm run test             # Vitest + Testing Library
+npm run lint             # ESLint (bao gồm ranh giới import giữa các feature)
+npm run build            # tsc -b + vite build
+npm run deploy:firebase  # Build & Deploy trực tiếp lên Google Cloud Firebase Hosting
+npm run deploy           # Build & Deploy lên GitHub Pages nhánh gh-pages
 npm run sync:content -- "<file-page-source.html>"   # làm mới dữ liệu từ site Đồng Tháp
 ```
 
