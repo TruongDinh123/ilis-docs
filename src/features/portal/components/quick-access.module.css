@@ -1,0 +1,101 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  height: 100%;
+  padding: var(--space-5) var(--space-4) var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--tone-solid) 18%, #ffffff);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(165deg, var(--tone-soft) 0%, #ffffff 62%);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: transform var(--duration-base) var(--ease-standard), box-shadow var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base);
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--tone-solid);
+  box-shadow: var(--shadow-lift);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: var(--space-2);
+  border-radius: 16px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--tone-solid) 78%, #ffffff), var(--tone-solid));
+  color: #fff;
+  box-shadow: 0 10px 20px -8px color-mix(in srgb, var(--tone-solid) 70%, transparent);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+.card:hover .icon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.title {
+  color: var(--navy-900);
+  font: 700 15px/1.35 "Sora", var(--font-sans);
+}
+.subtitle {
+  color: var(--tone-fg);
+  font-size: 13px;
+  font-weight: 700;
+}
+.detail {
+  color: var(--color-text-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.go {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: var(--space-3);
+  color: var(--tone-fg);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.card:hover .go svg {
+  transform: translate(2px, -2px);
+}
+.go svg {
+  transition: transform var(--duration-fast);
+}
+
+.hot {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--tone-solid);
+  color: #fff;
+  font: 700 10.5px var(--font-sans);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  .card:hover .icon {
+    transform: none;
+  }
+}

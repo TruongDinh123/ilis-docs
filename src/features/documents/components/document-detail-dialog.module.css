@@ -1,0 +1,38 @@
+.kicker {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro {
+  color: #44596a;
+}
+
+.stepsHeading {
+  margin: var(--space-5) 0 var(--space-2);
+  font-size: 14px;
+}
+
+.steps {
+  padding-left: 22px;
+  color: #44596a;
+}
+.steps li {
+  margin: var(--space-2) 0;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.sourceLine {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+  font-size: 10px;
+}

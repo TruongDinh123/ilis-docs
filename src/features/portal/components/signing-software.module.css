@@ -1,0 +1,110 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--tone-solid) 22%, #ffffff);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(165deg, var(--tone-soft) 0%, #fff 55%);
+  transition: transform var(--duration-base) var(--ease-standard), box-shadow var(--duration-base), border-color var(--duration-base);
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--tone-solid);
+  box-shadow: var(--shadow-lift);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+.logo,
+.logoFallback {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--tone-solid) 20%, #ffffff);
+  object-fit: contain;
+  padding: 6px;
+}
+.logoFallback {
+  display: grid;
+  place-items: center;
+  background: var(--tone-solid);
+  color: #fff;
+  border: 0;
+}
+.meta {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+.desc {
+  color: var(--tone-fg);
+  font: 700 12px var(--font-sans);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.name {
+  color: var(--navy-900);
+  font: 700 14.5px/1.35 "Sora", var(--font-sans);
+  overflow-wrap: anywhere;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+.download,
+.guide {
+  flex: 1 1 120px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border-radius: 12px;
+  font: 700 14px var(--font-sans);
+  text-decoration: none;
+  transition: background var(--duration-fast), color var(--duration-fast), transform var(--duration-fast);
+}
+.download {
+  background: var(--tone-solid);
+  color: #fff;
+  box-shadow: 0 8px 16px -8px color-mix(in srgb, var(--tone-solid) 70%, transparent);
+}
+.download:hover {
+  background: color-mix(in srgb, var(--tone-solid) 85%, #000000);
+  transform: translateY(-1px);
+}
+.guide {
+  border: 1px solid color-mix(in srgb, var(--tone-solid) 45%, #ffffff);
+  background: #fff;
+  color: var(--tone-fg);
+}
+.guide:hover {
+  background: var(--tone-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  .download:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,94 @@
+.section {
+  position: relative;
+  margin-bottom: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: 0 10px 30px -14px rgba(8, 61, 122, 0.16), 0 2px 6px rgba(8, 61, 122, 0.05);
+  overflow: hidden;
+}
+/* Dải màu nhấn theo tone ở mép trên */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--tone-solid), color-mix(in srgb, var(--tone-solid) 45%, #ffffff));
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: calc(var(--space-5) + 4px) var(--space-5) var(--space-4);
+  background: linear-gradient(100deg, var(--tone-soft) 0%, rgba(255, 255, 255, 0) 72%);
+  border-bottom: 1px solid color-mix(in srgb, var(--tone-solid) 12%, #ffffff);
+}
+
+.chip {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--tone-solid) 82%, #ffffff), var(--tone-solid));
+  color: #fff;
+  box-shadow: 0 8px 18px -6px color-mix(in srgb, var(--tone-solid) 60%, transparent);
+}
+
+.titles {
+  flex: 1;
+  min-width: 0;
+}
+.titles h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  color: var(--navy-900);
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.3;
+}
+.titles p {
+  margin: 2px 0 0;
+  color: var(--color-text-muted);
+  font-size: 13.5px;
+}
+
+.badge {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--tone-solid);
+  color: #fff;
+  font: 700 12px var(--font-sans);
+  letter-spacing: 0;
+}
+
+.actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.body {
+  padding: var(--space-5);
+}
+.flush {
+  padding: 0;
+}
+
+@media (max-width: 760px) {
+  .head {
+    flex-wrap: wrap;
+    padding: var(--space-5) var(--space-4) var(--space-3);
+  }
+  .actions {
+    width: 100%;
+  }
+  .body {
+    padding: var(--space-4);
+  }
+}

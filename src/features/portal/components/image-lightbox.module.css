@@ -1,0 +1,253 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  animation: fade var(--duration-base) var(--ease-standard);
+}
+
+.dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(1180px, 100vw);
+  height: min(900px, 100dvh);
+  color: #fff;
+  outline: none;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+
+.barTitle {
+  display: grid;
+  min-width: 0;
+  line-height: 1.3;
+}
+.barTitle strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+}
+.barTitle span {
+  color: #b8cfe8;
+  font-size: 12px;
+}
+
+.barActions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.iconButton {
+  display: grid;
+  place-items: center;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--duration-fast), transform var(--duration-fast);
+}
+.iconButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.close:hover {
+  background: #be123c;
+  border-color: #be123c;
+}
+
+.stageWrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+}
+
+.stage {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+}
+.stageZoomed {
+  overflow: auto;
+  place-items: start center;
+}
+
+.imageButton {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.stageZoomed .imageButton {
+  width: max-content;
+  height: max-content;
+  cursor: zoom-out;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  cursor: zoom-in;
+  animation: fade var(--duration-base) var(--ease-standard);
+}
+.imageZoomed {
+  max-width: none;
+  max-height: none;
+  cursor: zoom-out;
+}
+
+.skeleton {
+  position: absolute;
+  inset: 12%;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0.06) 30%, rgba(255, 255, 255, 0.16) 50%, rgba(255, 255, 255, 0.06) 70%);
+  background-size: 220% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+.nav {
+  align-self: center;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--duration-fast), transform var(--duration-fast);
+}
+.nav:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+.prev:hover {
+  transform: translateX(-2px);
+}
+.next:hover {
+  transform: translateX(2px);
+}
+
+.error {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  text-align: center;
+  color: #d7e6f7;
+}
+.error p {
+  margin: 0;
+  max-width: 360px;
+}
+.error a {
+  color: #ffd75e;
+}
+
+.thumbs {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  list-style: none;
+  overflow-x: auto;
+  justify-content: center;
+}
+
+.thumb {
+  display: block;
+  width: 78px;
+  height: 56px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0.65;
+  cursor: pointer;
+  transition: opacity var(--duration-fast), border-color var(--duration-fast);
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.thumb:hover {
+  opacity: 1;
+}
+.thumbActive {
+  opacity: 1;
+  border-color: #ffd75e;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes shimmer {
+  to {
+    background-position: -220% 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav {
+    position: absolute;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+  }
+  .prev {
+    left: var(--space-4);
+  }
+  .next {
+    right: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .image,
+  .skeleton {
+    animation: none;
+  }
+}

@@ -1,0 +1,140 @@
+@import "./tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Chừa chỗ cho header dính khi nhảy tới #anchor (ux: Sticky Navigation) */
+  scroll-padding-top: calc(var(--header-height) + 20px);
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Sora", var(--font-sans);
+  letter-spacing: -0.01em;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: #cfe3ff;
+  color: var(--navy-950);
+}
+
+/* Focus ring hiển thị trên mọi điều khiển (ux: Focus States). Dùng outline để giữ nguyên
+   border-radius của phần tử (nút tròn không bị bóp vuông khi focus). */
+:focus-visible {
+  outline: 3px solid #2d8ef5;
+  outline-offset: 2px;
+}
+
+/* Tone màu: gán bộ biến --tone-* theo data-tone để component chỉ cần var(--tone-solid)... */
+[data-tone="blue"] {
+  --tone-solid: var(--tone-blue-solid);
+  --tone-fg: var(--tone-blue-fg);
+  --tone-soft: var(--tone-blue-soft);
+}
+[data-tone="amber"] {
+  --tone-solid: var(--tone-amber-solid);
+  --tone-fg: var(--tone-amber-fg);
+  --tone-soft: var(--tone-amber-soft);
+}
+[data-tone="green"] {
+  --tone-solid: var(--tone-green-solid);
+  --tone-fg: var(--tone-green-fg);
+  --tone-soft: var(--tone-green-soft);
+}
+[data-tone="violet"] {
+  --tone-solid: var(--tone-violet-solid);
+  --tone-fg: var(--tone-violet-fg);
+  --tone-soft: var(--tone-violet-soft);
+}
+[data-tone="rose"] {
+  --tone-solid: var(--tone-rose-solid);
+  --tone-fg: var(--tone-rose-fg);
+  --tone-soft: var(--tone-rose-soft);
+}
+[data-tone="teal"] {
+  --tone-solid: var(--tone-teal-solid);
+  --tone-fg: var(--tone-teal-fg);
+  --tone-soft: var(--tone-teal-soft);
+}
+[data-tone="orange"] {
+  --tone-solid: var(--tone-orange-solid);
+  --tone-fg: var(--tone-orange-fg);
+  --tone-soft: var(--tone-orange-soft);
+}
+[data-tone="sky"] {
+  --tone-solid: var(--tone-sky-solid);
+  --tone-fg: var(--tone-sky-fg);
+  --tone-soft: var(--tone-sky-soft);
+}
+
+/* Respect prefers-reduced-motion (ux: Animation guidance) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  background: var(--navy-900);
+  color: #fff;
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform var(--duration-fast);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}

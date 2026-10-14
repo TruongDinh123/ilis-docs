@@ -1,0 +1,38 @@
+.emblem {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 22px rgba(4, 28, 61, 0.35));
+}
+
+.pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: emblem-pulse 2.4s ease-out infinite;
+}
+
+.labels text {
+  fill: #ffffff;
+  font: 700 5.2px var(--font-sans);
+  paint-order: stroke;
+  stroke: #062b5a;
+  stroke-width: 1.4px;
+  stroke-linejoin: round;
+}
+
+@keyframes emblem-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse {
+    animation: none;
+  }
+}

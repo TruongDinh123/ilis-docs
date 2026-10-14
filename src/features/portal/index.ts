@@ -1,0 +1,17 @@
+export { GalleryProvider } from "./components/gallery-provider";
+export { TickerBar } from "./components/ticker-bar";
+export { NotificationBell, NotificationDialog } from "./components/notification-dialog";
+export { PortalBrand, PortalNav, HeaderSearchButton } from "./components/portal-header";
+export { PortalSidebar } from "./components/portal-sidebar";
+export { GlobalSearch } from "./components/global-search";
+export { Hero } from "./components/hero";
+export { QuickAccess } from "./components/quick-access";
+export { SupportGuide } from "./components/support-guide";
+export { ErrorCatalog } from "./components/error-catalog";
+export { NotesSection } from "./components/notes-section";
+export { SigningSoftware } from "./components/signing-software";
+export { VideoGuides } from "./components/video-guides";
+export { GuideDocs } from "./components/guide-docs";
+export { ResourcesSection } from "./components/resources-section";
+export { PortalFooter } from "./components/portal-footer";
+export { useNotifications } from "./hooks/use-notifications";

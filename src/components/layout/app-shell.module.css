@@ -1,0 +1,111 @@
+.layout {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  /* Nền nhẹ: hai quầng sáng màu thương hiệu, không chứa chữ nên không ảnh hưởng độ tương phản. */
+  background-image:
+    radial-gradient(900px 480px at 85% -4%, rgba(45, 142, 245, 0.12), transparent 70%),
+    radial-gradient(700px 420px at 4% 38%, rgba(255, 215, 94, 0.1), transparent 70%);
+  background-repeat: no-repeat;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  align-items: start;
+}
+
+.main {
+  position: relative;
+  min-width: 0;
+  padding: var(--space-5) var(--space-6) var(--space-8);
+  outline: none;
+}
+
+.drumDecor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.drumSticky {
+  position: sticky;
+  top: 60px;
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.drumFull {
+  width: clamp(900px, 94vw, 1580px);
+  aspect-ratio: 1;
+  background-image: url('/images/trong-dong-viet-nam.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  opacity: 0.28;
+  filter: drop-shadow(0 0 50px rgba(212, 143, 24, 0.12));
+  animation: spinDongSon 300s linear infinite;
+}
+
+@keyframes spinDongSon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drumFull {
+    animation: none;
+  }
+}
+
+:global(:root[data-theme="dark"]) .drumFull {
+  opacity: 0.18;
+  filter: drop-shadow(0 0 60px rgba(255, 190, 80, 0.16));
+}
+
+@media (max-width: 1180px) {
+  .drumSticky {
+    top: 54px;
+    height: calc(100vh - 54px);
+  }
+
+  .drumFull {
+    width: clamp(650px, 90vw, 950px);
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 760px) {
+  .drumFull {
+    width: clamp(400px, 110vw, 650px);
+    opacity: 0.15;
+  }
+}
+
+@media (max-width: 1180px) {
+  .body {
+    grid-template-columns: 252px minmax(0, 1fr);
+  }
+  .main {
+    padding: var(--space-5) var(--space-5) var(--space-7);
+  }
+}
+
+@media (max-width: 760px) {
+  .body {
+    display: block;
+  }
+  .main {
+    padding: var(--space-4) var(--space-3) var(--space-7);
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "ca-mau-ilis-docs",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Cổng hướng dẫn và hỗ trợ iLIS Cà Mau — React + TypeScript, kiến trúc feature-based, SOLID.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "typecheck": "tsc -b --noEmit",
+    "sync:content": "python scripts/sync-dongthap-content.py"
+  },
+  "dependencies": {
+    "lucide-react": "^1.56.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-react": "^7.35.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "jsdom": "^25.0.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.5",
+    "vite-tsconfig-paths": "^5.0.1",
+    "vitest": "^2.1.1"
+  }
+}

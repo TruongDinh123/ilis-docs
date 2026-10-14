@@ -1,0 +1,96 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.grid li {
+  display: flex;
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 84px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--tone-solid) 22%, #ffffff);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(120deg, var(--tone-soft), #fff 70%);
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--duration-base) var(--ease-standard), box-shadow var(--duration-base), border-color var(--duration-base);
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--tone-solid);
+  box-shadow: var(--shadow-lift);
+}
+.icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--tone-solid) 80%, #ffffff), var(--tone-solid));
+  color: #fff;
+}
+.text {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+.text strong {
+  color: var(--navy-900);
+  font-size: 14.5px;
+  line-height: 1.35;
+}
+.text span {
+  color: var(--color-text-muted);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.go {
+  flex: none;
+  color: var(--tone-fg);
+  transition: transform var(--duration-fast);
+}
+.card:hover .go {
+  transform: translate(2px, -2px);
+}
+
+.quote {
+  position: relative;
+  margin: var(--space-5) 0 0;
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-xl);
+  color: #fff;
+  background:
+    radial-gradient(80% 120% at 100% 0%, rgba(45, 142, 245, 0.5), transparent 60%),
+    linear-gradient(135deg, var(--navy-900), var(--navy-700));
+}
+.quote svg {
+  color: #ffd75e;
+  opacity: 0.9;
+}
+.quote blockquote {
+  margin: var(--space-2) 0;
+  font: 600 17px/1.65 "Sora", var(--font-sans);
+}
+.quote figcaption {
+  color: #ffe9a3;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  .card:hover .go {
+    transform: none;
+  }
+}

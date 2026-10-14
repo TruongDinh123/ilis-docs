@@ -1,0 +1,11 @@
+export type { DocumentRecord, DocumentKind } from "./types/document";
+export { useDocuments } from "./hooks/use-documents";
+export { useDocumentSearch } from "./hooks/use-document-search";
+export { DocumentList } from "./components/document-list";
+export { DocumentDetailDialog } from "./components/document-detail-dialog";
+export { CategoryFilter } from "./components/category-filter";
+export { SearchBar } from "./components/search-bar";
+export { QuickActions, type QuickAction } from "./components/quick-actions";
+export { NoticePanel } from "./components/notice-panel";
+export { SupportTemplateCard } from "./components/support-template-card";
+export { getDocumentKindMeta, listDocumentKinds } from "./lib/document-kind-registry";

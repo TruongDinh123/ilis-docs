@@ -1,0 +1,1454 @@
+{
+    "origin": "",
+    "ticker": [
+        "CẬP NHẬT VNPT iLIS – CÀ MAU – Ngày 29/07/2026 – Phân hệ: iLis Cadas & iLis LPM (17h30 – 19h30)",
+        "THÔNG BÁO CẬP NHẬT VNPT iLIS – Ngày 24/07/2026 – Upcode: Lâm Đồng, Cà Mau (21h – 22h00)",
+        "THÔNG BÁO CẬP NHẬT VNPT iLIS – Ngày 20/07/2026 – Upcode: Cà Mau, An Giang, Gia Lai, Quảng Ninh, Lạng Sơn, Lâm Đồng, Cà Mau, Cao Bằng, Phú Thọ, Tuyên Quang (17h – 19h00)",
+        "THÔNG BÁO CẬP NHẬT VNPT iLIS – Ngày 02/07/2026 – Upcode: An Giang, Cà Mau, Gia Lai, Lạng Sơn, Lai Châu, Thanh Hóa (18h – 20h00)",
+        "Quy trình CHỜ THU PHÍ, BIÊN LAI đã bật lại tính năng chuyển tự động – Khi có thông báo thuế, phần mềm sẽ tự động chuyển đến bước CHỜ THU PHÍ, BIÊN LAI đến nhóm tài khoản được phân công tại bước này",
+        "Thông báo upcode hệ thống iLis ngày 30/05/2026 – Nâng cấp quản lý phát hành phôi, bổ sung QR giấy chứng nhận, nâng cấp biến động & nhiều cải tiến mới",
+        "Cập nhật tên chi nhánh thay cho tên huyện cũ (Xem thêm tại đây)",
+        "THÔNG BÁO VỀ VIỆC TUÂN THỦ QUY TRÌNH VẬN HÀNH CSDL ĐẤT ĐAI TRÊN HỆ THỐNG VNPT iLIS"
+    ],
+    "notifications": [
+        {
+            "id": "notif-1",
+            "tone": "blue",
+            "unread": true,
+            "title": "CẬP NHẬT VNPT iLIS – CÀ MAU – Ngày 29/07/2026",
+            "date": "29/07/2026",
+            "bodyHtml": "<p class=\"notif-desc\"> ⏰ <strong>Thời gian:</strong> 17h30 – 19h30 | Ngày 29/07/2026 <br/> <strong>Phân hệ:</strong> iLis Cadas &amp; iLis LPM (BE &amp; FE) <br/> <strong>Nội dung cập nhật:</strong> <br/> • Khắc phục lỗi xem bản đồ từ màn hình đăng ký.<br/> • Xử lý lỗi không lưu thông tin tài sản khi thực hiện biến động.<br/> • Sửa lỗi xuất file DGN thửa đất.<br/> • Tinh chỉnh hệ thống và khắc phục các lỗi vận hành khác. <br/> Hệ thống có thể gián đoạn trong thời gian upcode. Kính mong đơn vị phối hợp và theo dõi. <br/> <strong>Yêu cầu phối hợp:</strong> Đề nghị bộ phận VTT hoàn thành rà soát các chức năng trước <strong>23h00 ngày 29/07/2026</strong> để đảm bảo vận hành thông suốt. <br/> Trân trọng! </p>"
+        },
+        {
+            "id": "notif-2",
+            "tone": "blue",
+            "unread": true,
+            "title": "THÔNG BÁO CẬP NHẬT VNPT iLIS (Phân hệ: iLIS Cadas) – Ngày 24/07/2026",
+            "date": "24/07/2026",
+            "bodyHtml": "<p class=\"notif-desc\"> <strong>Danh sách các Tỉnh/TP thực hiện Upcode:</strong> Lâm Đồng, Cà Mau <br/> ⏰ <strong>Thời gian thực hiện upcode:</strong> 21h – 22h00 Ngày 24/07/2026 <br/> <strong>Nội dung cập nhật:</strong> <br/> • Bổ sung dashboard theo dõi tiến độ xây dựng CSDL đất đai<br/> • Chỉnh sửa phần tìm kiếm lệch bản đồ<br/> • Cập nhật cây đvhc menu tìm kiếm đăng ký<br/> • Cập nhật điều kiện tìm kiếm thửa đất<br/> • Chỉnh sửa các lỗi trong quá trình vận hành<br/> • Bổ sung ký SDC chung cư <br/> Trong thời gian cập nhật, hệ thống có thể tạm thời gián đoạn. Kính mong đơn vị phối hợp và theo dõi. <br/> <strong>Yêu cầu phối hợp:</strong> Đề nghị các anh/chị VTT hoàn thành kiểm tra, rà soát chức năng được nâng cấp trước <strong>07h00 ngày 25/07/2026</strong> để hệ thống đảm bảo vận hành thông suốt. <br/> Rất mong anh/chị/em phối hợp thực hiện. Trân trọng cảm ơn! </p>"
+        },
+        {
+            "id": "notif-3",
+            "tone": "blue",
+            "unread": true,
+            "title": "THÔNG BÁO CẬP NHẬT VNPT iLIS – Ngày 20/07/2026",
+            "date": "20/07/2026",
+            "bodyHtml": "<p class=\"notif-desc\"> <strong>Danh sách các Tỉnh/TP thực hiện Upcode:</strong> Cà Mau, An Giang, Gia Lai, Quảng Ninh, Lạng Sơn, Lâm Đồng, Cà Mau, Cao Bằng, Phú Thọ, Tuyên Quang <br/> ⏰ <strong>Thời gian thực hiện upcode:</strong> 17h – 19h00 Ngày 20/07/2026 <br/> <strong>Nội dung cập nhật:</strong> <br/> • Sửa lỗi phân quyền chức năng nhóm người dùng không tự động cập nhật <br/> Trong thời gian cập nhật, hệ thống có thể tạm thời gián đoạn. Kính mong đơn vị phối hợp và theo dõi. <br/> <strong>Yêu cầu phối hợp:</strong> Đề nghị các anh/chị VTT hoàn thành kiểm tra, rà soát chức năng được nâng cấp trước <strong>23h00 ngày 20/07/2026</strong> để hệ thống đảm bảo vận hành thông suốt. <br/> Rất mong anh/chị/em phối hợp thực hiện. Trân trọng cảm ơn! </p>"
+        },
+        {
+            "id": "notif-4",
+            "tone": "blue",
+            "unread": true,
+            "title": "THÔNG BÁO CẬP NHẬT VNPT iLIS – Ngày 02/07/2026",
+            "date": "02/07/2026",
+            "bodyHtml": "<p class=\"notif-desc\"> <strong>Danh sách Tỉnh/TP thực hiện Upcode:</strong> An Giang, Cà Mau, Gia Lai, Lạng Sơn, Lai Châu, Thanh Hóa <br/> ⏰ <strong>Thời gian thực hiện upcode:</strong> 18h – 20h00 <br/> <strong>Nội dung cập nhật:</strong> <br/> • Bổ sung thêm tiện ích khi chọn các loại biến động liên quan đến chuyển quyền thì sẽ tự động thay đổi nguồn gốc sau biến động sang loại tương ứng <br/> • Bổ sung chức năng hướng dẫn, liệt kê danh sách thẻ/trường dữ liệu hệ thống có thể cung cấp để người dùng tự cấu hình mẫu trong In đơn từ dự thảo <br/> • Nâng cấp chức năng tự động gắn các chủ đồng sử dụng trước và sau khi thực hiện biến động <br/> • Nâng cấp chức năng copy giấy chứng nhận khi làm biến động bao gồm cả copy giấy về tài sản <br/> • Nâng cấp chuyển dữ liệu từ 3 cấp về 2 cấp hàng loạt tự động bỏ qua trường hợp đã trùng tờ thửa trên 2 cấp <br/> • Bổ sung cấu hình thể hiện số tờ số thửa cũ trên in giấy chứng nhận bổ sung <br/> • Bổ sung thể hiện tờ cũ thửa cũ trên giấy in bổ sung giấy chứng nhận <br/> • Nâng cấp bản đồ bổ sung lớp nền vệ tinh, sửa các lỗi chỉnh lý bản đồ <br/> Trong thời gian cập nhật, hệ thống có thể tạm thời gián đoạn. Kính mong đơn vị phối hợp và theo dõi. <br/> <strong>Yêu cầu phối hợp:</strong> Đề nghị các anh/chị VTT hoàn thành kiểm tra, rà soát chức năng được nâng cấp trước <strong>07h00 ngày 03/07/2026</strong> để hệ thống đảm bảo vận hành thông suốt. <br/> Rất mong anh/chị/em phối hợp thực hiện. Trân trọng cảm ơn! </p>"
+        },
+        {
+            "id": "notif-5",
+            "tone": "blue",
+            "unread": true,
+            "title": "Thông báo về quy trình CHỜ THU PHÍ, BIÊN LAI",
+            "date": "21/06/2026",
+            "bodyHtml": "<p class=\"notif-desc\"> Các quy trình có bước <strong>CHỜ THU PHÍ, BIÊN LAI</strong> đã <strong style=\"color:var(--green)\">bật lại tính năng chuyển tự động</strong> khi có thông báo thuế. <br/> Khi có thông báo thuế, phần mềm sẽ <strong>tự động chuyển</strong> đến bước <strong>CHỜ THU PHÍ, BIÊN LAI</strong> đến nhóm tài khoản được phân công tại bước này. <br/> Trân trọng./. </p>"
+        },
+        {
+            "id": "notif-6",
+            "tone": "blue",
+            "unread": true,
+            "title": "Thông báo upcode hệ thống iLis ngày 30/05/2026",
+            "date": "30/05/2026",
+            "bodyHtml": "<p class=\"notif-desc\"> <strong>Nâng cấp quản lý phát hành phôi:</strong> <br/> • Cho phép chỉnh sửa phôi khi chưa số serial nào trong dải được sử dụng <br/> • Bổ sung thêm các thông tin xã vào đơn vị trong menu DM đơn vị sử dụng <br/> • Chỉnh sửa, sắp xếp lại giao diện <br/> <strong>Bổ sung màn hình quản lý QR giấy chứng nhận</strong> <br/> <strong>Nâng cấp chỉnh sửa nội dung biến động</strong> sau khi hoàn tất biến động đối với từng thửa đất <br/> <strong>Bổ sung chức năng in giấy chứng nhận</strong> theo tờ cũ thửa cũ, phiếu thuế <br/> <strong>Nâng cấp chức năng chuyển từng thửa</strong> trong chức năng chuyển xã tỉnh từ 2 cấp sang 3 cấp <br/> <strong>Chỉnh sửa lỗi</strong> làm biến động tách thửa, cấp đổi với trường hợp trước biến động là đồng sử dụng, thì sau biến động sẽ không cộng lại diện tích thửa của các đồng sử dụng </p>"
+        },
+        {
+            "id": "notif-7",
+            "tone": "blue",
+            "unread": true,
+            "title": "THÔNG BÁO VỀ VIỆC TUÂN THỦ QUY TRÌNH VẬN HÀNH CSDL ĐẤT ĐAI TRÊN HỆ THỐNG VNPT iLIS",
+            "date": "10/04/2026",
+            "bodyHtml": "<p class=\"notif-desc\"> Kính gửi: <strong>Anh/Chị em đội ngũ Vận hành hệ thống (VTT) </strong> <br/> Căn cứ theo <strong>Điều 22, Thông tư 10/2024/TT-BTNMT</strong> về Trình tự, thời gian chỉnh lý, cập nhật biến động hồ sơ địa chính, qua rà soát thực tế khi đồng bộ dữ liệu nhóm 1 lên VNLIS, hiện vẫn còn nhiều đơn vị chưa thực hiện đúng quy trình chuẩn. <strong>Để đảm bảo tính chính xác</strong> và pháp lý của dữ liệu, yêu cầu các đơn vị nghiêm túc thực hiện 05 bước vận hành trên phần mềm VNPT iLIS như sau: <br/> <strong>1. Cập nhật đăng ký:</strong> Nhập liệu thông tin đăng ký đất đai, quét hồ sơ/giấy tờ đính kèm. <br/> <strong>2. Cập nhật bản đồ:</strong> Thực hiện <strong>chỉnh lý, cập nhật</strong> biến động bản đồ chính xác. <br/> <strong>3. Cập nhật NVTC:</strong> Thực hiện đầy đủ các bước xác định nghĩa vụ tài chính. <br/> <strong>4. In GCN, Số hóa GCN pháp lý:</strong> cập nhật đầy đủ thông tin ngày ký và người ký vào hệ thống. <br/> <strong>5. Ký duyệt:</strong> Kiểm tra chỉnh lý và <strong>ký duyệt Sổ địa chính</strong>, ký duyệt file <strong>hồ sơ quét</strong> <br/> <strong> Lưu ý quan trọng về lộ trình siết chặt quản lý dữ liệu:</strong> Trong thời gian tới, hệ thống sẽ <strong>tự động kiểm soát chặt chẽ</strong> các điều kiện sau: <br/> <strong>1. Hạn chế khôi phục biến động:</strong> Sẽ không cho phép tự ý khôi phục biến động. Việc khôi phục phải thông qua quyền <strong>Admin và có công văn gửi Văn phòng Tỉnh</strong>. <br/> <strong>2. Chuẩn hóa định danh:</strong> Áp dụng chặt chẽ quy tắc <strong> Số tờ - Số thửa theo Thông tư 09. </strong> <br/> <strong>3. Kiểm soát hoàn tất:</strong> <strong>Không có ngày ký</strong> sẽ không cho hoàn tất biến động (để phục vụ Sổ cấp giấy). <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/thanh-thong-bao/kiem-soat-gcn-hoan-tat-bien-dong\">Xem ảnh mô tả</button> <br/> <strong>4. Cảnh báo vận hành:</strong> Hệ thống tự động cảnh báo đến lãnh đạo VPĐK nếu hồ sơ <strong> không đủ 3 khối dữ liệu </strong> để kịp thời chỉ đạo. <br/> Đề nghị anh chị em <strong>tập trung vận hành thông suốt.</strong> Mọi vướng mắc kỹ thuật vui lòng liên hệ ngay <strong>Đội hỗ trợ triển khai VNPT iLIS</strong> để được xử lý kịp thời. </p>"
+        },
+        {
+            "id": "notif-8",
+            "tone": "blue",
+            "unread": false,
+            "title": "Cập nhật tên chi nhánh thay cho tên huyện cũ",
+            "date": "08/04/2026",
+            "bodyHtml": "<p class=\"notif-desc\"> <a href=\"https://ilis-docs.vnptdongthap.com.vn/downloads/21_2025-QD-UBND Quyet dinh ban hanh chuc nang, nhiem vu - VPĐK.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Xem chi tiết tại đây →</a> </p>"
+        },
+        {
+            "id": "notif-9",
+            "tone": "blue",
+            "unread": false,
+            "title": "THÔNG BÁO: HOÀN TẤT CẬP NHẬT & ĐỀ NGHỊ KIỂM THỬ HỆ THỐNG (UAT)",
+            "date": "30/03/2026",
+            "bodyHtml": "<p class=\"notif-desc\"> Kính gửi: Anh/Chị đội VTT,<br/> Đội kỹ thuật hiện đã hoàn tất việc cập nhật mã nguồn (upCode) cho hệ thống. Để đảm bảo vận hành ổn định và không phát sinh lỗi khi triển khai tại Văn phòng Đăng ký (VPĐK), kính đề nghị anh/chị phối hợp kiểm tra lại các chức năng và luồng quy trình chính sau: </p> <ul style=\"color:var(--gray-600)\"> <li><strong>Nhóm Đăng ký &amp; Biến động:</strong> Kiểm tra Đăng ký &amp; Đăng ký biến động.</li> <li><strong>Nhóm Thông tin Đất đai:</strong> Kiểm tra Tài sản, Chủ sử dụng &amp; Giấy chứng nhận.</li> <li><strong>Nhóm Hồ sơ &amp; Sổ sách:</strong> Kiểm tra Phiếu thuế, Hồ sơ quét (HSQ) &amp; Sổ địa chính.</li> </ul> <p class=\"notif-desc\"> <strong>Mục tiêu:</strong> Kiểm tra kỹ lưỡng các luồng chính (main flows) để hệ thống vận hành trơn tru, hạn chế tối đa sai sót khi bàn giao. </p> <p class=\"notif-desc\"> Rất mong nhận được sự phối hợp từ anh/chị. Trân trọng cảm ơn! </p>"
+        },
+        {
+            "id": "notif-10",
+            "tone": "red",
+            "unread": false,
+            "title": "Nâng cấp mẫu phiếu chuyển mới 01/2026",
+            "date": "25/03/2026",
+            "bodyHtml": "<p class=\"notif-desc\">Thông tin nâng cấp thông tin chủ theo mẫu phiếu chuyển mới 01/2026. Nếu sử dụng mẫu phiếu thuế mới phải cài lại phần mềm ký số gửi thuế (Liên hệ admin hoặc VPĐK để cài lại). <a href=\"https://ilis-docs.vnptdongthap.com.vn/phieu-thue/Phieu_Chuyen_01_2026_nang_cap_thong_tin_chu_theo_mau_phieu_moi.html\" target=\"_blank\" rel=\"noopener noreferrer\">Xem thông tin nâng cấp tại đây →</a> </p>"
+        },
+        {
+            "id": "notif-11",
+            "tone": "red",
+            "unread": false,
+            "title": "THÔNG BÁO QUAN TRỌNG: LƯU Ý KHI CHUYỂN THUẾ TRÊN HỆ THỐNG ILIS",
+            "date": "25/03/2026",
+            "bodyHtml": "<p class=\"notif-desc\">Hiện tại, do lỗi kỹ thuật từ phía Cục thuế về thông tin Thời hạn sở hữu tài sản, bộ phận kỹ thuật ILIS xin lưu ý anh/chị khi thực hiện chuyển thuế: <br/> <strong> Kiểm tra kỹ mục TÀI SẢN:</strong> <br/> - Có thông tin: Phải điền đầy đủ định dạng Ngày/Tháng/Năm (dd/mm/yyy) <br/> - Không có thông tin: Vui lòng để TRỐNG. <br/> <strong> HẬU QUẢ NẾU SAI SÓT:</strong> Nếu không thực hiện đúng hướng dẫn trên, Cán bộ thuế cơ sở sẽ không thể đọc được file phiếu chuyển khi nhận từ phía VPĐK gửi sang. <br/> <strong> Khắc phục:</strong> Kỹ thuật ILIS đang phối hợp cùng phía Thuế để xử lý triệt để trong bản Upcode sớm nhất. <br/> Rất mong anh/chị lưu ý thực hiện để đảm bảo luồng hồ sơ thông suốt! Xin cảm ơn. <br/> <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/thanh-thong-bao\">Xem ảnh mô tả</button> </p>"
+        },
+        {
+            "id": "notif-12",
+            "tone": "blue",
+            "unread": false,
+            "title": "Cập nhật phần mềm Vnpt.iLIS.SignThueXMLAppSetUp",
+            "date": "22/03/2026",
+            "bodyHtml": "<p class=\"notif-desc\">Nếu sử dụng mẫu phiếu thuế mới mẫu 01/2026 phải cài lại phần mềm ký số gửi thuế (Liên hệ admin hoặc VPĐK để cài lại) <br/><a href=\"#phan-mem-ky-so\">Các phần mềm ký số →</a></p>"
+        }
+    ],
+    "errors": {
+        "tabs": [
+            {
+                "id": "all",
+                "label": "Tất cả lỗi"
+            },
+            {
+                "id": "kyso",
+                "label": "Ký số & Token"
+            },
+            {
+                "id": "trinhduyet",
+                "label": "Đăng nhập & Màn hình"
+            },
+            {
+                "id": "dvc",
+                "label": "Hồ sơ & DVC"
+            },
+            {
+                "id": "thue",
+                "label": "Phiếu thuế - NVTC"
+            },
+            {
+                "id": "gcn",
+                "label": "Thửa đất & GCN/SĐC"
+            }
+        ],
+        "groups": [
+            {
+                "id": "kyso",
+                "title": "Nhóm lỗi Ký Số, USB Token & Chứng Thư Số",
+                "items": [
+                    {
+                        "id": "err-1",
+                        "index": 1,
+                        "category": "kyso",
+                        "badge": "Ký số & Token",
+                        "title": "Không tìm thấy token ký số / Không nhận chứng thư số",
+                        "causeHtml": "Khi bấm ký số, hệ thống báo không tìm thấy token ký số. Nguyên nhân do chưa cắm USB Token vào máy tính, chưa cài phần mềm VGCA Token Manager, token bị lỏng hoặc chứng thư số bị hết hạn sử dụng.",
+                        "solutionHtml": "<ol> <li>Cắm lại USB Token chắc chắn vào cổng USB máy tính (kiểm tra đèn tín hiệu trên token).</li> <li>Cài đặt và mở chạy phần mềm <strong>VGCA Token Manager</strong>.</li> <li>Nếu service ký số bị treo, tải tệp khởi động lại service ký số để reset tiến trình.</li> </ol>",
+                        "actions": [
+                            {
+                                "type": "gallery",
+                                "label": "Xem ảnh hướng dẫn sửa lỗi",
+                                "target": "/images/sua-loi-khong-tim-thay-token-ky-so"
+                            },
+                            {
+                                "type": "download",
+                                "label": "Tải tệp Restart Service Ký Số",
+                                "href": "https://ilis-docs.vnptdongthap.com.vn/downloads/restart_vgca_ky_so_gui_thue.zip"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "err-2",
+                        "index": 2,
+                        "category": "kyso",
+                        "badge": "Ký số & Token",
+                        "title": "Ký số không thành công: Invalid provider type specified",
+                        "causeHtml": "Chưa cài hoặc cài sai phiên bản phần mềm VGCA Token Manager, driver VGCA bị lỗi/quá cũ hoặc bị xung đột với phần mềm Token của nhà cung cấp khác (VNPT, Viettel…).",
+                        "solutionHtml": "<ol> <li>Gỡ cài đặt bản VGCA cũ và cài lại phiên bản <strong>VGCA Token Manager</strong> chuẩn.</li> <li>Tải và cập nhật lại Certificate (chứng thư số) của Ban Cơ yếu Chính phủ. </li> </ol>",
+                        "actions": [
+                            {
+                                "type": "link",
+                                "label": "Tải PM Ban Cơ yếu Chính phủ",
+                                "href": "https://dichvucong.ca.gov.vn/#/page/taitainguyen/PM"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "err-3",
+                        "index": 3,
+                        "category": "kyso",
+                        "badge": "Ký số & Token",
+                        "title": "Không mở được hộp thoại ký số do trình duyệt cập nhật phiên bản mới",
+                        "causeHtml": "Trình duyệt Chrome / Cốc Cốc / Edge cập nhật phiên bản mới tự động chặn các kết nối mạng cục bộ (Local Network Access Check) đến service ký số trên máy.",
+                        "solutionHtml": "<p><strong>Cách 1 (Khuyên dùng - Cấu hình 1 lần trên trình duyệt):</strong></p> <ul> <li> <strong>Cốc Cốc:</strong> Dán địa chỉ vào trình duyệt: <span class=\"inline-code\">coccoc://flags/#local-network-access-check-websockets <button type=\"button\" class=\"rich-copy\" data-copy=\"coccoc://flags/#local-network-access-check-websockets\">Sao chép</button> </span> → Chọn <strong>Disabled</strong> → Bấm <strong>Relaunch</strong> (Khởi động lại). <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/loi-khong-moi-duoc-hop-thoai-ky-so/coccoc\">Xem ảnh</button> </li> <li> <strong>Chrome:</strong> Dán địa chỉ vào trình duyệt: <span class=\"inline-code\">chrome://flags/#local-network-access-check <button type=\"button\" class=\"rich-copy\" data-copy=\"chrome://flags/#local-network-access-check\">Sao chép</button> </span> → Chọn <strong>Disabled</strong> → Bấm <strong>Relaunch</strong>. <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/loi-khong-moi-duoc-hop-thoai-ky-so/chrome\">Xem ảnh</button> </li> <li> <strong>Edge:</strong> Dán địa chỉ vào trình duyệt: <span class=\"inline-code\">edge://flags/#local-network-access-check <button type=\"button\" class=\"rich-copy\" data-copy=\"edge://flags/#local-network-access-check\">Sao chép</button> </span> → Chọn <strong>Disabled</strong> → Bấm <strong>Relaunch</strong>. <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/loi-khong-moi-duoc-hop-thoai-ky-so/edge\">Xem ảnh</button> </li> </ul> <p><strong>Cách 2 (Sử dụng song song phân hệ LPM):</strong></p> <ul> <li>Truy cập <a href=\"https://ilis-lpm.vnpt.vn/ho-so/ds-tiep-nhan-ho-so\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Phân hệ luân chuyển hồ sơ (LPM)</strong></a> → Khi hộp thoại <em>\"Access other apps and services on this device\"</em> xuất hiện ở góc trên bên phải → Nhấn chọn <strong>Allow</strong>. <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/loi-khong-moi-duoc-hop-thoai-ky-so/truy-cap-lpm\">Xem ảnh</button> </li> </ul>",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-4",
+                        "index": 4,
+                        "category": "kyso",
+                        "badge": "Ký số & Token",
+                        "title": "\"Có lỗi khi kiểm tra file trên hệ thống lưu trữ\" khi ký số gửi thuế",
+                        "causeHtml": "Các file đính kèm đang mở có file bị lỗi (file không tồn tại trên storage hoặc mở lên bị trắng nội dung) hoặc tên file đính kèm chứa dấu chấm (.) hay ký tự đặc biệt.",
+                        "solutionHtml": "<ol> <li>Kiểm tra danh sách file đính kèm, xóa bỏ các file bị lỗi hoặc trắng và tải lên lại file hoàn chỉnh.</li> <li>Đảm bảo tên file tải lên <strong>không chứa dấu chấm (.)</strong> và không chứa các ký tự đặc biệt: <span class=\"ky-tu-dac-biet\">&amp; $ ! ' \" \\ ( ) &lt;&gt; | * ? / +</span>.</li> </ol>",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-5",
+                        "index": 5,
+                        "category": "kyso",
+                        "badge": "Ký số & Token",
+                        "title": "Xung đột ký số giữa Văn phòng điện tử (VPĐT) và ILIS",
+                        "causeHtml": "Mở đồng thời cả VPĐT và ILIS trên cùng một trình duyệt dẫn đến xung đột phiên làm việc và tiến trình ký số.",
+                        "solutionHtml": "Khuyến khích sử dụng <strong>riêng từng trình duyệt riêng biệt</strong> — một trình duyệt cho VPĐT (ví dụ: Google Chrome) và một trình duyệt dành riêng cho ILIS (ví dụ: Microsoft Edge hoặc Cốc Cốc).",
+                        "actions": []
+                    }
+                ]
+            },
+            {
+                "id": "trinhduyet",
+                "title": "Nhóm lỗi Đăng Nhập, Trình Duyệt & Kết Nối Hệ Thống",
+                "items": [
+                    {
+                        "id": "err-6",
+                        "index": 6,
+                        "category": "trinhduyet",
+                        "badge": "Trình duyệt & Mạng",
+                        "title": "Không truy cập được trang web ILIS / Báo lỗi kết nối",
+                        "causeHtml": "Không truy cập được vào địa chỉ `ilis-cadas.vnpt.vn` hoặc bị lỗi mạng do DNS nhà mạng không phân giải được tên miền hệ thống.",
+                        "solutionHtml": "Chuyển DNS của máy tính sang <strong>Google DNS</strong> (Preferred: `8.8.8.8`, Alternate: `8.8.4.4`) bằng cách cấu hình mạng hoặc tải phần mềm thay đổi DNS tự động.",
+                        "actions": [
+                            {
+                                "type": "gallery",
+                                "label": "Xem hướng dẫn đổi DNS",
+                                "target": "/images/thay-doi-dns-google"
+                            },
+                            {
+                                "type": "download",
+                                "label": "Tải PM Đổi DNS Google tự động",
+                                "href": "https://ilis-docs.vnptdongthap.com.vn/downloads/change-dns-google-by-kha-nhieu.exe"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "err-7",
+                        "index": 7,
+                        "category": "trinhduyet",
+                        "badge": "Trình duyệt & Mạng",
+                        "title": "Truy cập vào ILIS nhưng không hiển thị thanh menu bên trái",
+                        "causeHtml": "Đăng nhập vào hệ thống ILIS thành công nhưng màn hình bên trái trống trơn, không xuất hiện các menu chức năng do thời gian trên máy tính bị lệch so với thời gian máy chủ.",
+                        "solutionHtml": "Cài đặt lại ngày giờ của máy tính về chế độ tự động đồng bộ qua Internet (Set time automatically) hoặc tải công cụ đồng bộ thời gian tự động.",
+                        "actions": [
+                            {
+                                "type": "gallery",
+                                "label": "Xem ảnh hướng dẫn",
+                                "target": "/images/khac-phuc-loi-ilis-khong-hien-menu-ben-trai"
+                            },
+                            {
+                                "type": "download",
+                                "label": "Tải PM Đồng Bộ Thời Gian",
+                                "href": "https://ilis-docs.vnptdongthap.com.vn/downloads/time-sync-by-kha-nhieu.exe"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "err-8",
+                        "index": 8,
+                        "category": "trinhduyet",
+                        "badge": "Trình duyệt & Mạng",
+                        "title": "Truy cập ILIS bị màn hình trắng hoặc màn hình đen",
+                        "causeHtml": "Bộ nhớ đệm (cache) hoặc file JS/CSS phiên bản cũ trên trình duyệt bị xung đột với phiên bản vừa cập nhật của ILIS.",
+                        "solutionHtml": "Nhấn tổ hợp phím <strong>Ctrl + Shift + Delete</strong> trên trình duyệt: <ul> <li><strong>Chrome:</strong> Chọn <em>\"Cached images and files\"</em> → Nhấn <strong>Clear data</strong> (Xóa dữ liệu). </li> <li><strong>Cốc Cốc:</strong> Chọn <em>\"Hình ảnh và tệp được lưu trong bộ nhớ đệm\"</em> → Nhấn <strong>Xóa dữ liệu</strong>.</li> <li><strong>Edge:</strong> Chọn <em>\"Cached images and files\"</em> → Nhấn <strong>Clear now</strong>. </li> </ul> <p>Sau khi xóa, đóng toàn bộ tab và mở lại trang, nhấn <strong>Ctrl + F5</strong> để làm mới hoàn toàn.</p>",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-9",
+                        "index": 9,
+                        "category": "trinhduyet",
+                        "badge": "Đăng nhập",
+                        "title": "Sau khi đổi mật khẩu lần đầu bị chuyển hướng sang trang ilis-admin",
+                        "causeHtml": "Lần đầu đăng nhập, hệ thống bắt buộc đổi mật khẩu. Sau khi đổi thành công, hệ thống tự động redirect nhầm đến trang quản trị `ilis-admin.dongthap.gov.vn`.",
+                        "solutionHtml": "Đóng tab trang `ilis-admin` và mở lại địa chỉ làm việc chính thức: <a href=\"https://ilis-cadas.vnpt.vn/\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>https://ilis-cadas.vnpt.vn</strong></a>. Từ các lần sau hệ thống sẽ tự động vào đúng phân hệ hồ sơ địa chính.",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-10",
+                        "index": 10,
+                        "category": "trinhduyet",
+                        "badge": "Cấu hình tài khoản",
+                        "title": "Mở thửa đất không tải được hình thể thửa đất",
+                        "causeHtml": "Cấu hình riêng của tài khoản bị sai Cấp in GCN hoặc sai Mã tỉnh cũ khiến hệ thống không kết nối được dịch vụ bản đồ.",
+                        "solutionHtml": "Nhấn vào Avatar góc phải màn hình → Chọn <strong>Cấu hình riêng</strong>: <ol> <li><strong>Cấp in GCN:</strong> Chọn đúng <strong>CN</strong> (Chi nhánh) hoặc <strong>CX</strong> (Cấp xã).</li> <li><strong>Mã tỉnh cũ:</strong> Cà Mau chọn <strong>87</strong>, Tiền Giang chọn <strong>82</strong>.</li> </ol>",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-11",
+                        "index": 11,
+                        "category": "trinhduyet",
+                        "badge": "Đăng nhập",
+                        "title": "Không đăng xuất được trên hệ thống ILIS",
+                        "causeHtml": "Nhấn nút Đăng xuất trên giao diện ILIS nhưng không có phản hồi do phiên SSO bị kẹt.",
+                        "solutionHtml": "Truy cập trực tiếp vào đường link đăng xuất SSO: <a href=\"https://ilis-sso.dongthap.gov.vn/Account/LoggedOut\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>https://ilis-sso.dongthap.gov.vn/Account/LoggedOut</strong></a> để xóa sạch phiên đăng nhập.",
+                        "actions": []
+                    }
+                ]
+            },
+            {
+                "id": "dvc",
+                "title": "Nhóm lỗi Hồ Sơ, Liên Thông DVC & Đồng Bộ Dữ Liệu",
+                "items": [
+                    {
+                        "id": "err-12",
+                        "index": 12,
+                        "category": "dvc",
+                        "badge": "Hồ sơ & DVC",
+                        "title": "Hồ sơ liên thông bị sai xã / sai địa bàn tiếp nhận",
+                        "causeHtml": "Hồ sơ Một cửa DVC chọn nhầm địa bàn xã/phường khi tiếp nhận liên thông.",
+                        "solutionHtml": "Hồ sơ liên thông sai xã bắt buộc phải thực hiện <strong>Trả kết thúc hồ sơ</strong> trên hệ thống và hướng dẫn người dân nộp lại đúng địa bàn.",
+                        "actions": [
+                            {
+                                "type": "gallery",
+                                "label": "Xem hướng dẫn xử lý hủy hồ sơ",
+                                "target": "/images/huong-dan-xu-ly-ho-so-khong-du-dieu-kien"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "err-13",
+                        "index": 13,
+                        "category": "dvc",
+                        "badge": "Hồ sơ & DVC",
+                        "title": "Hồ sơ DVC không liên thông được với ILIS",
+                        "causeHtml": "Hồ sơ trên DVC đã được chuyển sang các bước xử lý tiếp theo (ví dụ: Bước thẩm tra). ILIS chỉ liên thông được khi hồ sơ DVC ở đúng trạng thái ban đầu.",
+                        "solutionHtml": "Phải chuyển hồ sơ trên DVC trở lại đúng bước <span class=\"note-badge-red\">Vừa tiếp nhận</span> rồi mới thực hiện thao tác liên thông sang ILIS.",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-14",
+                        "index": 14,
+                        "category": "dvc",
+                        "badge": "Hồ sơ & DVC",
+                        "title": "Hồ sơ DVC ĐÃ LIÊN THÔNG nhưng không thấy trong danh sách ILIS",
+                        "causeHtml": "Hồ sơ đã liên thông thành công từ DVC sang nhưng chưa được tiếp nhận từ hàng đợi về danh sách hồ sơ chính của cán bộ.",
+                        "solutionHtml": "Vào menu chức năng <strong>Tiếp nhận từ DVC</strong> trên ILIS → Tìm mã hồ sơ cần xử lý → Bấm tiếp nhận về danh sách công việc.",
+                        "actions": [
+                            {
+                                "type": "gallery",
+                                "label": "Xem ảnh hướng dẫn tiếp nhận",
+                                "target": "/images/tiep-nhan-tu-dvc"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "err-15",
+                        "index": 15,
+                        "category": "dvc",
+                        "badge": "Hồ sơ & DVC",
+                        "title": "ILIS không đồng bộ thời gian với hệ thống DVC",
+                        "causeHtml": "Cán bộ thao tác chuyển bước trên cả 2 hệ thống (cả DVC lẫn ILIS) dẫn đến lệch mốc thời gian và mất đồng bộ dữ liệu.",
+                        "solutionHtml": "<strong>Chỉ chuyển bước trên phần mềm ILIS</strong>, hệ thống sẽ tự động đồng bộ thời gian và trạng thái sang DVC một cách chính xác.",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-16",
+                        "index": 16,
+                        "category": "dvc",
+                        "badge": "Tải file & Hồ sơ quét",
+                        "title": "File tải lên không đồng bộ về DVC / Hồ sơ quét không xem được",
+                        "causeHtml": "Tên file tải lên ILIS chứa các ký tự đặc biệt bị cấm khiến dịch vụ đồng bộ file bị lỗi hoặc không render được file.",
+                        "solutionHtml": "Đặt tên file ngắn gọn, không dấu và <strong>tuyệt đối không chứa các ký tự:</strong> <span class=\"ky-tu-dac-biet\">&amp; $ ! ' \" \\ ( ) . &lt;&gt; | * ? / +</span> trước khi tải lên.",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-17",
+                        "index": 17,
+                        "category": "dvc",
+                        "badge": "Đồng bộ DVC",
+                        "title": "Hồ sơ hoàn tất trên ILIS nhưng DVC chưa cập nhật kết quả",
+                        "causeHtml": "Tiến trình đồng bộ tự động giữa ILIS và DVC đang trong hàng đợi xử lý.",
+                        "solutionHtml": "Mở hồ sơ trên hệ thống DVC và bấm vào nút <em>\"Xem quy trình\"</em> để kiểm tra, hệ thống DVC sẽ kích hoạt đồng bộ dữ liệu ngay lập tức.",
+                        "actions": []
+                    }
+                ]
+            },
+            {
+                "id": "thue",
+                "title": "Nhóm lỗi Phiếu Thuế (NVTC) & Liên Thông Thuế",
+                "items": [
+                    {
+                        "id": "err-18",
+                        "index": 18,
+                        "category": "thue",
+                        "badge": "Phiếu thuế NVTC",
+                        "title": "Phiếu thuế bị Cơ quan thuế từ chối",
+                        "causeHtml": "Cơ quan thuế kiểm tra và phát hiện thông tin thửa đất, tài sản hoặc nghĩa vụ tài chính chưa chính xác nên trả lại hồ sơ.",
+                        "solutionHtml": "<strong>Cập nhật lại phiếu thuế</strong> theo đúng yêu cầu từ chối của Thuế rồi thực hiện ký số gửi lại. <br/> <span class=\"note-badge-red\"> Lưu ý nghiêm cấm: Không xóa và tạo lại cùng số phiếu — hệ thống sẽ báo lỗi đã tồn tại phiếu.</span>",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-19",
+                        "index": 19,
+                        "category": "thue",
+                        "badge": "Phiếu thuế NVTC",
+                        "title": "Phiếu thuế không hiển thị trong Liên thông thuế hoặc không tạo được phiếu",
+                        "causeHtml": "Dữ liệu phiếu thuế bị thiếu các trường thông tin bắt buộc có dấu sao (*).",
+                        "solutionHtml": "Kiểm tra và bổ sung đầy đủ các trường sau: <ol> <li><strong>Thông tin hồ sơ:</strong> Loại hồ sơ, Số biên nhận (phải khớp chính xác với Mã hồ sơ), Mã vạch GCN.</li> <li><strong>Thông tin chủ sử dụng:</strong> Loại giấy tờ, Số giấy tờ, Ngày sinh hoặc Năm sinh, Địa chỉ, Đơn vị hành chính.</li> <li><strong>Thông tin thửa đất:</strong> Đơn vị hành chính và <strong>Mục 2.2 Thông tin chi tiết thửa đất</strong> (Loại đất, Vị trí đất, Giá đất).</li> </ol>",
+                        "actions": [
+                            {
+                                "type": "link",
+                                "label": "Công cụ Check XML thuế hợp lệ",
+                                "href": "https://ilis-docs.vnptdongthap.com.vn/check-xml-thue.html"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "err-20",
+                        "index": 20,
+                        "category": "thue",
+                        "badge": "Phiếu thuế NVTC",
+                        "title": "Không hiển thị được danh sách đường (Không tồn tại danh sách đường) trong phiếu thuế",
+                        "causeHtml": "Tài khoản cán bộ chưa được phân quyền sử dụng phân hệ <strong>Chia sẻ chung Cà Mau</strong> (phân hệ dùng để đồng bộ danh mục đường, đoạn đường, bảng giá đất).",
+                        "solutionHtml": "Liên hệ <strong>Admin hệ thống ILIS</strong> để được phân quyền bổ sung phân hệ <em>Chia sẻ chung Cà Mau</em> cho tài khoản.",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-21",
+                        "index": 21,
+                        "category": "thue",
+                        "badge": "Phiếu thuế NVTC",
+                        "title": "Phiếu NVTC bị thiếu tên đường / đoạn đường",
+                        "causeHtml": "Tuyến đường mới hoặc đoạn đường chưa được cơ quan thuế cập nhật vào cơ sở dữ liệu dùng chung.",
+                        "solutionHtml": "Xin phía cơ quan Thuế file Excel danh mục đường đang thiếu (theo file mẫu chuẩn) và gửi cho <strong>Admin phần mềm</strong> để cập nhật thêm mới vào hệ thống.",
+                        "actions": [
+                            {
+                                "type": "download",
+                                "label": "Tải File Mẫu Danh Mục Đường (.xlsx)",
+                                "href": "https://ilis-docs.vnptdongthap.com.vn/downloads/gridDMDoan_20260409-041348.xlsx"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "err-22",
+                        "index": 22,
+                        "category": "thue",
+                        "badge": "Phiếu thuế NVTC",
+                        "title": "Đổi sang mã hồ sơ khác khiến phiếu thuế không hiện trong liên thông thuế",
+                        "causeHtml": "Đăng ký biến động đã tạo phiếu thuế với mã hồ sơ cũ, sau đó cán bộ đổi sang mã hồ sơ mới khiến liên thông thuế không nhận diện được.",
+                        "solutionHtml": "Phải thực hiện <strong>Hoàn tất</strong> hoặc <strong>Hủy bỏ</strong> phiếu thuế đã tạo ban đầu thì mới có thể tạo phiếu mới với mã hồ sơ khác.",
+                        "actions": []
+                    }
+                ]
+            },
+            {
+                "id": "gcn",
+                "title": "Nhóm lỗi Thửa Đất, Đăng Ký Biến Động, GCN & Sổ Địa Chính",
+                "items": [
+                    {
+                        "id": "err-23",
+                        "index": 23,
+                        "category": "gcn",
+                        "badge": "Đăng ký thửa đất",
+                        "title": "Lưu đăng ký thửa đất không thành công",
+                        "causeHtml": "Khi bấm lưu đăng ký, hệ thống báo lỗi không thành công do nội dung hạn chế quyền sử dụng đất dài quá 255 ký tự hoặc thêm mới thửa đất đã có sẵn trong CSDL.",
+                        "solutionHtml": "<ol> <li><strong>Nếu do nội dung hạn chế QSDĐ:</strong> Rút ngắn nội dung sao cho tổng số ký tự ≤ 255 ký tự.</li> <li><strong>Nếu do thông báo thửa đất đã tồn tại:</strong> Chọn thửa từ danh sách gợi ý và thêm lại (hoặc tìm trong chức năng Đăng ký đất đai).</li> </ol>",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-24",
+                        "index": 24,
+                        "category": "gcn",
+                        "badge": "Biến động thu hồi",
+                        "title": "Biến động thu hồi báo \"Có lỗi xảy ra\" khi bấm Lưu",
+                        "causeHtml": "Đối với loại biến động thu hồi đất, trường thông tin <strong>Cơ quan duyệt</strong> là bắt buộc nhưng bị bỏ trống.",
+                        "solutionHtml": "Chọn đầy đủ cơ quan có thẩm quyền duyệt tại ô <strong>Cơ quan duyệt</strong> trước khi nhấn Lưu biến động.",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-25",
+                        "index": 25,
+                        "category": "gcn",
+                        "badge": "Sổ địa chính",
+                        "title": "Không xuất được Sổ địa chính (SĐC)",
+                        "causeHtml": "Chủ sử dụng hoặc Người liên quan bị thiếu các trường thông tin bắt buộc hoặc Người liên quan không tồn tại trong hệ thống.",
+                        "solutionHtml": "Kiểm tra và bổ sung đầy đủ các trường thông tin: Họ và tên, Giới tính, Quốc tịch 1, Dân tộc, Xã/Phường, Địa chỉ, Loại giấy tờ, Số giấy tờ của chủ sử dụng và người liên quan.",
+                        "actions": []
+                    },
+                    {
+                        "id": "err-26",
+                        "index": 26,
+                        "category": "gcn",
+                        "badge": "Đăng ký biến động",
+                        "title": "Hoàn tất biến động không thành công",
+                        "causeHtml": "Có nhiều nguyên nhân gây lỗi, bao gồm: sai thông tin GCN (số vào sổ &gt; 10 ký tự, sai serial), thiếu thông tin tài sản bắt buộc, số công chứng quá 100 byte, hoặc chủ sử dụng sau biến động đã bị xóa.",
+                        "solutionHtml": "<ol> <li><strong>Thông tin giấy chứng nhận:</strong> Nhấn nút <strong>Cập nhật GCN</strong> để kiểm tra lại Số vào sổ (≤ 10 ký tự) và Số Serial. </li> <li><strong>Thông tin tài sản:</strong> Bổ sung đầy đủ thông tin tài sản gắn liền với đất.</li> <li><strong>Số công chứng:</strong> Giảm số lượng ký tự của số công chứng xuống ≤ 70 ký tự.</li> <li><strong>Chủ sử dụng:</strong> Nếu chủ sử dụng sau biến động bị lỗi (chỉ còn hiển thị dạng view do bị xóa), hãy tạo chủ sử dụng mới và chọn lại. </li> <li>Nếu vẫn không hoàn tất được, liên hệ bộ phận kỹ thuật phần mềm kiểm tra CSDL.</li> </ol>",
+                        "actions": [
+                            {
+                                "type": "gallery",
+                                "label": "Xem hướng dẫn cập nhật GCN",
+                                "target": "/images/cap-nhat-gcn-trong-dang-ky-bien-dong"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "err-27",
+                        "index": 27,
+                        "category": "gcn",
+                        "badge": "Mã QR GCN",
+                        "title": "Sơ đồ mã QR GCN bị lỗi hiển thị (Không hiện sơ đồ hoặc các nét vẽ bị lệch)",
+                        "causeHtml": "Khi quét mã QR GCN, hình ảnh sơ đồ thửa đất không hiển thị hoặc các đường line, cạnh thửa, mũi tên hướng Bắc bị rời rạc do chưa nhóm (Group) các đối tượng trong bản vẽ.",
+                        "solutionHtml": "Trong phần mềm biên tập sơ đồ GCN, quét chọn toàn bộ các thành phần của thửa đất cùng với mũi tên hướng Bắc rồi thực hiện <strong>Group (Nhóm đối tượng)</strong> lại trước khi lưu và xuất sơ đồ.",
+                        "actions": [
+                            {
+                                "type": "gallery",
+                                "label": "Xem hướng dẫn cập nhật sơ đồ QR GCN",
+                                "target": "/images/cap-nhat-so-do-gcn-qr-gcn"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "err-28",
+                        "index": 28,
+                        "category": "gcn",
+                        "badge": "Phân quyền cấp xã",
+                        "title": "Tài khoản cấp xã bị giới hạn quyền không xóa/sửa được dữ liệu",
+                        "causeHtml": "Tài khoản cấp xã theo quy định bảo mật hệ thống sẽ không có quyền: Không xóa được GCN, Không cập nhật được hình thể thửa đất, Không xóa được đăng ký quyền SDĐ.",
+                        "solutionHtml": "Khi có nhu cầu xóa GCN, cập nhật lại hình thể thửa đất hoặc xóa đăng ký quyền sử dụng đất, cán bộ cấp xã vui lòng liên hệ <strong>Chi nhánh Văn phòng Đăng ký đất đai</strong> để được hỗ trợ thực hiện.",
+                        "actions": []
+                    }
+                ]
+            }
+        ]
+    },
+    "notes": {
+        "sections": [
+            {
+                "id": "ghi-chu-1",
+                "order": 1,
+                "title": "Đăng nhập lần đầu",
+                "html": "<ul> <li>Truy cập hệ thống tại: <a href=\"https://ilis-cadas.vnpt.vn/\" target=\"_blank\" rel=\"noopener noreferrer\">ilis-cadas.vnpt.vn</a> </li> <li><strong>Lần đầu đăng nhập</strong>, hệ thống sẽ yêu cầu <span class=\"text-danger\"><strong>đổi mật khẩu</strong></span>.</li> <li>Sau khi đổi thành công, nếu lần đầu đăng nhập bị chuyển đến trang <strong>https://ilis-admin.dongthap.gov.vn</strong> thì tắt tab này và mở lại trang <a href=\"https://ilis-cadas.vnpt.vn/\" target=\"_blank\" rel=\"noopener noreferrer\">https://ilis-cadas.vnpt.vn</a> để sử dụng </li> <li>Từ lần sau, khi đăng nhập hệ thống sẽ tự chuyển vào <strong>Phân hệ quản lý hồ sơ địa chính</strong>.</li> <li>Cán bộ nhấn avatar góc phải → <strong>Cấu hình riêng</strong>: <br/> <span class=\"text-italic\"><small>(Ghi chú: Nếu cấu hình sai, khi mở thửa đất sẽ không tải được hình thể thửa đất)</small></span> <ol> <li><strong>Cấp in GCN:</strong> Chọn <strong>CN</strong> hoặc <strong>CX</strong> </li> <li><strong>Mã tỉnh cũ:</strong> Tiền Giang <strong>82</strong>, Cà Mau <strong>87</strong> </li> </ol> </li> <li><strong>Cài đặt trang in GCN A4</strong>: Bỏ chọn đầu trang và chân trang (Header and Footer). <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/cai-dat-trang-in-gcn\">Xem hướng dẫn</button> </li> <li>Không đăng nhập được → liên hệ <strong>Admin</strong> hỗ trợ.</li> </ul>"
+            },
+            {
+                "id": "ghi-chu-2",
+                "order": 2,
+                "title": "Tra cứu & tiện ích",
+                "html": "<ul> <li>Tra cứu GCN: <a href=\"https://ilis-tracuugcn.vnpt.vn/\" target=\"_blank\" rel=\"noopener noreferrer\">ilis-tracuugcn.vnpt.vn</a> </li> <li>Quét QR nâng cao: <a href=\"https://qrscanner.net/vi\" target=\"_blank\" rel=\"noopener noreferrer\">Advanced QR Scan</a></li> <li>Ảnh sang text: <a href=\"https://www.imagetotext.info/\" target=\"_blank\" rel=\"noopener noreferrer\">Image to Text Converter</a></li> <li><a href=\"https://docs.google.com/spreadsheets/d/1CRBD5P0dw4TuIDjnae3ufy9jb2S8LecfxPVtSKorcQc/edit?gid=158860723#gid=158860723\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--accent)\">Yêu cầu đồng bộ lại hồ sơ ILIS-DVC</a> </li> <li><a href=\"https://docs.google.com/spreadsheets/d/1gL1AT_Z0YeocvRdpeIqkuOCE_WM-F4Pgr_wpwJFB_9Y/edit?gid=0#gid=0\" target=\"_blank\" rel=\"noopener noreferrer\">Nhập yêu cầu đẩy lại TBT (Trường hợp thuế đã trả TBT nhưng lấy thông tin trong liên thông thuế → phiếu NVTC không có)</a> </li> <li><a href=\"https://dichvucong.ca.gov.vn/#/page/taitainguyen/PM\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"link-accent\">Phần mềm ban cơ yếu chính phủ</a></li> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/downloads/Cau-Hinh-GCN-CN.json\" target=\"_blank\" rel=\"noopener noreferrer\"> Tải tệp cấu hình GCN dành cho chi nhánh (Số vào sổ loại CN)</a></li> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/downloads/Cau-Hinh-GCN-CX.json\" target=\"_blank\" rel=\"noopener noreferrer\"> Tải tệp cấu hình GCN dành cho xã (Số vào sổ loại CX)</a></li> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/downloads/restart_vgca_ky_so_gui_thue.zip\" target=\"_blank\" rel=\"noopener noreferrer\"> Tải tệp khởi động lại service ký số (Khắc phục lỗi không tìm thấy token, vui lòng cắm token và thực hiện lại)</a> <hr/> </li> <li> <strong id=\"huong-dan-xoa-cache-trinh-duyet\" style=\"color:var(--blue)\">Hướng dẫn xoá cache trình duyệt:</strong> <ul> <li><strong>Chrome:</strong> Nhấn Ctrl + Shift + Delete → Chọn \"Cached images and files\" → Nhấn <button type=\"button\" class=\"rich-copy rich-copy--inline\" data-copy=\"chrome://settings/clearBrowserData\">Xoá khỏi thiết bị này (Delete from this device)</button></li> <li><strong>Cốc Cốc:</strong> Nhấn Ctrl + Shift + Delete → Chọn \"Hình ảnh và tệp được lưu trong bộ nhớ đệm\" → Nhấn <button type=\"button\" class=\"rich-copy rich-copy--inline\" data-copy=\"coccoc://settings/clearBrowserData\">Xóa dữ liệu (Clear data)</button></li> <li><strong>Edge:</strong> Nhấn Ctrl + Shift + Delete → Chọn \"Cached images and files\" → Nhấn <button type=\"button\" class=\"rich-copy rich-copy--inline\" data-copy=\"edge://settings/clearBrowserData\">Xoá ngay (Clear now)</button></li> </ul> <hr/> </li> <li> <strong style=\"color:var(--blue)\"> Hướng dẫn khắc phục lỗi không mở được hộp thoại ký số do trình duyệt cập nhật phiên bản mới (ILIS chưa cập nhật theo trình duyệt, nếu ILIS cập nhật xong sẽ không làm thao tác này) : </strong> <ol> <li> <strong>Cách 1:</strong> Ưu điểm xử lý trên 1 trang ilis-cadas và chỉ chỉnh sửa 1 lần, nhược điểm thực hiện nhiều thay tác để cấu hình, xem hướng dẫn bên dưới. <ul> <li> - <strong>Cốc Cốc:</strong> Copy và dán địa chỉ này vào trình duyệt <span class=\"inline-code\"> coccoc://flags/#local-network-access-check-websockets <button type=\"button\" class=\"rich-copy\" data-copy=\"coccoc://flags/#local-network-access-check-websockets\">Sao chép</button> </span> <br/> → Chọn Disabled flag này → Chạy lại (Relaunch) <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/loi-khong-moi-duoc-hop-thoai-ky-so/coccoc\">Xem ảnh mô tả</button> </li> <li> - <strong>Chrome:</strong> Copy và dán địa chỉ này vào trình duyệt <span class=\"inline-code\"> chrome://flags/#local-network-access-check <button type=\"button\" class=\"rich-copy\" data-copy=\"chrome://flags/#local-network-access-check\">Sao chép</button> </span> <br/> → Chọn Disabled flag này → Chạy lại (Relaunch) <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/loi-khong-moi-duoc-hop-thoai-ky-so/chrome\">Xem ảnh mô tả</button> </li> <li> - <strong>Edge:</strong> Copy và dán địa chỉ này vào trình duyệt <span class=\"inline-code\"> edge://flags/#local-network-access-check <button type=\"button\" class=\"rich-copy\" data-copy=\"edge://flags/#local-network-access-check\">Sao chép</button> </span> <br/> → Chọn Disabled flag này → Chạy lại (Relaunch) <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/loi-khong-moi-duoc-hop-thoai-ky-so/edge\">Xem ảnh mô tả</button> </li> </ul> </li> <li> <strong>Cách 2:</strong> Ưu điểm không cần cấu hình chỉ cần mở trang lên và sử dụng, nhược điểm phải sử dụng 2 trang song song (ilis-cadas để chỉnh lý và ilis-lpm xử lý hồ sơ) <ul> <li> - Truy cập link để xử lý hồ sơ: <a href=\"https://ilis-lpm.vnpt.vn/ho-so/ds-tiep-nhan-ho-so\" target=\"_blank\" rel=\"noopener noreferrer\">Phân hệ luân chuyển hồ sơ</a> hộp thoại <strong>Access other apps and services on this device</strong> hiện lên bên gốc trên bên phải Chọn <strong>Allow</strong> <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/loi-khong-moi-duoc-hop-thoai-ky-so/truy-cap-lpm\">Xem ảnh mô tả</button> </li> </ul> </li> </ol> <hr/> </li> <li> <strong style=\"color:var(--blue)\">Hướng dẫn thay đổi DNS GOOGLE khi không truy cập được ILIS <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/thay-doi-dns-google\">Xem ngay</button></strong> hoặc tải phần mềm thay đổi DNS này về chạy <a href=\"https://ilis-docs.vnptdongthap.com.vn/downloads/change-dns-google-by-kha-nhieu.exe\" target=\"_blank\" rel=\"noopener noreferrer\"> Tải phần mềm </a> </li> <li> <strong style=\"color:var(--blue)\">Hướng dẫn khắc phục lỗi truy cập vào ILIS nhưng không hiện thanh menu bên trái <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/khac-phuc-loi-ilis-khong-hien-menu-ben-trai\">Xem ngay</button></strong> hoặc tải phần mềm đồng bộ thời gian về chạy <a href=\"https://ilis-docs.vnptdongthap.com.vn/downloads/time-sync-by-kha-nhieu.exe\" target=\"_blank\" rel=\"noopener noreferrer\"> Tải phần mềm </a> </li> <li> <strong>Hướng dẫn khắc phục lỗi truy cập vào ILIS bị trắng hoặc bị đen màn hình</strong> → Xem <a href=\"#huong-dan-xoa-cache-trinh-duyet\" style=\"color:var(--blue)\">Hướng dẫn xoá cache trình duyệt</a> ở trên </li> </ul>"
+            },
+            {
+                "id": "ghi-chu-3",
+                "order": 3,
+                "title": "Chủ sử dụng - Thửa đất - HS nhiều thửa",
+                "html": "<ul> <li><strong>Loại đối tượng chủ sử dụng:</strong> Cá nhân, Hộ gia đình, Người VN ở nước ngoài </li> <li><strong>Hình thức sử dụng đất:</strong> <ol> <li><strong>1 chủ – 1 thửa:</strong> 1 cá nhân</li> <li><strong>Đồng sử dụng toàn phần:</strong> Từ 2 cá nhân hoặc 2 tổ chức trở lên </li> <li><strong>Đồng sử dụng có phần chung:</strong> Từ 2 cá nhân hoặc 2 tổ chức trở lên, có ngõ đi chung trong GCN</li> </ol> </li> <li><strong>Diện tích thửa đất hiển thị theo hình thức SDĐ:</strong> <ol> <li><strong>1 chủ – 1 thửa </strong> Diện tích riêng</li> <li><strong>Đồng sử dụng toàn phần </strong> Diện tích chung</li> <li><strong>Đồng sử dụng có phần chung </strong> Diện tích chung + riêng</li> <li><strong>Đồng sử dụng xác định diện tích </strong> Diện tích riêng + (Diện tích chung mặc định)</li> </ol> </li> <li><strong>Trường hợp lưu đăng ký không thành công</strong> <ol> <li><strong>Nội dung hạn chế quyền sử dụng đất vượt quá 255 ký tự</strong> Cập nhật nội dung &lt;= 255 ký tự</li> <li><strong>Thêm mới thửa đất, phần mềm thông báo đã tồn tại trong cơ sở dữ liệu</strong> Chọn từ danh sách và thêm lại (Hoặc tìm trong đăng ký đất đai nếu đã tồn tại thì không thêm được nữa)</li> </ol> </li> <li><strong>Hồ sơ nhiều thửa:</strong> <ol> <li>Tạo biến động từng thửa</li> <li>Tạo phiếu thuế ở thửa cuối → gộp thửa đất chuyển thuế</li> </ol> </li> <li> <strong>Địa chỉ tài sản trong QR GCN</strong> sẽ <strong style=\"color:var(--red)\">không hiển thị</strong> nếu <strong> địa chỉ thửa đất trùng với địa chỉ của tài sản </strong> </li> <li> <strong>Hướng dẫn tải hình thể lên ILIS</strong> <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/huong-dan-tai-hinh-the-len-ilis\">Xem hướng dẫn</button> <small style=\"color:var(--red)\"> (Các layer phải đúng theo trong hình để ILIS có thể nhận được) </small></li> </ul>"
+            },
+            {
+                "id": "ghi-chu-4",
+                "order": 4,
+                "title": "Ứng dụng tích hợp",
+                "html": "<ul> <li>Chuyển đổi <a href=\"https://smallpdf.com/vi/pdf-to-word#r=convert-to-word\" target=\"_blank\" rel=\"noopener noreferrer\">PDF sang Word</a></li> <li>Quét QR: <a href=\"https://ilis-docs.vnptdongthap.com.vn/qrscan/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">QR Scanner</a></li> <li>Tra cứu GCN: <a href=\"https://ilis-tracuugcn.vnpt.vn/\" target=\"_blank\" rel=\"noopener noreferrer\">Tra cứu GCN</a><span class=\"text-muted text-italic\">(Dành cho cán bộ và người dân tra cứu, nếu chưa có tài khoản nhấn vào đăng ký để tạo tài khoản)</span></li> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/check-xml-thue.html\" target=\"_blank\" rel=\"noopener noreferrer\">Check hợp lệ XML chuyển thuế</a></li> <li><a href=\"https://ilis-lpm.vnpt.vn/\" target=\"_blank\" rel=\"noopener noreferrer\">Phân hệ luân chuyển hồ sơ <small class=\"text-muted text-italic\">(cán bộ xử lý HS, Admin cấu hình quy trình - thủ tục)</small></a></li> <li><a href=\"https://ilis-datasharing.dongthap.gov.vn\" target=\"_blank\" rel=\"noopener noreferrer\">Phân hệ chia sẻ chung <small class=\"text-muted text-italic\">(đường và đoạn đường, khu vực, vị trí, giá và loại nhà, cấp và chất lượng nhà, hệ số đất và hệ số điều chỉnh)</small></a></li> <li><a href=\"https://ilis-sso.dongthap.gov.vn/Account/LoggedOut\" target=\"_blank\" rel=\"noopener noreferrer\">Đăng xuất ILIS <small class=\"text-muted text-italic\">(dành cho trường hợp không đăng xuất được trên hệ thống ILIS)</small></a></li> </ul>"
+            },
+            {
+                "id": "ghi-chu-5",
+                "order": 5,
+                "title": "Sổ địa chính - Giấy chứng nhận - Biến động thửa đất",
+                "html": "<ul> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/gcn-sdc/doi-tuong-sdd-va-hinh-thuc-sd-trong-gcn-sdc.html\" target=\"_blank\" rel=\"noopener noreferrer\">Đối tượng sử dụng đất và hình thức sử dụng trong GCN và SĐC</a></li> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/gcn-sdc/Mau_the_hien_thong_tin_ma_QR_cua_Giay_Chung_nhan.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Mẫu thể hiện thông tin mã QR của giấy chứng nhận</a></li> <li>Mục 4.1.a) trong SĐC → <strong>Thời điểm đăng ký vào sổ địa chính</strong> sẽ hiển thị thời gian trong trường hợp <strong>thửa đất cấp mới</strong> trạng thái <strong>không đủ điều kiện cấp giấy chứng nhận</strong></li> <li>Trạng thái thửa đất: <strong>Đã cấp giấy chứng nhận (Có PL)</strong> → GCN có nhập ngày ký và ngày vào sổ sẽ hiển thị (Có PL ~ Có Pháp Lý)</li> <li> Từ <strong>2 tài sản trong QR giấy chứng nhận</strong> sẽ hiển thị bảng, còn 1 tài sản chỉ hiển thị text </li> <li>Hiển thị <strong>Thông tin chi tiết của các tài sản được thể hiện trong mã QR</strong> trong giấy chứng nhận đối với trường hợp 2 tài sản trở lên: <strong>Bên tập GCN</strong> → <strong>Cấu Hình</strong> → bỏ chọn checkbox <strong>Hiển thị thông tin tài sản</strong> <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/cau-hinh-hien-thi-thong-tin-tai-san-trong-qr-gcn\">Xem hướng dẫn</button> </li> <li> <strong>QR GCN sơ đồ bị lỗi hiển thị</strong> (Không hiển thị được sơ đồ hoặc các line không khớp) <strong>Chưa group các thành phần trong sơ đồ, phải group cả mũi tên</strong> <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/cap-nhat-so-do-gcn-qr-gcn\">Xem hướng dẫn</button> </li> <li> Hiển thị ghi chú trang 2 trong GCN: <strong>Bên tập GCN</strong> → <strong>Chỉnh sửa GCN</strong> → <strong>Nhập thay đổi vào ô ghi chú giấy chứng nhận trang 2</strong> → <strong>Cập nhật và lưu GCN</strong> <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/hien-thi-ghi-chu-trang-2-trong-gcn\">Xem hướng dẫn</button> </li> <li> Hướng dẫn xóa sổ địa chính đã ký: <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/huong-dan-xoa-so-dia-chinh-da-ky\">Xem hướng dẫn</button> </li> <li> <strong><a href=\"https://drive.google.com/file/d/1FHgP1TGjKFWDcuB6-gm00h91n2dRZ4JA/view?usp=sharing\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"link-blue\">Công văn 1805/CĐKDLTTĐĐ-CNDLTTĐĐ năm 2024 hướng dẫn tạo và trình bày thông tin mã QR của Giấy chứng nhận do Cục Đăng ký và Dữ liệu thông tin đất đai ban hành</a></strong> </li> <li> <strong class=\"link-blue\">Các trường hợp không xuất được SĐC</strong> <ol> <li><strong>Chủ sử dụng</strong> hoặc <strong>người liên quan</strong> thiếu các trường <strong>thông tin bắt buộc</strong>: Họ tên, giới tính, quốc tịch 1, dân tộc, xã/phường, địa chỉ, loại giấy tờ, số giấy tờ <strong> Sửa lại thông tin chủ sử dụng, người liên quan </strong></li> <li>Người liên quan không tồn tại, hoặc thiếu các thông tin <strong> Thêm mới hoặc cập nhật thông tin người liên quan </strong></li> </ol> </li> <li> <strong class=\"link-blue\">Các trường hợp hoàn tất biến động không thành công</strong> <ol> <li> Thông tin giấy chứng nhận không đúng: <ul> <li> - <strong>Số vào sổ</strong> chỉ được nhập <strong>tối đa 10 ký tự</strong> </li> <li> - <strong>Số serial</strong> phải nằm trong <strong>kho số</strong> </li> </ul> Nhấn vào <strong>Cập nhật GCN</strong> trong đăng ký đang biến động để cập nhật lại thông tin giấy chứng nhận <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/cap-nhat-gcn-trong-dang-ky-bien-dong\">Xem hướng dẫn</button> </li> <li> Chủ sử dụng hoặc người liên quan thiếu các thông tin bắt buộc: <strong>số giấy tờ, dân tộc,địa chỉ,..</strong> </li> <li>Thông tin tài sản các trường bắt buộc bị rỗng: <strong>cấp công trình, công trình, địa chỉ, diện tích, cấp nhà, loại nhà,..</strong> </li> <li> Nội dung hạn chế quyền sử dụng đất vượt quá 255 ký tự Cập nhật nội dung &lt;= 255 ký tự </li> <li> Nếu tất cả các biến động điều không hoàn tất được: <strong>liên hệ phần mềm để kiểm tra</strong> </li> <li> Số công chứng trong nhập nội dung biến động quá 100 byte (Khoảng trên 70 ký tự) </li> </ol> </li> <li> <strong class=\"link-blue\">Cách ghi nội dung thông tin chung và thông tin riêng của từng thửa trong biến động thửa đất </strong> <ol> <li>Nội dung SDC lấy thông tin biến động từ tab <strong>thông tin chung</strong>. Tuy nhiên nếu <strong>thông tin riêng</strong> của từng thửa có chỉnh sửa và lưu thì sẽ lấy <strong>thông tin riêng của thửa</strong> </li> </ol> </li> <li> <strong class=\"link-blue\">Hiển thị người liên quan đúng vị trí trong GCN</strong> → <strong> Thêm thành viên cuối đầu tiên khi lưu phần mềm sẽ tự đảo lại hiển thị đúng vị trí ở cuối </strong> </li> </ul>"
+            },
+            {
+                "id": "ghi-chu-6",
+                "order": 6,
+                "title": "Phiếu NVTC",
+                "html": "<ul> <li> <a href=\"https://drive.google.com/file/d/1rsaC2zgWTDiB9EAvN7GgPlPzP2TaHuGL/view?usp=sharing\" target=\"_blank\" rel=\"noopener noreferrer\">Mẫu phiếu mới 01/QCPH-CT-CQLĐĐ ngày 07/01/2026 của Cục Thuế và Cục Quản lý đất đai</a> </li> <li> <a href=\"https://drive.google.com/file/d/1g2zFVyV85RA0Hv5G5lraTWCILQRaQFhs/view?usp=sharing\" target=\"_blank\" rel=\"noopener noreferrer\">Mẫu phiếu thuế số 19 - 151/2025/NĐ-CP</a> </li> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/phieu-thue/Phieu_Chuyen_01_2026_nang_cap_thong_tin_chu_theo_mau_phieu_moi.html\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"link-blue\"><strong>Thông tin nâng cấp thông tin chủ theo mẫu phiếu chuyển mới 01/2026 </strong></a> <hr/> </li> <li> <a href=\"https://ilis-docs.vnptdongthap.com.vn/phieu-thue/Tab-Tai-San-Trong-Phieu-Thue.html\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"link-blue\"> <strong>Hướng dẫn cập nhật tài sản trong phiếu thuế</strong> </a> <span class=\"badge bg-danger\">Mới</span> </li> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/phieu-thue/Phieu-NVTC-Mau-19.html\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--red)\"><strong>Hướng dẫn Mẫu 19 – 1 tài sản</strong></a></li> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/phieu-thue/Phieu-NVTC-Mau-19-2-Tai-San.html\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#e29b3d\"><strong>Hướng dẫn Mẫu 19 – 2 tài sản</strong></a></li> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/phieu-thue/Phieu-NVTC-Mau-01-2026-1-Tai-San-1-Loai-Dat.html\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--red)\"><strong>Hướng dẫn Mẫu phiếu thuế 01/2026 – 1 tài sản - 1 loại đất</strong></a></li> <li><a href=\"https://ilis-docs.vnptdongthap.com.vn/phieu-thue/Phieu-NVTC-Mau-01-2026-2-Tai-San-2-Loai-Dat.html\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"link-blue\"><strong>Mẫu phiếu thuế 01/2026 – 2 tài sản - 2 loại đất</strong></a></li> <li><a href=\"https://docs.google.com/spreadsheets/d/1qnUWmMEGlxX2gZbNB7iNRYnpuo1t9JQ6Af84YyFH6Cw/edit?usp=sharing\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"link-blue\"><strong>XML các trường phiếu thuế mẫu 01/2026</strong></a> <hr/> </li> <li> <span class=\"link-blue\"> Nguyên nhân phiếu thuế không hiển thị trong <strong>Liên thông thuế Quản lý phiếu NVTC</strong> hoặc không tạo được , không chuyên NVTC được và phần mềm báo <strong>thiếu trường 'HO_TEN'</strong> </span> <ol> <li> Thiếu các thông tin các trường bắt buộc có dấu *: <strong> Loại hồ sơ, số biên nhận, mã vạch giấy chứng nhận,... </strong> </li> <li> <strong>Số biên nhận</strong> không đúng với <strong>mã hồ sơ</strong> </li> <li> Thông tin chủ sử dụng thiếu các trường bắt buộc: <strong> Loại giấy tờ, số giấy tờ, năm sinh, địa chỉ, dvhc, ngày sinh hoặc năm sinh </strong> </li> <li>Thông tin thửa đất: <strong>Thiếu đơn vị hành chính</strong></li> <li>Thiếu thông tin mục <strong>2.2.Thông tin chi tiết của thửa đất</strong>: Loại đất, Vị trí đất, Giá đất </li> <li> Thông tin phiếu thuế, tab <strong>Thông tin chủ sử dụng</strong> <ul><strong>Bên giao dịch</strong> bắt buộc phải có 2 hàng: <li>- Hàng 1: Người bán/Chuyển nhượng</li> <li>- Hàng 2: Người mua</li> </ul> </li> </ol> </li> <li><strong class=\"link-blue\">Nguyên nhân lỗi ký số gửi thuế</strong> <ol> <li> <strong>Có lỗi khi kiểm tra file trên hệ thống lưu trữ</strong> Các file đang mở có file đang bị lỗi (File không tồn tại hoặc file mở lên bị trắng), xoá file lỗi tải lên lại file không bị lỗi </li> <li><strong>Tên file khi upload không được chứa dấu chấm (.)</strong></li> <li><strong>Ký số không thành công: Invalid provider type specified</strong>: <ul> <li> <span> - Chưa cài hoặc cài sai phần mềm VGCA Token Manager </span> </li> <li> <span> - Driver VGCA bị lỗi hoặc quá cũ </span> </li> <li> <span> - Xung đột với token khác (VNPT, Viettel…) </span> </li> </ul> <strong> Cài lại phần mềm VGCA Token Manager, tải lại cert </strong> </li> <li> <strong>Không tìm thấy token ký số:</strong> <ul> <li> <span> - Chưa cắm USB Token vào máy tính </span> </li> <li> <span> - Chưa cài phần mềm VGCA Token Manager </span> </li> <li> <span> - Token bị lỗi hoặc hết hạn sử dụng </span> </li> </ul> <strong> Cắm lại USB Token, cài lại phần mềm VGCA Token Manager hoặc xem hướng dẫn Sửa lỗi không tìm thấy token ký số ở <a href=\"#tai-lieu-hd-va-hinh-anh\" class=\"goToBullet\">mục 2.2</a> </strong> </li> </ol> </li> </ul>"
+            }
+        ],
+        "important": [
+            {
+                "num": 1,
+                "html": "Hồ sơ liên thông <strong>sai xã</strong> — bắt buộc phải <strong>trả kết thúc hồ sơ</strong> và nộp lại. <div class=\"note-action\"> <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/huong-dan-xu-ly-ho-so-khong-du-dieu-kien\">Xem hướng dẫn hủy</button> </div>"
+            },
+            {
+                "num": 2,
+                "html": "Thắc mắc về <strong>quy trình và nghiệp vụ</strong> <div class=\"note-action\"> Liên hệ <strong>VPĐK Tỉnh</strong> <span style=\"color:var(--gray-600)\"> hoặc truy cập nhóm hỗ trợ DVC (1 Cửa) </span> <a href=\"https://zalo.me/g/hkpizy048\" target=\"_blank\" rel=\"noopener noreferrer\">tại đây</a> </div>"
+            },
+            {
+                "num": 3,
+                "html": "Yêu cầu <strong>tạo, xoá, đổi mật khẩu, kích hoạt, huỷ kích hoạt</strong> tài khoản, <strong>cài đặt ký số, <span style=\"color:var(--copy-accent)\">cung cấp tài khoản 3 cấp</span></strong> <div class=\"note-action\"> Liên hệ <strong>VPĐK Tỉnh</strong></div>"
+            },
+            {
+                "num": 4,
+                "html": "Tài khoản <span class=\"note-badge-blue\">cấp xã</span> bị giới hạn quyền: <ul class=\"note-sub-list\"> <li>Không xoá được GCN</li> <li>Không cập nhật được hình thể thửa đất</li> <li>Không xoá được đăng ký quyền SDĐ</li> </ul> <div class=\"note-action danger\"> Liên hệ chi nhánh để xoá hoặc cập nhật</div>"
+            },
+            {
+                "num": 5,
+                "html": "Chức năng <span class=\"note-badge-blue\">Quản lý phôi GCN</span> <ul class=\"note-sub-list\"> <li>Chỉ tài khoản <strong>admin của VPĐK tỉnh</strong> mới có thể quản lý </li> <li>Cán bộ xã và chi nhánh muốn thêm phôi GCN — liên hệ VPĐK để hỗ trợ</li> </ul>"
+            },
+            {
+                "num": 6,
+                "html": "Phiếu thuế bị <strong>Cơ quan thuế từ chối</strong> — phải <strong>cập nhật lại phiếu thuế</strong> theo yêu cầu rồi ký số gửi lại. <div class=\"note-action danger\"> <span class=\"note-badge-red\"> Không xoá và tạo lại cùng số phiếu — hệ thống sẽ báo lỗi đã tồn tại phiếu</span></div>"
+            },
+            {
+                "num": 7,
+                "html": "<strong>ILIS không đồng bộ thời gian DVC</strong>: Chuyển hồ sơ trên cả 2 bên (DVC - ILIS) thì thời gian sẽ không được đồng bộ. <div class=\"note-action\"> Chỉ chuyển bước <strong>trên ILIS</strong> để hồ sơ đồng bộ đúng thời gian </div>"
+            },
+            {
+                "num": 8,
+                "html": "<strong>Quy tắc đặt tên file tải lên ILIS</strong>: Không chứa các ký tự: <span class=\"ky-tu-dac-biet\">&amp; $ ! ' \" \\ ( ) . &lt;&gt; | * ? / +</span> <div class=\"note-action danger\"> Ký tự không hợp lệ → file không đồng bộ về DVC; với <strong>hồ sơ quét</strong> sẽ không xem được file</div>"
+            },
+            {
+                "num": 9,
+                "html": "<strong>Diện tích bản đồ khác diện tích pháp lý / diện tích riêng</strong>: Do làm biến động thuộc tính trước, cập nhật bản đồ sau. <div class=\"note-action\"> Nếu diện tích không đúng — chỉnh sửa lại diện tích thửa đất</div>"
+            },
+            {
+                "num": 10,
+                "html": "<strong>Phiếu NVTC thiếu đường / đoạn đường</strong> <div class=\"note-action\"> <span style=\"color:var(--gray-600)\"> Xin bên thuế file excel đường đang thiếu </span> (<a href=\"https://ilis-docs.vnptdongthap.com.vn/downloads/gridDMDoan_20260409-041348.xlsx\" target=\"_blank\" rel=\"noopener noreferrer\">file mẫu</a>) <span style=\"color:var(--gray-600)\"> và gửi <strong>Admin phần mềm</strong> để thêm mới </span></div>"
+            },
+            {
+                "num": 11,
+                "html": "<strong>Đồng bộ lại hồ sơ từ ILIS sang DVC</strong>: Nhấn <em>\"Xem quy trình\"</em> trên DVC để kiểm tra. <div class=\"note-action\"> Hồ sơ trong danh sách sẽ đồng bộ <strong>sau</strong> chức năng xem quy trình</div>"
+            },
+            {
+                "num": 12,
+                "html": "<strong style=\"color:var(--blue)\">Hướng dẫn xử lý hồ sơ liên thông iLIS — trường hợp không đủ điều kiện hoặc rút hồ sơ</strong> <div class=\"note-action\"> <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/huong-dan-xu-ly-ho-so-khong-du-dieu-kien\">Xem hướng dẫn</button> </div>"
+            },
+            {
+                "num": 13,
+                "html": "<strong>Phân biệt Nguồn gốc chuyển quyền và Nguồn gốc ban đầu</strong> <ul class=\"note-sub-list\"> <li><strong>Nguồn gốc chuyển quyền:</strong> Nhận chuyển nhượng, nhận thừa kế, tặng cho quyền sử dụng đất...</li> <li><strong>Nguồn gốc ban đầu:</strong> Nguồn gốc khi cấp giấy lần đầu — là cụm sau của phần nguồn gốc chuyển quyền</li> </ul> <div class=\"note-example-box\"> <strong>VD:</strong> <em>Nhận chuyển quyền sử dụng đất được Công nhận QSDD như giao đất có thu tiền</em> <ul class=\"note-sub-list\"> <li><strong>Nguồn gốc chuyển quyền:</strong> Nhận chuyển quyền sử dụng đất</li> <li><strong>Nguồn gốc ban đầu:</strong> Công nhận QSDD như giao đất có thu tiền</li> </ul> </div>"
+            },
+            {
+                "num": 14,
+                "html": "Hồ sơ DVC <strong>chỉ liên thông được</strong> với ILIS tại bước <span class=\"note-badge-red\">Vừa tiếp nhận</span>. Chuyển sang bước tiếp theo (VD: Bước thẩm tra) sẽ không liên thông được. <div class=\"note-action\"> Phải chuyển lại bước <span class=\"note-badge-red\">Vừa tiếp nhận</span> trên DVC rồi mới liên thông được với ILIS </div>"
+            },
+            {
+                "num": 15,
+                "html": "Để tránh lỗi ký số giữa VPĐT và ILIS: Khuyến khích dùng <strong>riêng từng trình duyệt</strong> — một cho VPĐT (VD: Chrome) và một cho ILIS (VD: Edge)."
+            },
+            {
+                "num": 16,
+                "html": "Hồ sơ DVC <strong>ĐÃ LIÊN THÔNG</strong> mà trong danh sách ILIS vẫn không thấy: <div class=\"note-action\"> Hồ sơ nằm trong chức năng <strong>Tiếp nhận từ DVC</strong> — vào đó tìm và tiếp nhận về danh sách <button type=\"button\" class=\"rich-gallery\" data-gallery=\"/images/tiep-nhan-tu-dvc\">Xem hướng dẫn</button></div>"
+            },
+            {
+                "num": 17,
+                "html": "Biến động <strong>đã tạo phiếu thuế</strong> — phải <strong>hoàn tất hoặc hủy</strong> mới tạo được phiếu khác. Nếu đã tạo phiếu với <strong>mã hồ sơ ban đầu</strong> mà <strong>đổi sang mã hồ sơ khác</strong>: <div class=\"note-action danger\"> <span class=\"note-badge-red\">Phiếu thuế sẽ không hiện trong liên thông thuế</span></div>"
+            },
+            {
+                "num": 18,
+                "html": "Với <strong>biến động thu hồi</strong> — trường <strong>Cơ quan duyệt</strong> bắt buộc phải nhập. Nếu không nhập khi lưu, hệ thống sẽ báo: <span class=\"note-badge-red\">có lỗi xảy ra</span>"
+            },
+            {
+                "num": 19,
+                "html": "Tài khoản <strong>không hiển thị được danh sách đường</strong> (Không tồn tại danh sách đường) trong <strong>phiếu thuế</strong> <div class=\"note-action\"> Tài khoản <strong>chưa được phân quyền</strong> sử dụng <strong>Chia sẻ chung Cà Mau</strong> (Dùng để lấy danh mục đường) — liên hệ <strong>Admin</strong> để được phân quyền </div>"
+            },
+            {
+                "num": 20,
+                "html": "Tự động gán nguồn gốc sau biến động hiện chỉ có 3 loại: <strong>chuyển nhượng, tặng cho và thừa kế</strong>. Các loại biến động khác cán bộ phải <strong>tự sửa lại thông tin</strong>."
+            }
+        ]
+    },
+    "software": [
+        {
+            "id": "sw-1",
+            "name": "VGCASignServiceSetup_v42",
+            "description": "Service Ký Số",
+            "logo": "/images/vgca.png",
+            "downloadHref": "https://dichvucong.ca.gov.vn/api/tainguyen/download/bndpb158326599c74ef1bf45c79d4b3be03f",
+            "guideHref": "https://drive.google.com/file/d/1VT8dDtFTLXSaNBugxB_cZn77tWZegOWw/view?usp=sharing",
+            "guideLabel": "Hướng dẫn"
+        },
+        {
+            "id": "sw-2",
+            "name": "Vnpt.iLIS.SignThueXMLAppSetUp",
+            "description": "Ký số chuyển thuế",
+            "logo": "/images/kysodientu.png",
+            "downloadHref": "https://ilis-lpm.vnpt.vn/assets/tools/Vnpt.iLIS.SignThueXMLAppSetUp.msi",
+            "guideHref": "https://drive.google.com/file/d/1hiGlB7kPDH6uyYgKnfeNLggMBgNs2kPs/view?usp=sharing",
+            "guideLabel": "Hướng dẫn"
+        },
+        {
+            "id": "sw-3",
+            "name": "bit4id_xpki_1.4.10.824",
+            "description": "Quản trị token ký số",
+            "logo": "/images/bit4id.png",
+            "downloadHref": "https://dichvucong.ca.gov.vn/api/tainguyen/download/bndpaab54cb8940d452da65f491101317778",
+            "guideHref": "https://drive.google.com/file/d/1eilFBX0zTjew2hsrlsJsmAdO2z-1MMm5/view?usp=sharing",
+            "guideLabel": "Hướng dẫn"
+        },
+        {
+            "id": "sw-4",
+            "name": "KySoSoDiaChinhAppSetUp",
+            "description": "Ký số sổ địa chính",
+            "logo": "/images/kysodientu.png",
+            "downloadHref": "https://ilis-cadas.vnpt.vn/assets/KySoSoDiaChinhAppSetUp.msi",
+            "guideHref": "https://drive.google.com/file/d/1zvzStTvTpOVGSLNoG1NmcYnpCIJWUVOO/view?usp=sharing",
+            "guideLabel": "Hướng dẫn"
+        },
+        {
+            "id": "sw-5",
+            "name": "KySoSoDiaChinhAppSetUp",
+            "description": "Ký số sổ địa chính (15.01.2026)",
+            "logo": "/images/kysodientu.png",
+            "downloadHref": "https://ilis-docs.vnptdongthap.com.vn/downloads/KySoSoDiaChinhAppSetUp.msi",
+            "guideHref": "https://drive.google.com/file/d/1zvzStTvTpOVGSLNoG1NmcYnpCIJWUVOO/view?usp=sharing",
+            "guideLabel": "Hướng dẫn"
+        },
+        {
+            "id": "sw-6",
+            "name": "TokenManager (Restart PC)",
+            "description": "Khắc phục lỗi không tìm thấy token",
+            "logo": "/images/vgca.png",
+            "downloadHref": "https://dichvucong.ca.gov.vn/api/tainguyen/download/bndpc158017d760f4d048dcd3c2f60179e36",
+            "guideHref": "",
+            "guideLabel": "Hướng dẫn"
+        },
+        {
+            "id": "sw-7",
+            "name": "vSignPDF",
+            "description": "Ký số và xác thực tài liệu PDF",
+            "logo": "/images/vgca.png",
+            "downloadHref": "https://dichvucong.ca.gov.vn/api/tainguyen/download/bndpb43ab753825c42a2962ab1cdb7241cf8",
+            "guideHref": "",
+            "guideLabel": "Hướng dẫn"
+        },
+        {
+            "id": "sw-8",
+            "name": "Vnpt.iLIS.SignThueXMLAppSetUp (Control panel → Programs and features → gỡ phẩn mềm cũ → cài lại bản này)",
+            "description": "Mẫu phiếu thuế mới 01/2026",
+            "logo": "/images/kysodientu.png",
+            "downloadHref": "https://ilis-docs.vnptdongthap.com.vn/downloads/Vnpt.iLIS.SignThueXMLAppSetUp.23.3.2026.msi",
+            "guideHref": "https://drive.google.com/file/d/1hiGlB7kPDH6uyYgKnfeNLggMBgNs2kPs/view?usp=sharing",
+            "guideLabel": "Hướng dẫn"
+        },
+        {
+            "id": "sw-9",
+            "name": "Bản cài ký số đầy đủ",
+            "description": "ALL IN ONE",
+            "logo": "/images/vgca-and-vnpt-ilis-manager-opt.png",
+            "downloadHref": "https://vgca-and-vnpt-ilis-manager.netlify.app",
+            "guideHref": "",
+            "guideLabel": "Hướng dẫn"
+        },
+        {
+            "id": "sw-10",
+            "name": "VNPT_MicroStation_Setup.msi",
+            "description": "Dùng để xuất tờ, thửa bản đồ V8",
+            "logo": "/images/vnpt.png",
+            "downloadHref": "https://ilis-docs.vnptdongthap.com.vn/downloads/VNPT_MicroStation_Setup.msi",
+            "guideHref": "",
+            "guideLabel": "Hướng dẫn"
+        },
+        {
+            "id": "sw-11",
+            "name": "VNPT-CA Plugin (1.0.2.7)",
+            "description": "Dùng ký số trên các trình duyệt",
+            "logo": "/images/logo_vnpt_ca2.png",
+            "downloadHref": "https://ilis-docs.vnptdongthap.com.vn/downloads/VNPT-CA-Plugin_Setup_1.0.2.7.exe.zip",
+            "guideHref": "https://vnpt-ca.vn/download-page",
+            "guideLabel": "TL & HD"
+        }
+    ],
+    "videos": {
+        "defaultPlaylist": "https://www.youtube-nocookie.com/embed/dOuBbln-5d4?list=PL_J2iR-bAsVOTsgZFl_DaGHVUCsOKCXIN",
+        "groups": [
+            {
+                "title": "Dành cho đơn vị mới triển khai",
+                "items": [
+                    {
+                        "id": "dOuBbln-5d4",
+                        "title": "1. Hướng dẫn cán bộ tạo phiếu thuế",
+                        "start": null
+                    },
+                    {
+                        "id": "Coc715JrU2k",
+                        "title": "2. Hướng dẫn lãnh đạo ký số",
+                        "start": null
+                    },
+                    {
+                        "id": "t2TnzWQXv5s",
+                        "title": "3. Hướng dẫn cán bộ chuyển thuế",
+                        "start": null
+                    }
+                ]
+            },
+            {
+                "title": "Các video khác",
+                "items": [
+                    {
+                        "id": "-bqCILzsEFc",
+                        "title": "Hướng dẫn mở cài đặt trình duyệt để ký số trên hệ thống VNPT iLIS",
+                        "start": null
+                    },
+                    {
+                        "id": "-G9_vay9Eps",
+                        "title": "Tra cứu mã QR (tạo tài khoản và link truy cập)",
+                        "start": null
+                    },
+                    {
+                        "id": "u2IfsZEGkeY",
+                        "title": "Cài đặt và chuyển thuế điện tử",
+                        "start": null
+                    },
+                    {
+                        "id": "1wKOLmfyCRo",
+                        "title": "Hướng dẫn thao tác xử lý hồ sơ điện tử",
+                        "start": null
+                    },
+                    {
+                        "id": "spAz1vs6iEo",
+                        "title": "Hướng dẫn kê khai thông tin đăng ký thửa đất",
+                        "start": null
+                    },
+                    {
+                        "id": "5U1yqLcbV3A",
+                        "title": "Xã/Phường: Cấp GCN lần đầu – không chuyển thuế điện tử",
+                        "start": null
+                    },
+                    {
+                        "id": "DNymin8SvNg",
+                        "title": "Xã/Phường: Cấp GCN lần đầu kết hợp chuyển thuế điện tử",
+                        "start": null
+                    },
+                    {
+                        "id": "4okjutKSZcg",
+                        "title": "Xã/Phường: Hướng dẫn xử lý hồ sơ chuyển mục đích",
+                        "start": null
+                    },
+                    {
+                        "id": "pgvhGoTNTLA",
+                        "title": "Thao tác trên phần mềm dành cho Chuyên Viên",
+                        "start": null
+                    },
+                    {
+                        "id": "5bJDpus6qFA",
+                        "title": "Thao tác trên phần mềm dành cho Lãnh Đạo",
+                        "start": null
+                    },
+                    {
+                        "id": "uBZM9cUqTyk",
+                        "title": "Upload sơ đồ thửa đất in GCN",
+                        "start": null
+                    },
+                    {
+                        "id": "2Gsu_w7v5v4",
+                        "title": "Đổi file DGN thành TIF để up sơ đồ in GCN",
+                        "start": 40
+                    },
+                    {
+                        "id": "0PFZzRah8Qw",
+                        "title": "Tạo mới đăng ký, căn hộ chung cư, GCN A4",
+                        "start": null
+                    },
+                    {
+                        "id": "CYsmPl4sTKM",
+                        "title": "Đăng ký biến động thế chấp",
+                        "start": null
+                    },
+                    {
+                        "id": "4iJyOqRDfa4",
+                        "title": "Đăng ký biến động xóa thế chấp",
+                        "start": null
+                    },
+                    {
+                        "id": "Iti0MawuSGo",
+                        "title": "Đăng ký biến động tặng cho + chuyển quyền (chuyển nhượng, tặng cho, thừa kế)",
+                        "start": null
+                    },
+                    {
+                        "id": "9P8-1vRLIKg",
+                        "title": "Tạo mới đăng ký đồng sử dụng",
+                        "start": null
+                    },
+                    {
+                        "id": "5_dx-B4qjmg",
+                        "title": "Hướng dẫn xử lý không gian trước, thuộc tính sau",
+                        "start": null
+                    },
+                    {
+                        "id": "wnGY7E1m1Nw",
+                        "title": "Hướng dẫn xử lý thuộc tính trước, không gian sau",
+                        "start": null
+                    },
+                    {
+                        "id": "Wz7ruaO_a3w",
+                        "title": "Hướng dẫn Ký sổ địa chính điện tử hàng loạt trên phần mềm VNPT iLIS",
+                        "start": null
+                    },
+                    {
+                        "id": "biSDkeBdp6w",
+                        "title": "Cập nhật dữ liệu không gian thửa đất trên hệ thống VNPT iLIS",
+                        "start": null
+                    },
+                    {
+                        "id": "isjg-vz47Xc",
+                        "title": "Hướng dẫn sử dụng chức năng quản lý dự án thu hồi",
+                        "start": null
+                    }
+                ]
+            },
+            {
+                "title": "Dành cho Quản trị viên",
+                "items": [
+                    {
+                        "id": "CkW3rluwlSs",
+                        "title": "Hướng dẫn thao tác VNPT iLIS – Quản trị viên",
+                        "start": null
+                    },
+                    {
+                        "id": "Cbe2w8voHKU",
+                        "title": "Hướng dẫn biên tập dữ liệu đường, đoạn đường",
+                        "start": null
+                    },
+                    {
+                        "id": "2q-o5lVYbuM",
+                        "title": "Convert Arc To Line",
+                        "start": null
+                    }
+                ]
+            }
+        ]
+    },
+    "docs": [
+        {
+            "id": "doc-1",
+            "name": "KÝ SỐ GÓI TIN TRƯỚC KHI ĐỒNG BỘ DỮ LIỆU LÊN CSDL QUỐC GIA VỀ ĐẤT ĐAI VNLIS.pdf",
+            "kind": "pdf",
+            "updated": "20/07/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1snyqadwU7cRNhwIrv1nIn17WgtOwLijB/view?usp=sharing"
+        },
+        {
+            "id": "doc-2",
+            "name": "Hướng dẫn chỉnh sửa nội dung biến động sau khi đã hoàn tất biến động.pdf",
+            "kind": "pdf",
+            "updated": "21/06/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/16-nNaD7Q0FsI6Eiud9l6-eZ-Ev-W8FxK/view?usp=sharing"
+        },
+        {
+            "id": "doc-3",
+            "name": "Hướng dẫn quản lý phôi GCN.pdf",
+            "kind": "pdf",
+            "updated": "21/06/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1kDA4-1u0qM3qZE2ppYg4msNuXNj_iQJz/view?usp=sharing"
+        },
+        {
+            "id": "doc-4",
+            "name": "Hướng dẫn quản lý mã QR GCN.pdf",
+            "kind": "pdf",
+            "updated": "21/06/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1mhUqoWrTcVWMZy2lYFrCutZOX-YzFHfB/view?usp=drive_link"
+        },
+        {
+            "id": "doc-5",
+            "name": "Hướng dẫn thể hiện thông tin tờ cũ, thửa cũ trên GCN - SDC - Phiếu NVTC - PDF QR.pdf",
+            "kind": "pdf",
+            "updated": "21/06/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1a7bLQjWJF1w7bJabV73QsEOFPNtveJ7o/view?usp=drive_link"
+        },
+        {
+            "id": "doc-6",
+            "name": "Hướng dẫn tool cập nhật CSDL đối soát dân cư.pdf",
+            "kind": "pdf",
+            "updated": "21/06/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1IWXl-RR2ArUPh7_t9gTZV4GTq8rRPnQI/view?usp=drive_link"
+        },
+        {
+            "id": "doc-7",
+            "name": "Hướng dẫn cập nhật dữ liệu dân cư",
+            "kind": "pdf",
+            "updated": "09/06/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1imci0NUaud1WmYkgvXu6P9H27Tb_R3Ec/view?usp=sharing"
+        },
+        {
+            "id": "doc-8",
+            "name": "Hướng dẫn cập nhật hình thể thửa trong in bổ sung",
+            "kind": "pdf",
+            "updated": "08/06/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1N18igY4Vh_y7d5S6uv7j1aDqwj43VvWd/view?usp=sharing"
+        },
+        {
+            "id": "doc-9",
+            "name": "Hướng dẫn sử dụng tool nối lịch sử",
+            "kind": "pdf",
+            "updated": "07/06/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1D1vqMYaDV-Vrz0A1NP_DiwDqv0iHo-0V/view?usp=sharing"
+        },
+        {
+            "id": "doc-10",
+            "name": "Hướng dẫn ký sổ địa chính điện tử hàng loạt",
+            "kind": "pdf",
+            "updated": "04/05/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1Bumj3frzSuQyRsQsnCDkwraitFMfSeu_/view?usp=sharing"
+        },
+        {
+            "id": "doc-11",
+            "name": "Hướng tải sđc về chỉnh sửa và ký số",
+            "kind": "pdf",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1EWzekDpxayf0mo--bhfEhZHwG69XznwJ/view?usp=sharing"
+        },
+        {
+            "id": "doc-12",
+            "name": "Hướng dẫn giao dịch đảm bảo",
+            "kind": "pdf",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1RoZscAsmpDjN4yGn66ISskWdhZVxkQQM/view?usp=sharing"
+        },
+        {
+            "id": "doc-13",
+            "name": "Hướng dẫn tạo GCN mẫu A4",
+            "kind": "pdf",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/15a9eMr-4qmFmIl8unmHJeA4E4G-tHbu5/view?usp=sharing"
+        },
+        {
+            "id": "doc-14",
+            "name": "Hướng dẫn đăng ký biến động",
+            "kind": "pdf",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1dA2zQ_Llyd_Sw3EIFMBLoe3aP9gaGwna/view?usp=sharing"
+        },
+        {
+            "id": "doc-15",
+            "name": "Hướng dẫn thực hiện phiếu NVTC",
+            "kind": "pdf",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/1M9uml6n7cv-cFJzXQp5ZebaNCjZZriTR/view?usp=sharing"
+        },
+        {
+            "id": "doc-16",
+            "name": "Hướng dẫn ký số chuyển thuế cho lãnh đạo",
+            "kind": "pdf",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "href": "https://drive.google.com/file/d/10XEhHvHIn2BQhlaeuPx2MXE1Rh-fdWVq/view?usp=sharing"
+        },
+        {
+            "id": "doc-17",
+            "name": "Hướng dẫn sử dụng tool cập nhật chủ sử dụng",
+            "kind": "pdf",
+            "updated": "24/09/2026",
+            "isNew": false,
+            "href": "https://ilis-docs.vnptdongthap.com.vn/docs/Tool_CapNhat_ThongTin_ChuSuDung.pdf"
+        },
+        {
+            "id": "doc-18",
+            "name": "Hướng dẫn tool nhập xuất dữ liệu không gian bằng Shapefile",
+            "kind": "pdf",
+            "updated": "24/09/2026",
+            "isNew": false,
+            "href": "https://ilis-docs.vnptdongthap.com.vn/docs/Tool_Upload_Export_KhongGian_Shapefile.pdf"
+        },
+        {
+            "id": "doc-19",
+            "name": "Hướng dẫn tool cập nhật GCN",
+            "kind": "pdf",
+            "updated": "24/09/2026",
+            "isNew": false,
+            "href": "https://ilis-docs.vnptdongthap.com.vn/docs/Tool_VNPT_iLIS_HDSD_CapNhatGCN.pdf"
+        },
+        {
+            "id": "doc-20",
+            "name": "Hướng dẫn in đơn từ dự thảo",
+            "kind": "pdf",
+            "updated": "24/09/2026",
+            "isNew": false,
+            "href": "https://ilis-docs.vnptdongthap.com.vn/docs/VNPT_iLIS_HDSD_InDonTuDuThao.pdf"
+        },
+        {
+            "id": "doc-21",
+            "name": "Hướng dẫn thêm hộ gia đình người liên quan",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/them-ho-gia-dinh"
+        },
+        {
+            "id": "doc-22",
+            "name": "Hướng dẫn hiển thị chung của vợ và chồng trong GCN",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/su-dung-chung-cua-vo-va-chong"
+        },
+        {
+            "id": "doc-23",
+            "name": "Hướng dẫn hiển thị đồng sử dụng vợ/chồng trong QR GCN",
+            "kind": "image",
+            "updated": "24/09/2026",
+            "isNew": false,
+            "gallery": "/images/dong-su-dung-vo-chong-trong-qr-gcn"
+        },
+        {
+            "id": "doc-24",
+            "name": "Hướng dẫn thêm hồ sơ quét",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/them-ho-so-quet"
+        },
+        {
+            "id": "doc-25",
+            "name": "Hướng dẫn sửa thời điểm đăng ký biến động",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/thay-doi-thoi-diem-dang-ky-bd"
+        },
+        {
+            "id": "doc-26",
+            "name": "Hướng dẫn ghi thông tin GCN",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/thong-tin-chi-tiet-gcn"
+        },
+        {
+            "id": "doc-27",
+            "name": "Thêm / hủy thông tin ngăn chặn",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/them-huy-thong-tin-ngan-chan"
+        },
+        {
+            "id": "doc-28",
+            "name": "Cập nhật thửa chưa đăng ký",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/cap-nhat-thua-chua-dang-ky"
+        },
+        {
+            "id": "doc-29",
+            "name": "Hiển thị người bán / người mua trong phiếu NVTC",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/chon-nguoi-ban-hoac-nguoi-mua-trong-phieu-nvtc"
+        },
+        {
+            "id": "doc-30",
+            "name": "Hiển thị ngày đăng ký BĐ thế chấp trong BĐ giải chấp",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/lay-ngay-dang-ky-bd-the-chap-trong-bd-giai-chap"
+        },
+        {
+            "id": "doc-31",
+            "name": "Quy ước tạo hồ sơ quét",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/quy-uoc-tao-ho-so-quet"
+        },
+        {
+            "id": "doc-32",
+            "name": "Đồng bộ kết thúc hồ sơ DVC",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/dong-bo-ket-thuc-ho-so-dvc"
+        },
+        {
+            "id": "doc-33",
+            "name": "Tiếp tục xử lý hồ sơ DVC",
+            "kind": "image",
+            "updated": "10/03/2026",
+            "isNew": false,
+            "gallery": "/images/tiep-tuc-xu-ly-ho-so-dvc"
+        },
+        {
+            "id": "doc-34",
+            "name": "Sửa lỗi không tìm thấy token ký số",
+            "kind": "image",
+            "updated": "11/03/2026",
+            "isNew": false,
+            "gallery": "/images/sua-loi-khong-tim-thay-token-ky-so"
+        },
+        {
+            "id": "doc-35",
+            "name": "Hướng dẫn import cấu hình GCN",
+            "kind": "image",
+            "updated": "11/03/2026",
+            "isNew": false,
+            "gallery": "/images/huong-dan-import-cau-hinh-gcn"
+        },
+        {
+            "id": "doc-36",
+            "name": "Cập nhật tài sản trong phiếu thuế (NVTC)",
+            "kind": "image",
+            "updated": "31/03/2026",
+            "isNew": true,
+            "gallery": "/phieu-thue/cap-nhat-tai-san-trong-phieu-thue-nvtc"
+        },
+        {
+            "id": "doc-37",
+            "name": "Xuất danh sách trình ký GCN",
+            "kind": "image",
+            "updated": "07/04/2026",
+            "isNew": false,
+            "gallery": "/images/xuat-danh-sach-trinh-ky-gcn"
+        },
+        {
+            "id": "doc-38",
+            "name": "Hướng dẫn cấu hình số vào sổ và mã hồ sơ gốc",
+            "kind": "image",
+            "updated": "05/05/2026",
+            "isNew": false,
+            "gallery": "/images/huong-dan-cau-hinh-so-vao-so-va-ma-ho-so-goc"
+        },
+        {
+            "id": "doc-39",
+            "name": "Hướng dẫn thêm hiển thị trong GCN Là đại diện cho những (người cùng sử dụng đất hoặc người được thừa kế)",
+            "kind": "image",
+            "updated": "09/07/2026",
+            "isNew": false,
+            "gallery": "/images/huong-dan-hien-thi-chu-su-dung-trong-gcn-la-dai-dien"
+        },
+        {
+            "id": "doc-40",
+            "name": "Hướng dẫn thay đổi chữ ký trong GCN",
+            "kind": "image",
+            "updated": "20/08/2026",
+            "isNew": false,
+            "gallery": "/images/thay-doi-chu-ky-trong-gcn"
+        },
+        {
+            "id": "doc-41",
+            "name": "Hướng dẫn tạo mã thửa đất",
+            "kind": "image",
+            "updated": "17/09/2026",
+            "isNew": true,
+            "gallery": "/images/huong-dan-tao-ma-thua-dat"
+        },
+        {
+            "id": "doc-42",
+            "name": "Hướng dẫn về căn hộ chung cư",
+            "kind": "image",
+            "updated": "29/09/2026",
+            "isNew": true,
+            "gallery": "/images/can-ho-chung-cu"
+        },
+        {
+            "id": "doc-43",
+            "name": "Hướng dẫn về phôi giấy chứng nhận",
+            "kind": "image",
+            "updated": "29/09/2026",
+            "isNew": true,
+            "gallery": "/images/phoi-gcn"
+        }
+    ],
+    "imageMap": {
+        "/images/them-ho-gia-dinh": [
+            "1",
+            "2"
+        ],
+        "/images/su-dung-chung-cua-vo-va-chong": [
+            "1"
+        ],
+        "/images/them-ho-so-quet": [
+            "1",
+            "2"
+        ],
+        "/images/thay-doi-thoi-diem-dang-ky-bd": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        "/images/thong-tin-chi-tiet-gcn": [
+            "1",
+            "2"
+        ],
+        "/images/them-huy-thong-tin-ngan-chan": [
+            "1",
+            "2",
+            "3"
+        ],
+        "/images/cap-nhat-thua-chua-dang-ky": [
+            "1",
+            "2",
+            "3",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "/images/chon-nguoi-ban-hoac-nguoi-mua-trong-phieu-nvtc": [
+            "1",
+            "2",
+            "3"
+        ],
+        "/images/lay-ngay-dang-ky-bd-the-chap-trong-bd-giai-chap": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
+        "/images/dong-bo-ket-thuc-ho-so-dvc": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "/images/quy-uoc-tao-ho-so-quet": [
+            "1"
+        ],
+        "/images/tiep-tuc-xu-ly-ho-so-dvc": [
+            "1",
+            "2",
+            "3"
+        ],
+        "/images/sua-loi-khong-tim-thay-token-ky-so": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "/images/huong-dan-import-cau-hinh-gcn": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
+        "/images/extension-hot-fix-thong-tin-bo-sung-vi-tri-gia-dat": [
+            "1",
+            "2",
+            "3__",
+            "3_",
+            "4__",
+            "4_",
+            "5__",
+            "5_",
+            "6",
+            "7"
+        ],
+        "/images/thanh-thong-bao": [
+            "1"
+        ],
+        "/phieu-thue/cap-nhat-tai-san-trong-phieu-thue-nvtc": [
+            "1",
+            "2"
+        ],
+        "/images/thay-doi-dns-google": [
+            "1"
+        ],
+        "/images/khac-phuc-loi-ilis-khong-hien-menu-ben-trai": [
+            "1",
+            "2"
+        ],
+        "/images/xuat-danh-sach-trinh-ky-gcn": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
+        "/images/cap-nhat-gcn-trong-dang-ky-bien-dong": [
+            "1",
+            "2"
+        ],
+        "/images/thanh-thong-bao/kiem-soat-gcn-hoan-tat-bien-dong": [
+            "1",
+            "2"
+        ],
+        "/images/loi-khong-moi-duoc-hop-thoai-ky-so/coccoc": [
+            "1"
+        ],
+        "/images/loi-khong-moi-duoc-hop-thoai-ky-so/chrome": [
+            "1"
+        ],
+        "/images/loi-khong-moi-duoc-hop-thoai-ky-so/edge": [
+            "1"
+        ],
+        "/images/loi-khong-moi-duoc-hop-thoai-ky-so/truy-cap-lpm": [
+            "1"
+        ],
+        "/images/cai-dat-trang-in-gcn": [
+            "1",
+            "2"
+        ],
+        "/images/cau-hinh-hien-thi-thong-tin-tai-san-trong-qr-gcn": [
+            "1"
+        ],
+        "/images/hien-thi-ghi-chu-trang-2-trong-gcn": [
+            "1",
+            "2",
+            "3"
+        ],
+        "/images/huong-dan-cau-hinh-so-vao-so-va-ma-ho-so-goc": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
+        "/images/huong-dan-xu-ly-ho-so-khong-du-dieu-kien": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
+        "/images/huong-dan-xoa-so-dia-chinh-da-ky": [
+            "1"
+        ],
+        "/images/huong-dan-tai-hinh-the-len-ilis": [
+            "1"
+        ],
+        "/images/tiep-nhan-tu-dvc": [
+            "1"
+        ],
+        "/images/huong-dan-hien-thi-chu-su-dung-trong-gcn-la-dai-dien": [
+            "1",
+            "2",
+            "3"
+        ],
+        "/images/thay-doi-chu-ky-trong-gcn": [
+            "1"
+        ],
+        "/images/cap-nhat-so-do-gcn-qr-gcn": [
+            "1"
+        ],
+        "/images/huong-dan-tao-ma-thua-dat": [
+            "1",
+            "2"
+        ],
+        "/images/dong-su-dung-vo-chong-trong-qr-gcn": [
+            "1",
+            "2"
+        ],
+        "/images/can-ho-chung-cu": [
+            "1"
+        ],
+        "/images/phoi-gcn": [
+            "1"
+        ]
+    }
+}

@@ -1,0 +1,122 @@
+/**
+ * Design tokens — nguồn: "Màu sắc nhận diện thương hiệu VNPT.txt" (bảng màu tham khảo)
+ * + khuyến nghị "Accessible & Ethical" (ui-ux-pro-max --design-system, domain government).
+ * Mọi màu dùng trong component phải tham chiếu biến ở đây — không dùng mã hex trực tiếp
+ * (quy tắc "Semantic color tokens" / tránh "raw hex in components").
+ */
+:root {
+  /* Brand — VNPT palette tham khảo */
+  --color-primary: #005baa;
+  --color-primary-strong: #003b70;
+  --color-primary-soft: #eaf4fc;
+  --color-on-primary: #ffffff;
+
+  /* Semantic surfaces */
+  --color-background: #f5f9fd;
+  --color-surface: #ffffff;
+  --color-border: #dce5ef;
+  --color-text: #1f2937;
+  --color-text-muted: #64748b;
+
+  /* Status */
+  --color-success: #22a06b;
+  --color-success-soft: #e7f2ef;
+  --color-danger: #d92d20;
+  --color-danger-soft: #fbefeb;
+  --color-warning: #94651b;
+  --color-warning-soft: #fff3dc;
+
+  /* Focus ring — bắt buộc hiển thị (ux: Focus States, severity High) */
+  --color-ring: #005baa;
+  --focus-ring: 0 0 0 3px rgba(0, 91, 170, 0.35);
+
+  /* Typography */
+  --font-sans: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "DM Mono", Consolas, monospace;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+
+  /* Spacing scale — density: standard (16–64px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Radius / elevation */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-popover: 0 16px 40px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  /* Motion — respects prefers-reduced-motion (see globals.css) */
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Touch targets — minimum 44x44px (ux: Touch & Interaction, severity Critical) */
+  --touch-target-min: 44px;
+
+  /* ── Bảng màu mở rộng (portal) ────────────────────────────────────────────
+     Mỗi "tone" có 3 sắc độ: solid (nền chip/nút, chữ trắng ≥4.5:1), fg (chữ/icon trên nền soft),
+     soft (nền nhạt). Tone dùng để phân biệt nhóm nội dung bằng màu thay vì chỉ một màu xanh. */
+  --navy-950: #041c3d;
+  --navy-900: #062b5a;
+  --navy-800: #083d7a;
+  --navy-700: #0a4f9e;
+
+  --tone-blue-solid: #1565c0;
+  --tone-blue-fg: #0d4f9e;
+  --tone-blue-soft: #e6f0fd;
+  --tone-amber-solid: #b45309;
+  --tone-amber-fg: #92400e;
+  --tone-amber-soft: #fef3c7;
+  --tone-green-solid: #15803d;
+  --tone-green-fg: #166534;
+  --tone-green-soft: #dcfce7;
+  --tone-violet-solid: #6d28d9;
+  --tone-violet-fg: #5b21b6;
+  --tone-violet-soft: #ede9fe;
+  --tone-rose-solid: #be123c;
+  --tone-rose-fg: #9f1239;
+  --tone-rose-soft: #ffe4e6;
+  --tone-teal-solid: #0f766e;
+  --tone-teal-fg: #115e59;
+  --tone-teal-soft: #ccfbf1;
+  --tone-orange-solid: #c2410c;
+  --tone-orange-fg: #9a3412;
+  --tone-orange-soft: #ffedd5;
+  --tone-sky-solid: #0369a1;
+  --tone-sky-fg: #075985;
+  --tone-sky-soft: #e0f2fe;
+
+  /* Bố cục */
+  --header-height: 68px;
+  --ticker-height: 36px;
+  --sidebar-width: 292px;
+  --content-max: 1180px;
+  --radius-xl: 18px;
+  --shadow-lift: 0 12px 28px -10px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+
+  /* Biến tương thích với CSS gốc của site Đồng Tháp — dùng trong HTML được nhân bản
+     (xem rich-content.module.css) để giữ màu nhấn inline như bản gốc. */
+  --blue: #1d6fd8;
+  --red: #dc2626;
+  --green: #10b981;
+  --gray-600: #475569;
+  --copy-accent: #15803d;
+}
+
+
+:root[data-theme="dark"] {
+  --color-background: #0b1b2b;
+  --color-surface: #11253b;
+  --color-border: #1f3b58;
+  --color-text: #e7f0fa;
+  --color-text-muted: #9db4c9;
+  --color-primary-soft: #16314d;
+}

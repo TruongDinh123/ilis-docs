@@ -1,0 +1,25 @@
+.panel {
+  margin-top: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid #b9d7d1;
+  border-radius: var(--radius-md);
+  background: #edf7f3;
+  box-shadow: var(--shadow-card);
+}
+.panel h3 {
+  margin: 0 0 4px;
+  color: #185e61;
+  font-size: 13px;
+}
+.panel p {
+  margin: 0 0 var(--space-3);
+  color: #4c6d6a;
+  font-size: 11px;
+}
+
+.status {
+  min-height: 1em;
+  margin: var(--space-2) 0 0;
+  color: #185e61;
+  font-size: 11px;
+}

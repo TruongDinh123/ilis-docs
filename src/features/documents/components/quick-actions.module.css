@@ -1,0 +1,61 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.card {
+  min-height: 112px;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  transition: transform var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: #8ab6d4;
+  box-shadow: 0 10px 24px rgba(7, 93, 168, 0.14);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 17px;
+}
+/* Màu accent luân phiên theo vị trí thẻ — giúp dãy thẻ trông đa dạng hơn trên desktop
+   thay vì lặp lại một màu duy nhất (ux: Style Selection — tránh đơn điệu). */
+.card:nth-child(2) .icon {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+.card:nth-child(3) .icon {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+.card:nth-child(4) .icon {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: 10px;
+}
+
+@media (max-width: 1080px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
