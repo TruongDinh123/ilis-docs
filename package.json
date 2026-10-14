@@ -17,6 +17,7 @@
     "sync:content": "python scripts/sync-dongthap-content.py"
   },
   "dependencies": {
+    "firebase": "^13.0.0",
     "lucide-react": "^1.56.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

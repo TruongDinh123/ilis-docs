@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Cho phép đếm lượt truy cập website
+    match /stats/{document=**} {
+      allow read, write: if true;
+    }
+    // Cho phép quản lý phiên người dùng đang online theo thời gian thực
+    match /online_sessions/{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
