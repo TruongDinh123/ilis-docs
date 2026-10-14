@@ -4,7 +4,7 @@ Dự án React thật (Vite + TypeScript + React Router), kiến trúc feature-b
 nhiều design pattern, design system riêng dựa trên bảng màu VNPT. Xem chi tiết tại
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) và [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md).
 
-> ☁️ **Live Google Cloud (Firebase Hosting):** [https://project-ocr-hermess-agent.web.app](https://project-ocr-hermess-agent.web.app) *(Mirror: [https://project-ocr-hermess-agent.firebaseapp.com](https://project-ocr-hermess-agent.firebaseapp.com))*  
+> ☁️ **Live Google Cloud (Firebase Hosting):** [https://ilis-docs-vnpt-camau.web.app](https://ilis-docs-vnpt-camau.web.app) *(Mirror: [https://ilis-docs-vnpt-camau.firebaseapp.com](https://ilis-docs-vnpt-camau.firebaseapp.com))*  
 > 🌐 **Live GitHub Pages:** [https://truongdinh123.github.io/ilis-docs/](https://truongdinh123.github.io/ilis-docs/)  
 > 📦 **GitHub Repository:** [https://github.com/TruongDinh123/ilis-docs.git](https://github.com/TruongDinh123/ilis-docs.git)
 
