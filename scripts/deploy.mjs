@@ -19,6 +19,9 @@ execSync("npm run build", {
 const distDir = path.resolve("dist");
 const repoUrl = "https://github.com/TruongDinh123/ilis-docs.git";
 
+// Tạo 404.html cho GitHub Pages để hỗ trợ direct routing (/thong-ke, /giam-sat)
+fs.copyFileSync(path.join(distDir, "index.html"), path.join(distDir, "404.html"));
+
 // Loại bỏ tạm tệp video lớn >100MB khỏi commit gh-pages để không bị GitHub chặn limit 100MB
 // (Trên GitHub Pages, video tự động stream trực tiếp từ CDN của Firebase Hosting: https://ilis-docs-vnpt-camau.web.app/DaoTao_TapHuan.mp4)
 const largeVideoDist = path.join(distDir, "DaoTao_TapHuan.mp4");
