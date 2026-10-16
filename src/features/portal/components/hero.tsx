@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpenCheck, MapPin, PenTool, PlayCircle, Search, ShieldAlert } from "lucide-react";
+import { ArrowRight, BookOpenCheck, GraduationCap, MapPin, PenTool, Search, ShieldAlert } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { content } from "../data/content";
 import { CaMauEmblem } from "./ca-mau-emblem";
@@ -22,7 +22,7 @@ export function Hero({ onOpenSearch }: HeroProps) {
   const stats: Stat[] = [
     { icon: ShieldAlert, value: errorCount, label: "Lỗi thường gặp", href: "#cac-loi-thuong-gap" },
     { icon: PenTool, value: content.software.length, label: "Phần mềm ký số", href: "#phan-mem-ky-so" },
-    { icon: PlayCircle, value: videoCount, label: "Video hướng dẫn", href: "#huong-dan" },
+    { icon: GraduationCap, value: videoCount + 1, label: "Tập huấn sử dụng", href: "#tap-huan-su-dung" },
     { icon: BookOpenCheck, value: content.docs.length, label: "Tài liệu & hình ảnh", href: "#tai-lieu-hd-va-hinh-anh" },
   ];
 

@@ -1,6 +1,6 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { KeyboardEvent, ReactNode } from "react";
-import { Bell, Bug, CornerDownLeft, Files, NotebookPen, PenTool, Search, SearchX, Video } from "lucide-react";
+import { BarChart3, Bell, Bug, CornerDownLeft, Files, NotebookPen, PenTool, Search, SearchX, Video } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Dialog } from "@/components/ui/dialog";
 import { cn } from "@/lib/cn";
@@ -11,7 +11,7 @@ import { useGallery } from "./gallery-provider";
 import type { Tone } from "./section-shell";
 import styles from "./global-search.module.css";
 
-type ResultKind = "error" | "doc" | "video" | "software" | "note" | "notification";
+type ResultKind = "error" | "doc" | "video" | "software" | "note" | "notification" | "dashboard";
 
 interface SearchEntry {
   key: string;
@@ -25,6 +25,7 @@ interface SearchEntry {
 }
 
 const KIND_META: Record<ResultKind, { label: string; icon: LucideIcon; tone: Tone }> = {
+  dashboard: { label: "Thống kê", icon: BarChart3, tone: "teal" },
   error: { label: "Lỗi", icon: Bug, tone: "rose" },
   doc: { label: "Tài liệu", icon: Files, tone: "orange" },
   video: { label: "Video", icon: Video, tone: "teal" },
@@ -41,6 +42,23 @@ function buildIndex(): SearchEntry[] {
     const { body = "", ...rest } = entry;
     entries.push({ ...rest, titleNorm: normalizeText(rest.title), haystack: normalizeText(`${rest.title} ${rest.subtitle} ${body}`) });
   };
+
+  push({
+    key: "thong-ke-dat-dai-camau",
+    kind: "dashboard",
+    title: "Thống kê tổng quan - Báo cáo đất đai (VNPT Cà Mau)",
+    subtitle: "Làm sạch CSDL đất đai, không gian, hồ sơ quét, CSDL dân cư",
+    body: "thong ke tong quan bao cao dat dai vnpt ca mau lam sach du lieu khong gian hoso quet hsq gcn doi soat ccd bcd2",
+    run: { type: "goto", id: "thong-ke-giam-sat" },
+  });
+  push({
+    key: "giam-sat-vnlis-camau",
+    kind: "dashboard",
+    title: "Bộ Nông nghiệp và Môi trường – Hệ thống giám sát tiến độ hoàn thiện CSDL đất đai quốc gia",
+    subtitle: "VNLIS Cà Mau - Kế hoạch 2959/KH-STNMT",
+    body: "giam sat tien do hoan thien csdl dat dai quoc gia bo nong nghiep va moi truong vnlis tinh ca mau ke hoach 2959 dong bo",
+    run: { type: "goto", id: "thong-ke-giam-sat" },
+  });
 
   for (const group of content.errors.groups) {
     for (const item of group.items) {
@@ -84,6 +102,22 @@ function buildIndex(): SearchEntry[] {
       run: sw.downloadHref ? { type: "open", href: sw.downloadHref } : { type: "goto", id: "phan-mem-ky-so" },
     });
   }
+  push({
+    key: "tap-huan-su-dung-chinh",
+    kind: "video",
+    title: "Video hướng dẫn sử dụng iLIS (Khóa đào tạo tập huấn)",
+    subtitle: "Tập huấn sử dụng · Thời lượng 45:45 · VNPT Cà Mau",
+    body: "video huong dan su dung ilis tap huan dao tao phan mem dat dai ca mau thoi luong 45 phut giao trinh bai giang daotao taphuan",
+    run: { type: "goto", id: "tap-huan-su-dung" },
+  });
+  push({
+    key: "tap-huan-su-dung-muc",
+    kind: "video",
+    title: "Tập huấn sử dụng",
+    subtitle: "Khóa đào tạo và video hướng dẫn vận hành hệ thống VNPT iLIS Cà Mau",
+    body: "tap huan su dung dao tao huong dan su dung ilis quy trinh thao tac can bo dia chinh chi nhanh vpdvdd",
+    run: { type: "goto", id: "tap-huan-su-dung" },
+  });
   for (const group of content.videos.groups) {
     for (const video of group.items) {
       push({
@@ -234,7 +268,7 @@ export function GlobalSearch({ open, onClose, onOpenNotifications }: GlobalSearc
           break;
         case "video":
           window.dispatchEvent(new CustomEvent("portal:play-video", { detail: entry.run.videoId }));
-          goToAnchor("huong-dan");
+          goToAnchor("tap-huan-su-dung");
           break;
         case "notification":
           onOpenNotifications();

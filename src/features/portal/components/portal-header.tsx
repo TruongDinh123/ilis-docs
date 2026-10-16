@@ -18,9 +18,10 @@ export function PortalBrand() {
 }
 
 const NAV = [
+  { label: "Thống kê & Giám sát", href: "#thong-ke-giam-sat", tone: "teal" },
+  { label: "Tập huấn sử dụng", href: "#tap-huan-su-dung", tone: "teal" },
   { label: "Lỗi thường gặp", href: "#cac-loi-thuong-gap", tone: "rose" },
   { label: "Phần mềm ký số", href: "#phan-mem-ky-so", tone: "violet" },
-  { label: "Video", href: "#huong-dan", tone: "teal" },
   { label: "Tài liệu", href: "#tai-lieu-hd-va-hinh-anh", tone: "orange" },
 ] as const;
 

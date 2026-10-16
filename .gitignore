@@ -7,3 +7,5 @@ coverage
 .firebase
 .vscode/*
 !.vscode/extensions.json
+public/*.mp4
+

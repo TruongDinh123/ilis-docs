@@ -63,7 +63,7 @@ export function NotificationDialog({ open, onClose, items, isUnread, unreadCount
           </button>
         </div>
 
-        <ol className={styles.list} data-dialog-scroll="true" tabIndex={0} aria-label="Danh sách thông báo">
+        <ol className={styles.list} data-dialog-scroll="true" aria-label="Danh sách thông báo">
           {items.map((item) => {
             const unread = isUnread(item.id);
             return (

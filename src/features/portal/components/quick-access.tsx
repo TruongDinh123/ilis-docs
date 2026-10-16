@@ -1,4 +1,16 @@
-import { ArrowDown, ArrowUpRight, FileSearch, Flame, Map as MapIcon, RefreshCcw, Receipt, TriangleAlert, Zap } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUpRight,
+  BarChart3,
+  FileSearch,
+  Flame,
+  GraduationCap,
+  Map as MapIcon,
+  RefreshCcw,
+  Receipt,
+  TriangleAlert,
+  Zap,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { QUICK_ACCESS } from "../data/system-links";
 import { content } from "../data/content";
@@ -6,6 +18,8 @@ import { SectionShell } from "./section-shell";
 import styles from "./quick-access.module.css";
 
 const ICONS: Record<string, LucideIcon> = {
+  "thong-ke-giam-sat": BarChart3,
+  "tap-huan-su-dung": GraduationCap,
   "loi-thuong-gap": TriangleAlert,
   cadas: MapIcon,
   lpm: Receipt,

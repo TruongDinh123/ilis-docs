@@ -13,5 +13,6 @@ export { SigningSoftware } from "./components/signing-software";
 export { VideoGuides } from "./components/video-guides";
 export { GuideDocs } from "./components/guide-docs";
 export { ResourcesSection } from "./components/resources-section";
+export { DashboardMonitor } from "./components/dashboard-monitor";
 export { PortalFooter } from "./components/portal-footer";
 export { useNotifications } from "./hooks/use-notifications";

@@ -9,7 +9,7 @@ export interface SystemLink {
   detail: string;
   href: string;
   /** Tên token màu trong CSS (xem portal-tokens.css) */
-  tone: "blue" | "amber" | "green" | "violet" | "rose";
+  tone: "blue" | "amber" | "green" | "violet" | "rose" | "teal" | "orange" | "sky";
   badge?: string;
 }
 
@@ -22,12 +22,33 @@ export const SYSTEM_LINKS = {
   dataSharing: "https://ilis-datasharing.dongthap.gov.vn",
   sso: "https://ilis-sso.dongthap.gov.vn/Account/LoggedOut",
   crypto: "https://dichvucong.ca.gov.vn/#/page/taitainguyen/PM",
-  vnlisMonitor: "https://kh2959-vnlis.mae.gov.vn/",
+  vnlisMonitor: "https://kh2959-vnlis.mae.gov.vn/tinh-ca-mau",
+  vnlisMonitorRoot: "https://kh2959-vnlis.mae.gov.vn/",
+  baocaoDatdai: "https://baocaodatdai2.vnptcamau.vn/thong_ke.html",
+  baocaoDatdaiRoot: "https://baocaodatdai2.vnptcamau.vn/",
   zaloSupport: "https://zalo.me/g/ngqplu402",
   checkXmlThue: "https://ilis-docs.vnptdongthap.com.vn/check-xml-thue.html",
 } as const;
 
 export const QUICK_ACCESS: SystemLink[] = [
+  {
+    id: "thong-ke-giam-sat",
+    title: "Thống kê & Giám sát",
+    subtitle: "Báo cáo Đất đai & VNLIS",
+    detail: "Tiến độ làm sạch dữ liệu và CSDL quốc gia",
+    href: "#thong-ke-giam-sat",
+    tone: "teal",
+    badge: "Mới",
+  },
+  {
+    id: "tap-huan-su-dung",
+    title: "Tập huấn sử dụng",
+    subtitle: "Video hướng dẫn sử dụng iLIS",
+    detail: "Khóa đào tạo toàn diện 45:45 & chuyên đề",
+    href: "#tap-huan-su-dung",
+    tone: "green",
+    badge: "Khóa học",
+  },
   {
     id: "loi-thuong-gap",
     title: "Các lỗi thường gặp",
@@ -61,14 +82,6 @@ export const QUICK_ACCESS: SystemLink[] = [
     href: SYSTEM_LINKS.tracuuGcn,
     tone: "green",
   },
-  // {
-  //   id: "dong-bo",
-  //   title: "Y/C đồng bộ hồ sơ",
-  //   subtitle: "Yêu cầu đồng bộ hồ sơ",
-  //   detail: "Đồng bộ hồ sơ giữa ILIS và DVC",
-  //   href: SYSTEM_LINKS.syncRequestSheet,
-  //   tone: "violet",
-  // },
 ];
 
 export interface SupportStep {
@@ -92,17 +105,18 @@ export const QUOTE = {
 
 export const FOOTER_LINKS = {
   quick: [
+    { label: "Giám sát & Thống kê", href: "#thong-ke-giam-sat" },
+    { label: "Tập huấn sử dụng", href: "#tap-huan-su-dung" },
     { label: "Các lỗi thường gặp", href: "#cac-loi-thuong-gap" },
     { label: "Phần mềm ký số", href: "#phan-mem-ky-so" },
-    { label: "Hướng dẫn ILIS", href: "#huong-dan" },
     { label: "Tra cứu GCN", href: SYSTEM_LINKS.tracuuGcn },
     { label: "Đăng nhập ILIS", href: SYSTEM_LINKS.cadas },
   ],
   support: [
+    { label: "Thống kê đất đai Cà Mau", href: SYSTEM_LINKS.baocaoDatdai },
+    { label: "Giám sát tiến độ CSDL VNLIS", href: SYSTEM_LINKS.vnlisMonitor },
     { label: "Luân chuyển hồ sơ", href: SYSTEM_LINKS.lpm },
-    // { label: "Check XML thuế", href: SYSTEM_LINKS.checkXmlThue },
     { label: "Ban cơ yếu CP", href: SYSTEM_LINKS.crypto },
-    { label: "Giám sát tiến độ CSDL đất đai (VNLIS)", href: SYSTEM_LINKS.vnlisMonitor },
     { label: "Nhóm hỗ trợ DVC (Zalo)", href: SYSTEM_LINKS.zaloSupport },
   ],
 };

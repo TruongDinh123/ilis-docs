@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { AppShell } from "@/components/layout/app-shell";
 import {
+  DashboardMonitor,
   ErrorCatalog,
   GalleryProvider,
   GlobalSearch,
@@ -68,6 +69,7 @@ export function HomeRoute() {
         <div className={styles.page}>
           <Hero onOpenSearch={openSearch} />
           <QuickAccess />
+          <DashboardMonitor />
           <SupportGuide />
           <ErrorCatalog />
           <NotesSection />

@@ -77,7 +77,7 @@ export function useVisitorStats(): VisitorStats {
     if (!hasTrackedSession) {
       sessionStorage.setItem(STORAGE_KEYS.SESSION_TRACKED, "1");
 
-      async function incrementVisit() {
+      const incrementVisit = async () => {
         try {
           await setDoc(
             statsDocRef,
@@ -92,9 +92,9 @@ export function useVisitorStats(): VisitorStats {
         } catch (err) {
           console.warn("Lỗi ghi nhận lượt truy cập:", err);
         }
-      }
+      };
 
-      incrementVisit();
+      void incrementVisit();
     }
 
     return () => unsubscribeStats();

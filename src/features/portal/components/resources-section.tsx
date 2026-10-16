@@ -1,4 +1,4 @@
-import { ArrowUpRight, Activity, KeyRound, MessagesSquare, Quote, Search, Waypoints } from "lucide-react";
+import { ArrowUpRight, Activity, BarChart3, KeyRound, MessagesSquare, Quote, Search, Waypoints } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { QUOTE, SYSTEM_LINKS } from "../data/system-links";
 import { SectionShell } from "./section-shell";
@@ -16,9 +16,17 @@ interface Resource {
 
 const RESOURCES: Resource[] = [
   {
+    id: "baocao",
+    title: "Báo cáo Đất đai Cà Mau (VNPT)",
+    detail: "Tiến độ làm sạch dữ liệu: không gian, HSQ, GCN, đối soát CSDL dân cư",
+    href: SYSTEM_LINKS.baocaoDatdai,
+    icon: BarChart3,
+    tone: "blue",
+  },
+  {
     id: "vnlis",
-    title: "Giám sát tiến độ CSDL đất đai",
-    detail: "Theo dõi tình hình xây dựng, đồng bộ dữ liệu lên CSDL quốc gia (VNLIS)",
+    title: "Giám sát tiến độ CSDL đất đai (VNLIS)",
+    detail: "Theo dõi tình hình xây dựng, đồng bộ dữ liệu lên CSDL quốc gia (KH 2959)",
     href: SYSTEM_LINKS.vnlisMonitor,
     icon: Activity,
     tone: "teal",

@@ -1,13 +1,14 @@
 import {
+  BarChart3,
   Bug,
   Files,
+  GraduationCap,
   Headset,
   House,
   MessagesSquare,
   NotebookPen,
   PenTool,
   Search,
-  Video,
   Waypoints,
   Zap,
 } from "lucide-react";
@@ -42,11 +43,12 @@ export function PortalSidebar({ onOpenSearch }: PortalSidebarProps) {
   const entries: NavEntry[] = [
     { id: "trang-chu", label: "Trang chủ", icon: House, tone: "sky" },
     { id: "truy-cap-nhanh", label: "Truy cập nhanh", icon: Zap, tone: "amber" },
+    { id: "thong-ke-giam-sat", label: "Giám sát & Thống kê", icon: BarChart3, tone: "teal" },
     { id: "huong-dan-ho-tro", label: "Gửi yêu cầu hỗ trợ", icon: Headset, tone: "green" },
     { id: "cac-loi-thuong-gap", label: "Các lỗi thường gặp", icon: Bug, tone: "rose", count: errorCount },
     { id: "ghi-chu", label: "Ghi chú quan trọng", icon: NotebookPen, tone: "blue", count: content.notes.important.length },
     { id: "phan-mem-ky-so", label: "Phần mềm ký số", icon: PenTool, tone: "violet", count: content.software.length },
-    { id: "huong-dan", label: "Video hướng dẫn", icon: Video, tone: "teal", count: videoCount },
+    { id: "tap-huan-su-dung", label: "Tập huấn sử dụng", icon: GraduationCap, tone: "teal", count: videoCount + 1 },
     { id: "tai-lieu-hd-va-hinh-anh", label: "Tài liệu & hình ảnh", icon: Files, tone: "orange", count: content.docs.length },
     { id: "tien-ich", label: "Tiện ích & liên kết", icon: Waypoints, tone: "sky" },
   ];
