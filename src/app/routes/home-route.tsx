@@ -3,6 +3,7 @@ import { AppShell } from "@/components/layout/app-shell";
 import {
   DashboardMonitor,
   ErrorCatalog,
+  FileOptimizerTool,
   GalleryProvider,
   GlobalSearch,
   GuideDocs,
@@ -69,6 +70,7 @@ export function HomeRoute() {
         <div className={styles.page}>
           <Hero onOpenSearch={openSearch} />
           <QuickAccess />
+          <FileOptimizerTool />
           <DashboardMonitor />
           <SupportGuide />
           <ErrorCatalog />

@@ -14,5 +14,6 @@ export { VideoGuides } from "./components/video-guides";
 export { GuideDocs } from "./components/guide-docs";
 export { ResourcesSection } from "./components/resources-section";
 export { DashboardMonitor } from "./components/dashboard-monitor";
+export { FileOptimizerTool } from "./components/file-optimizer";
 export { PortalFooter } from "./components/portal-footer";
 export { useNotifications } from "./hooks/use-notifications";

@@ -7,6 +7,10 @@ console.log("🚀 Bắt đầu quá trình build và deploy production...");
 // 1. Build & Deploy lên Firebase Hosting (Google Cloud)
 console.log("☁️  1/2: Đang build và deploy lên Google Cloud Firebase Hosting...");
 execSync("npm run build", { stdio: "inherit", env: { ...process.env, BASE_PATH: "/" } });
+const samplesDistFb = path.resolve("dist", "samples");
+if (fs.existsSync(samplesDistFb)) {
+  fs.rmSync(samplesDistFb, { recursive: true, force: true });
+}
 execSync("firebase deploy --only hosting", { stdio: "inherit" });
 
 // 2. Build & Deploy lên GitHub Pages
@@ -19,8 +23,14 @@ execSync("npm run build", {
 const distDir = path.resolve("dist");
 const repoUrl = "https://github.com/TruongDinh123/ilis-docs.git";
 
-// Tạo 404.html cho GitHub Pages để hỗ trợ direct routing (/thong-ke, /giam-sat)
+// Tạo 404.html cho GitHub Pages để hỗ trợ direct routing (/thong-ke, /giam-sat, /toi-uu-file)
 fs.copyFileSync(path.join(distDir, "index.html"), path.join(distDir, "404.html"));
+
+// Loại bỏ tạm thư mục samples (của module Chuẩn hóa Excel đang để lại) khỏi dist nếu có
+const samplesDist = path.join(distDir, "samples");
+if (fs.existsSync(samplesDist)) {
+  fs.rmSync(samplesDist, { recursive: true, force: true });
+}
 
 // Loại bỏ tạm tệp video lớn >100MB khỏi commit gh-pages để không bị GitHub chặn limit 100MB
 // (Trên GitHub Pages, video tự động stream trực tiếp từ CDN của Firebase Hosting: https://ilis-docs-vnpt-camau.web.app/DaoTao_TapHuan.mp4)
@@ -44,7 +54,7 @@ try {
   execSync("git config http.version HTTP/1.1", { cwd: distDir, stdio: "ignore" });
   execSync(`git remote add origin ${repoUrl}`, { cwd: distDir, stdio: "ignore" });
   execSync("git add -A", { cwd: distDir, stdio: "inherit" });
-  execSync('git commit -m "deploy: update production build with Tap Huan Su Dung category"', { cwd: distDir, stdio: "inherit" });
+  execSync('git commit -m "deploy: add File Optimizer (< 15MB) service and standalone fullscreen mode"', { cwd: distDir, stdio: "inherit" });
   execSync("git push -f -u origin gh-pages", { cwd: distDir, stdio: "inherit" });
 } finally {
   if (hasLargeVideo && fs.existsSync(tempBackup)) {

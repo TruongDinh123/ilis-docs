@@ -44,6 +44,14 @@ function buildIndex(): SearchEntry[] {
   };
 
   push({
+    key: "toi-uu-dung-luong-file-hsq-15mb",
+    kind: "dashboard",
+    title: "Công cụ Kiểm tra & Tối ưu Dung lượng File Hồ sơ (< 15MB)",
+    subtitle: "Cảnh báo đỏ file vượt ngưỡng PDF, JPG, PNG, SVG, WEBP · Xuất giữ cấu trúc thư mục",
+    body: "kiem tra toi uu dung luong file ho so quet hsq dvc 15mb nen pdf jpg png svg webp bao do xuat zip thu muc",
+    run: { type: "goto", id: "toi-uu-file" },
+  });
+  push({
     key: "thong-ke-dat-dai-camau",
     kind: "dashboard",
     title: "Thống kê tổng quan - Báo cáo đất đai (VNPT Cà Mau)",

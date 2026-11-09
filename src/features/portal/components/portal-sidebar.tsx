@@ -1,6 +1,7 @@
 import {
   BarChart3,
   Bug,
+  FileArchive,
   Files,
   GraduationCap,
   Headset,
@@ -43,6 +44,7 @@ export function PortalSidebar({ onOpenSearch }: PortalSidebarProps) {
   const entries: NavEntry[] = [
     { id: "trang-chu", label: "Trang chủ", icon: House, tone: "sky" },
     { id: "truy-cap-nhanh", label: "Truy cập nhanh", icon: Zap, tone: "amber" },
+    { id: "toi-uu-file", label: "Tối ưu File Hồ sơ (<15MB)", icon: FileArchive, tone: "blue" },
     { id: "thong-ke-giam-sat", label: "Giám sát & Thống kê", icon: BarChart3, tone: "teal" },
     { id: "huong-dan-ho-tro", label: "Gửi yêu cầu hỗ trợ", icon: Headset, tone: "green" },
     { id: "cac-loi-thuong-gap", label: "Các lỗi thường gặp", icon: Bug, tone: "rose", count: errorCount },

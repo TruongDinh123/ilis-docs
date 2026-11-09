@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { paths } from "@/config/paths";
 import { HomeRoute } from "./routes/home-route";
 import { DashboardRoute } from "./routes/dashboard-route";
+import { FileOptimizerRoute } from "./routes/file-optimizer-route";
 import { NotFoundRoute } from "./routes/not-found-route";
 
 export function AppRouter() {
@@ -11,6 +12,7 @@ export function AppRouter() {
       <Route path={paths.category.path} element={<HomeRoute />} />
       <Route path={paths.thongKe.path} element={<DashboardRoute initialTab="baocao" />} />
       <Route path={paths.giamSat.path} element={<DashboardRoute initialTab="vnlis" />} />
+      <Route path={paths.toiUuFile.path} element={<FileOptimizerRoute />} />
       <Route path="*" element={<NotFoundRoute />} />
     </Routes>
   );

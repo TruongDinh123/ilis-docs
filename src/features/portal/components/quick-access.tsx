@@ -2,6 +2,7 @@ import {
   ArrowDown,
   ArrowUpRight,
   BarChart3,
+  FileArchive,
   FileSearch,
   Flame,
   GraduationCap,
@@ -18,6 +19,7 @@ import { SectionShell } from "./section-shell";
 import styles from "./quick-access.module.css";
 
 const ICONS: Record<string, LucideIcon> = {
+  "toi-uu-file": FileArchive,
   "thong-ke-giam-sat": BarChart3,
   "tap-huan-su-dung": GraduationCap,
   "loi-thuong-gap": TriangleAlert,

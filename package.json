@@ -14,14 +14,17 @@
     "typecheck": "tsc -b --noEmit",
     "deploy": "node scripts/deploy.mjs",
     "deploy:firebase": "npm run build && firebase deploy --only hosting",
-    "sync:content": "python scripts/sync-dongthap-content.py"
+    "sync:content": "python scripts/sync-dongthap-content.py",
+    "serve:optimizer": "python scripts/optimize-server/app.py"
   },
   "dependencies": {
     "firebase": "^13.0.0",
     "lucide-react": "^1.56.0",
+    "pdfjs-dist": "^3.11.174",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2"
+    "react-router-dom": "^6.26.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.5.0",

@@ -18,6 +18,7 @@ export function PortalBrand() {
 }
 
 const NAV = [
+  { label: "Tối ưu File (<15MB)", href: "#toi-uu-file", tone: "teal" },
   { label: "Giám sát & Thống kê", href: "#thong-ke-giam-sat", tone: "teal" },
   { label: "Tập huấn sử dụng", href: "#tap-huan-su-dung", tone: "teal" },
   { label: "Lỗi thường gặp", href: "#cac-loi-thuong-gap", tone: "rose" },

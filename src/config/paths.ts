@@ -15,4 +15,8 @@ export const paths = {
     path: "/giam-sat",
     getHref: () => "/giam-sat",
   },
+  toiUuFile: {
+    path: "/toi-uu-file",
+    getHref: () => "/toi-uu-file",
+  },
 } as const;

@@ -32,6 +32,15 @@ export const SYSTEM_LINKS = {
 
 export const QUICK_ACCESS: SystemLink[] = [
   {
+    id: "toi-uu-file",
+    title: "Tối ưu File Hồ sơ (<15MB)",
+    subtitle: "Kiểm tra & Nén PDF, Ảnh, SVG",
+    detail: "Cảnh báo đỏ file vượt ngưỡng DVC/HSQ, xuất giữ cấu trúc thư mục",
+    href: "#toi-uu-file",
+    tone: "blue",
+    badge: "Mới",
+  },
+  {
     id: "thong-ke-giam-sat",
     title: "Thống kê & Giám sát",
     subtitle: "Báo cáo Đất đai & VNLIS",
