@@ -980,6 +980,12 @@ export async function optimizeFileBytes(
 }
 
 /**
+ * Backend PyMuPDF triển khai trên Google Cloud Run (project-ocr-hermess-agent, asia-southeast1).
+ */
+export const CLOUD_RUN_OPTIMIZE_URL =
+  "https://ilis-file-optimizer-877596961199.asia-southeast1.run.app/api/optimize";
+
+/**
  * Tối ưu hóa 1 đối tượng File (ưu tiên gọi Backend API PyMuPDF nếu có, tự động fallback Client-Side)
  */
 export async function optimizeFileItem(
@@ -997,9 +1003,13 @@ export async function optimizeFileItem(
   const isSyntheticSample = file.name === "HSQ_GCN_TranVanDung_To12_Thua160.pdf";
 
   if (options?.preferBackend && !isSyntheticSample) {
+    const isLocalhost =
+      typeof window !== "undefined" && /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
     const candidateEndpoints = options.backendUrl
       ? [options.backendUrl]
-      : ["/api/optimize", "http://127.0.0.1:8000/api/optimize"];
+      : isLocalhost
+        ? ["/api/optimize", "http://127.0.0.1:8000/api/optimize", CLOUD_RUN_OPTIMIZE_URL]
+        : [CLOUD_RUN_OPTIMIZE_URL];
 
     for (const endpoint of candidateEndpoints) {
       const controller = new AbortController();

@@ -14,8 +14,16 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=[
+        o.strip()
+        for o in os.environ.get(
+            "ALLOWED_ORIGINS",
+            "https://ilis-docs-vnpt-camau.web.app,https://ilis-docs-vnpt-camau.firebaseapp.com,"
+            "https://truongdinh123.github.io,http://localhost:5173",
+        ).split(",")
+        if o.strip()
+    ],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["X-Original-Size", "X-Optimized-Size", "X-Method"],
