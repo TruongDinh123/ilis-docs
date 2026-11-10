@@ -548,6 +548,20 @@ async function compressBitmapToTargetJpeg(
 }
 
 /**
+ * Đếm số trang PDF (đối tượng /Type /Page, không tính /Pages).
+ */
+function countPdfPages(pdfBytes: Uint8Array): number {
+  const text = new TextDecoder("latin1").decode(pdfBytes);
+  const ids = new Set<string>();
+  const re = /(\d+)\s+\d+\s+obj\b(?:(?!endobj)[\s\S]){0,4000}?\/Type\s*\/Page(?![a-zA-Z])/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    ids.add(m[1]!);
+  }
+  return ids.size;
+}
+
+/**
  * Quét trực tiếp các luồng ảnh JPEG (FF D8 FF ... FF D9) nhúng trong PDF, hạ độ phân giải và nén lại
  * theo ngân sách động để giữ nguyên 100% số trang ngay trên trình duyệt mà không cần backend.
  */
@@ -617,6 +631,13 @@ async function recompressEmbeddedPdfJpegsInBrowser(
   }
 
   if (jpegSlices.length === 0) {
+    return null;
+  }
+
+  // Chỉ dùng đường tắt này khi mỗi trang đúng 1 ảnh JPEG lớn. Nếu số ảnh JPEG khác số trang
+  // (trang dùng ảnh Flate/JBIG2/CCITT, ảnh nhỏ, nhiều ảnh/trang...) thì bỏ qua để tránh mất trang.
+  const pageCount = countPdfPages(pdfBytes);
+  if (pageCount <= 0 || jpegSlices.length !== pageCount) {
     return null;
   }
 
@@ -716,7 +737,7 @@ async function renderAndCompressPdfWithPdfjs(
       renderCanvas.width = Math.max(64, Math.round(vpRender.width));
       renderCanvas.height = Math.max(64, Math.round(vpRender.height));
       const rCtx = renderCanvas.getContext("2d");
-      if (!rCtx) continue;
+      if (!rCtx) throw new Error(`Không tạo được canvas cho trang ${pageNo}`);
       rCtx.fillStyle = "#FFFFFF";
       rCtx.fillRect(0, 0, renderCanvas.width, renderCanvas.height);
 
@@ -746,6 +767,7 @@ async function renderAndCompressPdfWithPdfjs(
       remMax = Math.max(4096, remMax - comp.jpegBytes.byteLength);
     }
 
+    if (renderedPages.length !== numPages) return null;
     const outPdf = buildMultiPageJpegPdf(renderedPages);
     return {
       bytes: outPdf,
