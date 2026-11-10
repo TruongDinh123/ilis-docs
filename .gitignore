@@ -8,4 +8,6 @@ coverage
 .vscode/*
 !.vscode/extensions.json
 public/*.mp4
+__pycache__/
+*.pyc
 

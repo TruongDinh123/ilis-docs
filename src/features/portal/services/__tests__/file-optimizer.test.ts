@@ -36,6 +36,7 @@ describe("fileOptimizerService", () => {
       const inputBytes = await readBlobBytes(entry.file);
       const { bytes, meta } = await optimizeFileBytes(entry.file.name, inputBytes, 15);
       expect(bytes.byteLength).toBeLessThanOrEqual(targetBytes);
+      expect(bytes.byteLength).toBeGreaterThanOrEqual(13 * 1024 * 1024);
       expect(meta.optimized_size).toBeLessThan(meta.original_size);
     }
 

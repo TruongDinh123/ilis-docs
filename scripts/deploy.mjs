@@ -54,7 +54,7 @@ try {
   execSync("git config http.version HTTP/1.1", { cwd: distDir, stdio: "ignore" });
   execSync(`git remote add origin ${repoUrl}`, { cwd: distDir, stdio: "ignore" });
   execSync("git add -A", { cwd: distDir, stdio: "inherit" });
-  execSync('git commit -m "deploy: add File Optimizer (< 15MB) service and standalone fullscreen mode"', { cwd: distDir, stdio: "inherit" });
+  execSync('git commit -m "deploy: fix PDF/Image optimizer to preserve all pages and target 13-15MB band"', { cwd: distDir, stdio: "inherit" });
   execSync("git push -f -u origin gh-pages", { cwd: distDir, stdio: "inherit" });
 } finally {
   if (hasLargeVideo && fs.existsSync(tempBackup)) {

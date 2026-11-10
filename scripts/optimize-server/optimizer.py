@@ -1,5 +1,6 @@
 import base64
 import io
+import math
 import re
 from typing import Tuple, Dict, Any
 
@@ -9,22 +10,196 @@ from PIL import Image, ImageOps
 
 def compute_target_bytes(target_mb: float) -> int:
     """
-    Calculate safe target byte size under target_mb.
-    Uses a 96% safety margin of binary MiB and 98% of decimal MB so the output
-    is guaranteed to show < target_mb in both Windows Explorer (MiB) and web portals (MB).
+    Calculate safe ceiling byte size strictly under target_mb (98% of binary MiB).
+    For target_mb = 15.0, ceiling is ~14.70 MiB (15,414,067 bytes), while the
+    optimizer aims for the 13.2 - 14.7 MiB sweet spot (88% - 98% of target_mb).
     """
-    binary_bytes = int(target_mb * 1024 * 1024 * 0.96)
-    decimal_bytes = int(target_mb * 1000 * 1000 * 0.98)
-    return max(1024, min(binary_bytes, decimal_bytes))
+    valid_mb = target_mb if target_mb > 0.05 else 15.0
+    return max(1024, int(valid_mb * 1024 * 1024 * 0.98))
+
+
+def _replace_image_inplace(
+    doc: fitz.Document,
+    xref: int,
+    new_jpg: bytes,
+    nw: int,
+    nh: int,
+    mode: str,
+) -> None:
+    """Update an image XObject stream in-place without creating duplicate xrefs or losing page annotations/signatures."""
+    cs = "/DeviceGray" if mode == "L" else "/DeviceRGB"
+    doc.update_stream(xref, new_jpg, compress=False)
+    doc.xref_set_key(xref, "Filter", "/DCTDecode")
+    doc.xref_set_key(xref, "DecodeParms", "null")
+    doc.xref_set_key(xref, "ColorSpace", cs)
+    doc.xref_set_key(xref, "BitsPerComponent", "8")
+    doc.xref_set_key(xref, "Width", str(nw))
+    doc.xref_set_key(xref, "Height", str(nh))
+
+
+def _compress_pdf_embedded_image(
+    pil_img: Image.Image,
+    target_b: int,
+    max_b: int,
+    orig_b: int,
+    steps: int = 5,
+) -> Tuple[bytes, int, int, str]:
+    """
+    Downscale image resolution and binary-search JPEG quality so the output stream
+    lands as close as possible to target_b while staying <= max_b.
+    """
+    if pil_img.mode not in ("RGB", "L"):
+        pil_img = pil_img.convert("RGB")
+    w, h = pil_img.size
+    ratio = min(0.96, target_b / max(1, orig_b))
+
+    # Always reduce resolution slightly (<= 0.95) and scale proportionally to target ratio
+    init_scale = min(0.95, max(0.32, math.sqrt(ratio) * 0.98))
+    scales = [
+        init_scale,
+        min(0.97, init_scale * 1.08),
+        init_scale * 0.82,
+        init_scale * 0.65,
+        init_scale * 0.48,
+    ]
+    unique_scales = []
+    for s in scales:
+        s_clamped = round(max(0.20, min(0.97, s)), 3)
+        if s_clamped not in unique_scales:
+            unique_scales.append(s_clamped)
+
+    best_res: Tuple[bytes, int, int, str] | None = None
+    best_diff = float("inf")
+    best_under: Tuple[bytes, int, int, str] | None = None
+
+    for sc in unique_scales:
+        nw, nh = max(64, int(w * sc)), max(64, int(h * sc))
+        resized = (
+            pil_img.resize((nw, nh), Image.Resampling.BILINEAR)
+            if sc < 0.999
+            else pil_img
+        )
+        lo, hi = 30, 96
+        for step_idx in range(steps):
+            mid = 95 if step_idx == 0 and ratio > 0.75 else (lo + hi) // 2
+            buf = io.BytesIO()
+            sub = 0 if mid >= 86 else -1
+            resized.save(buf, format="JPEG", quality=mid, subsampling=sub)
+            data = buf.getvalue()
+            sz = len(data)
+            item = (data, nw, nh, resized.mode)
+
+            if sz <= max_b:
+                if best_under is None or abs(sz - target_b) < abs(len(best_under[0]) - target_b):
+                    best_under = item
+            diff = abs(sz - target_b)
+            if diff < best_diff:
+                best_diff = diff
+                best_res = item
+
+            if sz > target_b:
+                hi = mid - 1
+            else:
+                lo = mid + 1
+
+            if best_under is not None and target_b * 0.95 <= len(best_under[0]) <= max_b:
+                return best_under
+
+        if best_under is not None and len(best_under[0]) >= target_b * 0.88:
+            return best_under
+
+    return best_under or best_res or (b"", w, h, pil_img.mode)
+
+
+def _run_inplace_pdf_pass(
+    input_bytes: bytes,
+    desired_total: int,
+    max_total: int,
+    force_all_images: bool = False,
+) -> Tuple[bytes, str] | None:
+    """Run a single pass of in-place XObject resolution/quality optimization."""
+    orig_size = len(input_bytes)
+    doc = fitz.open(stream=input_bytes, filetype="pdf")
+    xref_raw_len: Dict[int, int] = {}
+    for page in doc:
+        for im in page.get_images(full=True):
+            xref, smask = im[0], im[1]
+            if smask > 0 or xref in xref_raw_len:
+                continue
+            try:
+                raw_len = len(doc.xref_stream_raw(xref))
+            except Exception:
+                continue
+            if raw_len >= 24_576:
+                xref_raw_len[xref] = raw_len
+
+    if not xref_raw_len:
+        doc.close()
+        return None
+
+    sorted_items = sorted(xref_raw_len.items(), key=lambda x: x[1], reverse=True)
+    total_img_bytes = sum(xref_raw_len.values())
+    non_img_overhead = max(0, orig_size - total_img_bytes)
+    bytes_to_shed = max(1024, orig_size - desired_total)
+
+    selected = []
+    sel_orig_sum = 0
+    for xref, ob in sorted_items:
+        selected.append((xref, ob))
+        sel_orig_sum += ob
+        if (
+            not force_all_images
+            and len(selected) >= 8
+            and sel_orig_sum >= bytes_to_shed * 2.5
+        ):
+            break
+
+    unselected_sum = total_img_bytes - sel_orig_sum
+    rem_target = max(1024, desired_total - non_img_overhead - unselected_sum)
+    rem_max = max(1024, max_total - non_img_overhead - unselected_sum)
+    rem_orig = sel_orig_sum
+    steps = 5 if len(selected) <= 12 else 3
+
+    for xref, orig_b in selected:
+        share = orig_b / max(1, rem_orig)
+        t_b = int(rem_target * share)
+        m_b = int(rem_max * share)
+        try:
+            pix = fitz.Pixmap(doc, xref)
+            if pix.n - pix.alpha > 3:
+                pix = fitz.Pixmap(fitz.csRGB, pix)
+            elif pix.alpha:
+                pix = fitz.Pixmap(pix, 0)
+            mode = "L" if pix.n == 1 else "RGB"
+            pil_im = Image.frombytes(mode, (pix.width, pix.height), pix.samples)
+            new_jpg, nw, nh, m_out = _compress_pdf_embedded_image(
+                pil_im, t_b, m_b, orig_b, steps=steps
+            )
+            if 0 < len(new_jpg) < orig_b:
+                _replace_image_inplace(doc, xref, new_jpg, nw, nh, m_out)
+                actual_b = len(new_jpg)
+            else:
+                actual_b = orig_b
+        except Exception:
+            actual_b = orig_b
+
+        rem_target = max(1024, rem_target - actual_b)
+        rem_max = max(1024, rem_max - actual_b)
+        rem_orig = max(1, rem_orig - orig_b)
+
+    out = doc.tobytes(garbage=3, deflate=False)
+    if len(out) > max_total:
+        out_deflate = doc.tobytes(garbage=4, deflate=True, clean=True)
+        if len(out_deflate) < len(out):
+            out = out_deflate
+    doc.close()
+    return out, f"smart_inplace_jpeg({len(selected)}/{len(sorted_items)}_imgs)"
 
 
 def optimize_pdf(input_bytes: bytes, target_bytes: int) -> Tuple[bytes, Dict[str, Any]]:
     """
-    Optimize a PDF file to be strictly <= target_bytes while preserving maximum visual quality.
-    Strategy:
-      1. Lossless stream compression & garbage collection.
-      2. Progressive embedded-image downsampling via PyMuPDF rewrite_images (keeps vector text intact).
-      3. Adaptive per-page rasterization fallback with per-page byte budget (guarantees <= target_bytes).
+    Optimize a PDF file to land in the 88% - 98% band of target_mb (e.g. 13.2 - 14.7 MB for 15 MB)
+    while preserving all pages, text, stamps, and visual signature appearances.
     """
     orig_size = len(input_bytes)
     if orig_size <= target_bytes:
@@ -34,112 +209,74 @@ def optimize_pdf(input_bytes: bytes, target_bytes: int) -> Tuple[bytes, Dict[str
             "optimized_size": orig_size,
         }
 
+    desired_bytes = int(target_bytes * 0.955)
     best_bytes = input_bytes
     best_method = "original"
 
-    # Step 1: Lossless cleanup
     try:
-        doc = fitz.open(stream=input_bytes, filetype="pdf")
-        cleaned = doc.tobytes(
-            garbage=4,
-            deflate=True,
-            clean=True,
-            deflate_images=True,
-            deflate_fonts=True,
+        res = _run_inplace_pdf_pass(
+            input_bytes,
+            desired_total=desired_bytes,
+            max_total=target_bytes,
+            force_all_images=False,
         )
-        doc.close()
-        if 0 < len(cleaned) < len(best_bytes):
-            best_bytes = cleaned
-            best_method = "lossless_deflate"
-        if len(best_bytes) <= target_bytes:
-            return best_bytes, {
-                "method": best_method,
-                "original_size": orig_size,
-                "optimized_size": len(best_bytes),
-            }
+        if res is not None:
+            cand_bytes, cand_method = res
+            if 0 < len(cand_bytes) < len(best_bytes):
+                best_bytes = cand_bytes
+                best_method = cand_method
+            if len(best_bytes) <= target_bytes:
+                return best_bytes, {
+                    "method": best_method,
+                    "original_size": orig_size,
+                    "optimized_size": len(best_bytes),
+                }
+
+        res2 = _run_inplace_pdf_pass(
+            input_bytes,
+            desired_total=int(target_bytes * 0.90),
+            max_total=int(target_bytes * 0.96),
+            force_all_images=True,
+        )
+        if res2 is not None:
+            cand_bytes2, cand_method2 = res2
+            if 0 < len(cand_bytes2) < len(best_bytes):
+                best_bytes = cand_bytes2
+                best_method = cand_method2
+            if len(best_bytes) <= target_bytes:
+                return best_bytes, {
+                    "method": best_method,
+                    "original_size": orig_size,
+                    "optimized_size": len(best_bytes),
+                }
     except Exception:
         pass
 
-    # Step 2: Progressive rewrite_images (preserves vector text & fonts)
-    rewrite_steps = [
-        (260, 240, 88),
-        (220, 200, 82),
-        (190, 170, 75),
-        (165, 150, 68),
-        (140, 130, 60),
-        (120, 110, 52),
-        (100, 95, 44),
-        (85, 80, 36),
-    ]
-
-    for dpi_thresh, dpi_target, quality in rewrite_steps:
-        try:
-            doc = fitz.open(stream=input_bytes, filetype="pdf")
-            if hasattr(doc, "rewrite_images"):
-                doc.rewrite_images(
-                    dpi_threshold=dpi_thresh,
-                    dpi_target=dpi_target,
-                    quality=quality,
-                    lossy=True,
-                    lossless=True,
-                    bitonal=True,
-                    color=True,
-                    gray=True,
-                )
-                candidate = doc.tobytes(
-                    garbage=4,
-                    deflate=True,
-                    clean=True,
-                    deflate_images=True,
-                    deflate_fonts=True,
-                )
-                doc.close()
-                if 0 < len(candidate) < len(best_bytes):
-                    best_bytes = candidate
-                    best_method = f"rewrite_images(dpi={dpi_target},q={quality})"
-                if len(best_bytes) <= target_bytes:
-                    return best_bytes, {
-                        "method": best_method,
-                        "original_size": orig_size,
-                        "optimized_size": len(best_bytes),
-                    }
-            else:
-                doc.close()
-                break
-        except Exception:
-            continue
-
-    # Step 3: Adaptive per-page rasterization fallback (strictly enforces target_bytes)
     try:
         src_doc = fitz.open(stream=input_bytes, filetype="pdf")
         page_count = max(1, len(src_doc))
-        per_page_budget = max(4096, int((target_bytes * 0.92) / page_count))
-
-        if per_page_budget >= 800_000:
-            start_dpi = 220
-        elif per_page_budget >= 350_000:
-            start_dpi = 180
-        elif per_page_budget >= 180_000:
-            start_dpi = 150
-        elif per_page_budget >= 90_000:
-            start_dpi = 120
-        else:
-            start_dpi = 95
+        rem_target = int(desired_bytes * 0.97)
+        rem_max = int(target_bytes * 0.98)
 
         out_doc = fitz.open()
-        for page in src_doc:
+        for idx, page in enumerate(src_doc):
+            pages_left = max(1, page_count - idx)
+            p_target = max(4096, int(rem_target / pages_left))
+            p_max = max(4096, int(rem_max / pages_left))
             rect = page.rect
-            page_jpeg = _render_page_within_budget(page, per_page_budget, start_dpi)
+            page_jpeg = _render_page_within_budget(page, p_target, p_max)
             new_page = out_doc.new_page(width=rect.width, height=rect.height)
             new_page.insert_image(rect, stream=page_jpeg)
+            rem_target = max(4096, rem_target - len(page_jpeg))
+            rem_max = max(4096, rem_max - len(page_jpeg))
 
-        raster_bytes = out_doc.tobytes(garbage=4, deflate=True, clean=True)
+        raster_bytes = out_doc.tobytes(garbage=3, deflate=False)
         out_doc.close()
         src_doc.close()
 
         if 0 < len(raster_bytes) < len(best_bytes):
             best_bytes = raster_bytes
-            best_method = f"adaptive_raster(dpi={start_dpi})"
+            best_method = "adaptive_page_raster"
     except Exception:
         pass
 
@@ -150,35 +287,47 @@ def optimize_pdf(input_bytes: bytes, target_bytes: int) -> Tuple[bytes, Dict[str
     }
 
 
-def _render_page_within_budget(page: fitz.Page, budget_bytes: int, start_dpi: int) -> bytes:
-    """Render a single PDF page to JPEG bytes strictly within budget_bytes."""
-    dpi_candidates = [start_dpi, int(start_dpi * 0.85), int(start_dpi * 0.7), 96, 72]
-    quality_candidates = [88, 80, 72, 62, 50, 40, 30]
+def _render_page_within_budget(page: fitz.Page, target_bytes: int, max_bytes: int) -> bytes:
+    """Render a single PDF page to JPEG bytes aiming for target_bytes and strictly <= max_bytes."""
+    if target_bytes >= 1_500_000:
+        dpi_candidates = [240, 200, 160, 130, 100]
+    elif target_bytes >= 600_000:
+        dpi_candidates = [180, 150, 125, 100, 80]
+    elif target_bytes >= 250_000:
+        dpi_candidates = [140, 115, 95, 75]
+    else:
+        dpi_candidates = [110, 90, 72, 55]
 
-    best_img_bytes = b""
+    best_under = b""
+    best_any = b""
     for dpi in dpi_candidates:
         pix = page.get_pixmap(dpi=max(48, dpi), alpha=False)
         img = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
-        for q in quality_candidates:
+        lo, hi = 30, 95
+        for _ in range(5):
+            mid = (lo + hi) // 2
             buf = io.BytesIO()
-            img.save(buf, format="JPEG", quality=q, optimize=True, progressive=True)
+            sub = 0 if mid >= 86 else -1
+            img.save(buf, format="JPEG", quality=mid, subsampling=sub)
             data = buf.getvalue()
-            if not best_img_bytes or len(data) < len(best_img_bytes):
-                best_img_bytes = data
-            if len(data) <= budget_bytes:
-                return data
+            if not best_any or abs(len(data) - target_bytes) < abs(len(best_any) - target_bytes):
+                best_any = data
+            if len(data) <= max_bytes:
+                if not best_under or abs(len(data) - target_bytes) < abs(len(best_under) - target_bytes):
+                    best_under = data
+            if len(data) > target_bytes:
+                hi = mid - 1
+            else:
+                lo = mid + 1
+        if best_under and len(best_under) >= target_bytes * 0.85:
+            return best_under
 
-    return best_img_bytes
+    return best_under or best_any
 
 
 def optimize_svg(input_bytes: bytes, target_bytes: int) -> Tuple[bytes, Dict[str, Any]]:
     """
-    Optimize SVG file:
-      1. Return original if already <= target_bytes.
-      2. Compress any embedded base64 raster images inside <image> tags.
-      3. Strip XML comments, editor metadata, unnecessary whitespace.
-      4. Progressively reduce coordinate decimal precision if still above target_bytes.
-      5. Fallback to PyMuPDF SVG rasterization wrapped in valid SVG if vector data still exceeds target_bytes.
+    Optimize SVG file to land in 88% - 98% of target_bytes while preserving vector/embedded content.
     """
     orig_size = len(input_bytes)
     if orig_size <= target_bytes:
@@ -188,14 +337,11 @@ def optimize_svg(input_bytes: bytes, target_bytes: int) -> Tuple[bytes, Dict[str
             "optimized_size": orig_size,
         }
 
+    desired_bytes = int(target_bytes * 0.95)
     try:
         text = input_bytes.decode("utf-8", errors="ignore")
     except Exception:
         return input_bytes, {"method": "unmodified", "original_size": orig_size, "optimized_size": orig_size}
-
-    text = re.sub(r"<!--[\s\S]*?-->", "", text)
-    text = re.sub(r"<metadata[\s\S]*?</metadata>", "", text, flags=re.IGNORECASE)
-    text = re.sub(r"<sodipodi:namedview[\s\S]*?(?:/>|</sodipodi:namedview>)", "", text, flags=re.IGNORECASE)
 
     data_uri_pattern = re.compile(
         r"(data:image/(?:png|jpeg|jpg|webp|bmp|gif|tiff|tif);base64,)([A-Za-z0-9+/=\s]+)",
@@ -205,8 +351,8 @@ def optimize_svg(input_bytes: bytes, target_bytes: int) -> Tuple[bytes, Dict[str
     if matches:
         total_match_chars = sum(len(m.group(0)) for m in matches)
         non_img_bytes = max(0, len(text.encode("utf-8")) - total_match_chars)
-        avail_b64_bytes = max(8192, target_bytes - non_img_bytes - 4096)
-        per_img_budget = max(4096, int((avail_b64_bytes * 0.70) / len(matches)))
+        avail_b64_bytes = max(8192, desired_bytes - non_img_bytes)
+        per_img_budget = max(4096, int((avail_b64_bytes * 0.74) / len(matches)))
 
         def _replace_b64(match: re.Match) -> str:
             prefix = match.group(1)
@@ -229,9 +375,14 @@ def optimize_svg(input_bytes: bytes, target_bytes: int) -> Tuple[bytes, Dict[str
 
         text = data_uri_pattern.sub(_replace_b64, text)
 
-    text = re.sub(r">\s+<", "><", text)
-    text = re.sub(r"\s{2,}", " ", text).strip()
     out_bytes = text.encode("utf-8")
+    if len(out_bytes) > target_bytes:
+        text = re.sub(r"<!--[\s\S]*?-->", "", text)
+        text = re.sub(r"<metadata[\s\S]*?</metadata>", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"<sodipodi:namedview[\s\S]*?(?:/>|</sodipodi:namedview>)", "", text, flags=re.IGNORECASE)
+        text = re.sub(r">\s+<", "><", text)
+        text = re.sub(r"\s{2,}", " ", text).strip()
+        out_bytes = text.encode("utf-8")
 
     if len(out_bytes) <= target_bytes:
         return out_bytes, {
@@ -240,60 +391,21 @@ def optimize_svg(input_bytes: bytes, target_bytes: int) -> Tuple[bytes, Dict[str
             "optimized_size": len(out_bytes),
         }
 
-    if len(out_bytes) <= int(target_bytes * 1.45):
-        for pattern, repl in (
-            (r"(-?\d+\.\d{2})\d+", r"\1"),
-            (r"(-?\d+\.\d)\d+", r"\1"),
-            (r"(-?\d+)\.\d+", r"\1"),
-        ):
-            rounded_text = re.sub(pattern, repl, text)
-            candidate = rounded_text.encode("utf-8")
-            if len(candidate) < len(out_bytes):
-                out_bytes = candidate
-            if len(out_bytes) <= target_bytes:
-                return out_bytes, {
-                    "method": "svg_precision_optimize",
-                    "original_size": orig_size,
-                    "optimized_size": len(out_bytes),
-                }
-
-    # Step 5: Guaranteed fallback for vector-heavy SVGs still > target_bytes
-    try:
-        render_bytes = out_bytes
-        if len(render_bytes) > 32_000:
-            head_str = render_bytes[:32_000].decode("utf-8", errors="ignore")
-            last_close = max(head_str.rfind("/>"), head_str.rfind("</path>"), head_str.rfind("</g>"))
-            if last_close != -1:
-                cut_idx = head_str.find(">", last_close) + 1
-                render_bytes = (head_str[:cut_idx] + "</svg>").encode("utf-8")
-
-        svg_doc = fitz.open(stream=render_bytes, filetype="svg")
-        page = svg_doc[0]
-        rect = page.rect
-        w = max(64, int(rect.width) if rect.width > 0 else 1200)
-        h = max(64, int(rect.height) if rect.height > 0 else 900)
-        max_dim = max(w, h)
-        zoom = min(1.5, 2000.0 / max_dim) if max_dim > 0 else 1.0
-        mat = fitz.Matrix(zoom, zoom)
-        pix = page.get_pixmap(matrix=mat, alpha=False)
-        svg_doc.close()
-        pil_img = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
-        img_budget = max(2048, int((target_bytes - 512) * 0.72))
-        comp_bytes, _ = _compress_pil_image(pil_img, ".jpg", img_budget)
-        b64_str = base64.b64encode(comp_bytes).decode("ascii")
-        fallback_svg = (
-            f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">'
-            f'<image width="{w}" height="{h}" href="data:image/jpeg;base64,{b64_str}"/>'
-            f"</svg>"
-        ).encode("utf-8")
-        if len(fallback_svg) <= target_bytes or len(fallback_svg) < len(out_bytes):
-            return fallback_svg, {
-                "method": "svg_raster_fallback",
+    for pattern, repl in (
+        (r"(-?\d+\.\d{2})\d+", r"\1"),
+        (r"(-?\d+\.\d)\d+", r"\1"),
+        (r"(-?\d+)\.\d+", r"\1"),
+    ):
+        rounded_text = re.sub(pattern, repl, text)
+        candidate = rounded_text.encode("utf-8")
+        if len(candidate) < len(out_bytes):
+            out_bytes = candidate
+        if len(out_bytes) <= target_bytes:
+            return out_bytes, {
+                "method": "svg_precision_optimize",
                 "original_size": orig_size,
-                "optimized_size": len(fallback_svg),
+                "optimized_size": len(out_bytes),
             }
-    except Exception:
-        pass
 
     return out_bytes, {
         "method": "svg_precision_optimize",
@@ -305,7 +417,7 @@ def optimize_svg(input_bytes: bytes, target_bytes: int) -> Tuple[bytes, Dict[str
 def optimize_image(input_bytes: bytes, ext: str, target_bytes: int) -> Tuple[bytes, Dict[str, Any]]:
     """
     Optimize raster images (.jpg, .jpeg, .png, .webp, .bmp, .tiff, .tif, .gif)
-    to strictly <= target_bytes while preserving file format and best visual fidelity.
+    to land in 88% - 98% of target_bytes while preserving file format and high visual fidelity.
     """
     orig_size = len(input_bytes)
     if orig_size <= target_bytes:
@@ -322,7 +434,7 @@ def optimize_image(input_bytes: bytes, ext: str, target_bytes: int) -> Tuple[byt
     except Exception:
         return input_bytes, {"method": "unmodified", "original_size": orig_size, "optimized_size": orig_size}
 
-    best_bytes, method = _compress_pil_image(img, ext, target_bytes)
+    best_bytes, method = _compress_pil_image(img, ext, target_bytes, orig_size=orig_size)
     if len(best_bytes) >= orig_size and orig_size <= target_bytes:
         return input_bytes, {"method": "original", "original_size": orig_size, "optimized_size": orig_size}
 
@@ -333,113 +445,119 @@ def optimize_image(input_bytes: bytes, ext: str, target_bytes: int) -> Tuple[byt
     }
 
 
-def _compress_pil_image(img: Image.Image, ext: str, target_bytes: int) -> Tuple[bytes, str]:
-    """Internal helper to compress a PIL Image to <= target_bytes matching extension."""
-    best_bytes = b""
-    best_method = "image_optimize"
+def _compress_pil_image(
+    img: Image.Image,
+    ext: str,
+    target_bytes: int,
+    orig_size: int = 0,
+) -> Tuple[bytes, str]:
+    """Internal helper to compress a PIL Image near desired_bytes (<= target_bytes) matching extension."""
+    desired_bytes = int(target_bytes * 0.95)
+    best_under = b""
+    best_under_method = "image_optimize"
+    best_any = b""
+    best_any_method = "image_optimize"
 
-    def _try_save(pil_img: Image.Image, fmt: str, label: str, **kwargs) -> bool:
-        nonlocal best_bytes, best_method
-        buf = io.BytesIO()
-        pil_img.save(buf, format=fmt, **kwargs)
-        data = buf.getvalue()
-        if not best_bytes or len(data) < len(best_bytes):
-            best_bytes = data
-            best_method = label
-        return len(data) <= target_bytes
+    def _record(data: bytes, label: str) -> bool:
+        nonlocal best_under, best_under_method, best_any, best_any_method
+        if not best_any or abs(len(data) - desired_bytes) < abs(len(best_any) - desired_bytes):
+            best_any = data
+            best_any_method = label
+        if len(data) <= target_bytes:
+            if not best_under or abs(len(data) - desired_bytes) < abs(len(best_under) - desired_bytes):
+                best_under = data
+                best_under_method = label
+            return len(data) >= desired_bytes * 0.88
+        return False
 
     w, h = img.size
+    ratio = desired_bytes / max(1, orig_size) if orig_size > target_bytes else 0.85
+    init_scale = min(0.95, max(0.35, math.sqrt(ratio) * 0.98))
 
-    if ext == ".png":
-        if _try_save(img, "PNG", "png_lossless", compress_level=6):
-            return best_bytes, best_method
-
-        for colors in (256, 128, 64):
-            try:
-                q_img = img.quantize(colors=colors, method=Image.Quantize.FASTOCTREE)
-                if _try_save(q_img, "PNG", f"png_quantize({colors})", compress_level=6):
-                    return best_bytes, best_method
-            except Exception:
-                pass
-
-        scale = 0.85
-        while scale >= 0.05:
-            nw, nh = max(64, int(w * scale)), max(64, int(h * scale))
-            resized = img.resize((nw, nh), Image.Resampling.LANCZOS)
-            try:
-                q_resized = resized.quantize(colors=256, method=Image.Quantize.FASTOCTREE)
-                if _try_save(
-                    q_resized,
-                    "PNG",
-                    f"png_scale({int(scale*100)}%)_q256",
-                    compress_level=6,
-                ):
-                    return best_bytes, best_method
-            except Exception:
-                if _try_save(resized, "PNG", f"png_scale({int(scale*100)}%)", compress_level=6):
-                    return best_bytes, best_method
-            scale *= 0.78
-
-        return best_bytes, best_method
-
-    elif ext in (".jpg", ".jpeg", ".webp"):
+    if ext in (".jpg", ".jpeg", ".webp"):
         fmt = "WEBP" if ext == ".webp" else "JPEG"
         work_img = img if (fmt == "WEBP" or img.mode == "RGB") else img.convert("RGB")
-
-        for q in (86, 78, 70, 60, 50, 40):
-            if _try_save(work_img, fmt, f"{fmt.lower()}_q{q}", quality=q, optimize=True):
-                return best_bytes, best_method
-
-        scale = 0.85
-        while scale >= 0.05:
-            nw, nh = max(64, int(w * scale)), max(64, int(h * scale))
-            resized = work_img.resize((nw, nh), Image.Resampling.LANCZOS)
-            for q in (76, 62, 48, 35):
-                if _try_save(resized, fmt, f"{fmt.lower()}_scale({int(scale*100)}%)_q{q}", quality=q, optimize=True):
-                    return best_bytes, best_method
-            scale *= 0.78
-
-        return best_bytes, best_method
+        scales = [init_scale, min(0.98, init_scale * 1.08), init_scale * 0.80, init_scale * 0.60, 0.40]
+        for sc in scales:
+            nw, nh = max(64, int(w * sc)), max(64, int(h * sc))
+            resized = work_img.resize((nw, nh), Image.Resampling.BILINEAR) if sc < 0.999 else work_img
+            lo, hi = 30, 96
+            for _ in range(5):
+                mid = (lo + hi) // 2
+                buf = io.BytesIO()
+                if fmt == "JPEG":
+                    sub = 0 if mid >= 86 else -1
+                    resized.save(buf, format=fmt, quality=mid, subsampling=sub)
+                else:
+                    resized.save(buf, format=fmt, quality=mid)
+                data = buf.getvalue()
+                label = f"{fmt.lower()}_scale({int(sc*100)}%)_q{mid}"
+                if _record(data, label):
+                    return best_under, best_under_method
+                if len(data) > desired_bytes:
+                    hi = mid - 1
+                else:
+                    lo = mid + 1
+            if best_under and len(best_under) >= desired_bytes * 0.85:
+                return best_under, best_under_method
+        return (best_under or best_any), (best_under_method if best_under else best_any_method)
 
     elif ext in (".tif", ".tiff"):
         work_img = img.convert("RGB") if img.mode not in ("RGB", "L") else img
-        for q in (80, 65, 50, 38):
-            try:
-                if _try_save(work_img, "TIFF", f"tiff_jpeg_q{q}", compression="jpeg", quality=q):
-                    return best_bytes, best_method
-            except Exception:
-                break
-
-        scale = 0.85
-        while scale >= 0.05:
-            nw, nh = max(64, int(w * scale)), max(64, int(h * scale))
-            resized = work_img.resize((nw, nh), Image.Resampling.LANCZOS)
-            for q in (65, 45, 30):
+        scales = [init_scale, init_scale * 0.80, init_scale * 0.60, 0.40]
+        for sc in scales:
+            nw, nh = max(64, int(w * sc)), max(64, int(h * sc))
+            resized = work_img.resize((nw, nh), Image.Resampling.BILINEAR) if sc < 0.999 else work_img
+            lo, hi = 30, 95
+            for _ in range(5):
+                mid = (lo + hi) // 2
+                buf = io.BytesIO()
                 try:
-                    if _try_save(resized, "TIFF", f"tiff_scale({int(scale*100)}%)_q{q}", compression="jpeg", quality=q):
-                        return best_bytes, best_method
+                    resized.save(buf, format="TIFF", compression="jpeg", quality=mid)
                 except Exception:
-                    break
-            try:
-                if _try_save(resized, "TIFF", f"tiff_scale({int(scale*100)}%)", compression="tiff_lzw"):
-                    return best_bytes, best_method
-            except Exception:
-                pass
-            scale *= 0.78
+                    resized.save(buf, format="TIFF", compression="tiff_lzw")
+                data = buf.getvalue()
+                if _record(data, f"tiff_scale({int(sc*100)}%)_q{mid}"):
+                    return best_under, best_under_method
+                if len(data) > desired_bytes:
+                    hi = mid - 1
+                else:
+                    lo = mid + 1
+            if best_under and len(best_under) >= desired_bytes * 0.85:
+                return best_under, best_under_method
+        return (best_under or best_any), (best_under_method if best_under else best_any_method)
 
-        return best_bytes, best_method
+    elif ext == ".png":
+        scale = init_scale
+        for _ in range(7):
+            nw, nh = max(64, int(w * scale)), max(64, int(h * scale))
+            resized = img.resize((nw, nh), Image.Resampling.BILINEAR)
+            buf = io.BytesIO()
+            resized.save(buf, format="PNG", compress_level=6)
+            data = buf.getvalue()
+            if _record(data, f"png_scale({int(scale*100)}%)"):
+                return best_under, best_under_method
+            if len(data) > desired_bytes:
+                scale *= max(0.65, math.sqrt(desired_bytes / max(1, len(data))) * 0.97)
+            else:
+                if best_under and len(best_under) >= desired_bytes * 0.82:
+                    return best_under, best_under_method
+                scale = min(0.98, scale * 1.08)
+        return (best_under or best_any), (best_under_method if best_under else best_any_method)
 
     else:
         fmt = "GIF" if ext == ".gif" else "BMP"
-        scale = 0.9
-        while scale >= 0.05:
+        scale = init_scale
+        for _ in range(7):
             nw, nh = max(32, int(w * scale)), max(32, int(h * scale))
-            resized = img.resize((nw, nh), Image.Resampling.LANCZOS)
-            if _try_save(resized, fmt, f"{fmt.lower()}_scale({int(scale*100)}%)"):
-                return best_bytes, best_method
-            scale *= 0.78
-
-        return best_bytes, best_method
+            resized = img.resize((nw, nh), Image.Resampling.BILINEAR)
+            buf = io.BytesIO()
+            resized.save(buf, format=fmt)
+            data = buf.getvalue()
+            if _record(data, f"{fmt.lower()}_scale({int(scale*100)}%)"):
+                return best_under, best_under_method
+            scale *= max(0.65, math.sqrt(desired_bytes / max(1, len(data))) * 0.97)
+        return (best_under or best_any), (best_under_method if best_under else best_any_method)
 
 
 SUPPORTED_EXTENSIONS = {
@@ -457,7 +575,7 @@ SUPPORTED_EXTENSIONS = {
 
 
 def optimize_file_bytes(filename: str, input_bytes: bytes, target_mb: float) -> Tuple[bytes, Dict[str, Any]]:
-    """Main entry point to optimize any supported file to strictly < target_mb."""
+    """Main entry point to optimize any supported file to land in 88%-98% of target_mb."""
     ext = "." + filename.rsplit(".", 1)[-1].lower() if "." in filename else ""
     target_bytes = compute_target_bytes(target_mb)
 
